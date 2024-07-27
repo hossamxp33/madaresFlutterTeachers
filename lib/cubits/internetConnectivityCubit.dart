@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart' as internet_connection;
 
 abstract class InternetConnectivityState {}
 
@@ -22,9 +22,18 @@ class InternetConnectivityCubit extends Cubit<InternetConnectivityState> {
   StreamSubscription<ConnectivityResult>? _streamSubscription;
 
   Future<void> _setUpInternetConnectionChecker() async {
-    _streamSubscription = Connectivity()
-        .onConnectivityChanged
-        .listen(_internetConnectionListenerCallback);
+    try {
+      _streamSubscription =Connectivity().onConnectivityChanged.listen(
+        _internetConnectionListenerCallback,
+        onError: (error) {
+          // Handle subscription error
+          print('Error setting up internet connection checker: $error');
+        },
+      );
+    } catch (error) {
+      // Handle general error
+      print('Error setting up internet connection checker: $error');
+    }
   }
 
   Future<void> _internetConnectionListenerCallback(
@@ -33,7 +42,7 @@ class InternetConnectivityCubit extends Cubit<InternetConnectivityState> {
     //
     if (result != ConnectivityResult.none) {
       final bool hasConnection =
-          await InternetConnectionChecker().hasConnection;
+          await internet_connection.InternetConnectionChecker().hasConnection;
 
       if (state is InternetConnectivityInitial) {
         emit(InternetConnectivityEstablished(isUserOnline: hasConnection));

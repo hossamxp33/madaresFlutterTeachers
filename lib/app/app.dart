@@ -55,11 +55,11 @@ Future<void> initializeApp() async {
     ),
   );
 
-  await Firebase.initializeApp();
-  await NotificationUtility.initializeAwesomeNotification();
+ // await Firebase.initializeApp();
+//  await NotificationUtility.initializeAwesomeNotification();
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  await Firebase.initializeApp();
+//  await Firebase.initializeApp();
   await Hive.initFlutter();
   await Hive.openBox(authBoxKey);
   await Hive.openBox(settingsBoxKey);
