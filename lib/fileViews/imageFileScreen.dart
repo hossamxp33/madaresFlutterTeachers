@@ -1,13 +1,15 @@
-import 'package:eschool_teacher/data/models/studyMaterial.dart';
-import 'package:eschool_teacher/ui/styles/colors.dart';
-import 'package:eschool_teacher/ui/widgets/commonImageWidget.dart';
-import 'package:eschool_teacher/ui/widgets/customAppbar.dart';
-import 'package:eschool_teacher/ui/widgets/errorContainer.dart';
-import 'package:eschool_teacher/utils/labelKeys.dart';
-import 'package:eschool_teacher/utils/uiUtils.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../core/models/studyMaterial.dart';
+import '../core/utils/labelKeys.dart';
+import '../core/utils/sharedWidgets/commonImageWidget.dart';
+import '../core/utils/sharedWidgets/customAppbar.dart';
+import '../core/utils/sharedWidgets/errorContainer.dart';
+import '../core/utils/styles/colors.dart';
+import '../core/utils/uiUtils.dart';
 
 class ImageFileScreen extends StatefulWidget {
   final StudyMaterial imageFileMaterial;

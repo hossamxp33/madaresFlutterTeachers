@@ -1,16 +1,18 @@
-import 'package:eschool_teacher/cubits/pdfFileCubit.dart';
-import 'package:eschool_teacher/data/models/studyMaterial.dart';
-import 'package:eschool_teacher/data/repositories/studyMaterialRepositoy.dart';
-import 'package:eschool_teacher/ui/styles/colors.dart';
-import 'package:eschool_teacher/ui/widgets/customAppbar.dart';
-import 'package:eschool_teacher/ui/widgets/errorContainer.dart';
-import 'package:eschool_teacher/utils/labelKeys.dart';
-import 'package:eschool_teacher/utils/uiUtils.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../core/cubits/pdfFileCubit.dart';
+import '../core/models/studyMaterial.dart';
+import '../core/repositories/studyMaterialRepositoy.dart';
+import '../core/utils/labelKeys.dart';
+import '../core/utils/sharedWidgets/customAppbar.dart';
+import '../core/utils/sharedWidgets/errorContainer.dart';
+import '../core/utils/styles/colors.dart';
+import '../core/utils/uiUtils.dart';
 
 class PdfFileScreen extends StatefulWidget {
   final StudyMaterial pdfFileMaterial;

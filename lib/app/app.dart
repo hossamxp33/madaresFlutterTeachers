@@ -1,24 +1,15 @@
 import 'dart:io';
-
 import 'package:eschool_teacher/app/appLocalization.dart';
 import 'package:eschool_teacher/app/routes.dart';
-import 'package:eschool_teacher/cubits/appConfigurationCubit.dart';
-import 'package:eschool_teacher/cubits/appLocalizationCubit.dart';
-import 'package:eschool_teacher/cubits/authCubit.dart';
-import 'package:eschool_teacher/cubits/chat/chatUsersCubit.dart';
-import 'package:eschool_teacher/cubits/internetConnectivityCubit.dart';
-import 'package:eschool_teacher/cubits/myClassesCubit.dart';
+import 'package:eschool_teacher/core/cubits/internetConnectivityCubit.dart';
+import 'package:eschool_teacher/core/repositories/settingsRepository.dart';
+import 'package:eschool_teacher/core/repositories/systemInfoRepository.dart';
+import 'package:eschool_teacher/core/repositories/teacherRepository.dart';
+import 'package:eschool_teacher/core/utils/appLanguages.dart';
+import 'package:eschool_teacher/core/utils/hiveBoxKeys.dart';
+import 'package:eschool_teacher/core/utils/styles/colors.dart';
+import 'package:eschool_teacher/core/utils/uiUtils.dart';
 
-import 'package:eschool_teacher/data/repositories/authRepository.dart';
-import 'package:eschool_teacher/data/repositories/chatRepository.dart';
-import 'package:eschool_teacher/data/repositories/settingsRepository.dart';
-import 'package:eschool_teacher/data/repositories/systemInfoRepository.dart';
-import 'package:eschool_teacher/data/repositories/teacherRepository.dart';
-import 'package:eschool_teacher/ui/styles/colors.dart';
-import 'package:eschool_teacher/utils/appLanguages.dart';
-import 'package:eschool_teacher/utils/hiveBoxKeys.dart';
-import 'package:eschool_teacher/utils/uiUtils.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -26,7 +17,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:eschool_teacher/utils/notificationUtils/generalNotificationUtility.dart';
+import '../features/chat/data/repositories/chatRepository.dart';
+import '../features/chat/presentation/manager/chatUsersCubit.dart';
+import '../features/class/presentation/manager/myClassesCubit.dart';
+import '../features/login/data/repositories/authRepository.dart';
+import '../features/login/presentation/manager/authCubit.dart';
+
+import 'manager/appConfigurationCubit.dart';
+import 'manager/appLocalizationCubit.dart';
 
 //to avoide handshake error on some devices
 class MyHttpOverrides extends HttpOverrides {

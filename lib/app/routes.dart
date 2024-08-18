@@ -1,44 +1,43 @@
+import 'package:eschool_teacher/features/notifications/presentation/pages/notificationsScreen.dart';
+import 'package:eschool_teacher/features/splash/presentation/pages/splashScreen.dart';
+import 'package:eschool_teacher/features/termsAndCondition/presentation/pages/termsAndConditionScreen.dart';
+import 'package:eschool_teacher/features/topcisByLesson/presentation/pages/topcisByLessonScreen.dart';
 import 'package:eschool_teacher/fileViews/imageFileScreen.dart';
 import 'package:eschool_teacher/fileViews/pdfFileScreen.dart';
-import 'package:eschool_teacher/ui/screens/aboutUsScreen.dart';
-import 'package:eschool_teacher/ui/screens/add&editAssignmentScreen.dart';
-import 'package:eschool_teacher/ui/screens/addOrEditAnnouncementScreen.dart';
-import 'package:eschool_teacher/ui/screens/addOrEditLessonScreen.dart';
-import 'package:eschool_teacher/ui/screens/addOrEditTopicScreen.dart';
-import 'package:eschool_teacher/ui/screens/chat/chatMessagesScreen.dart';
-import 'package:eschool_teacher/ui/screens/chat/chatUserProfileScreen.dart';
-import 'package:eschool_teacher/ui/screens/chat/chatUserSearchScreen.dart';
-import 'package:eschool_teacher/ui/screens/chat/chatUsersScreen.dart';
-import 'package:eschool_teacher/ui/screens/notificationsScreen.dart';
-import 'package:eschool_teacher/ui/screens/result/addResultOfStudentScreen.dart';
-import 'package:eschool_teacher/ui/screens/announcementsScreen.dart';
-
-import 'package:eschool_teacher/ui/screens/assignment/assignmentScreen.dart';
-import 'package:eschool_teacher/ui/screens/assignments/assignmentsScreen.dart';
-import 'package:eschool_teacher/ui/screens/attendanceScreen.dart';
-import 'package:eschool_teacher/ui/screens/class/classScreen.dart';
-import 'package:eschool_teacher/ui/screens/contactUsScreen.dart';
-import 'package:eschool_teacher/ui/screens/exam/examScreen.dart';
-import 'package:eschool_teacher/ui/screens/exam/examTimeTableScreen.dart';
-import 'package:eschool_teacher/ui/screens/holidays/holidaysScreen.dart';
-import 'package:eschool_teacher/ui/screens/home/homeScreen.dart';
-import 'package:eschool_teacher/ui/screens/lessonsScreen.dart';
-import 'package:eschool_teacher/ui/screens/login/loginScreen.dart';
-import 'package:eschool_teacher/ui/screens/privacyPolicyScreen.dart';
-import 'package:eschool_teacher/ui/screens/result/addResultForAllStudentsScreen.dart';
-
-import 'package:eschool_teacher/ui/screens/searchStudentScreen.dart';
-import 'package:eschool_teacher/ui/screens/splashScreen.dart';
-import 'package:eschool_teacher/ui/screens/studentDetails/studentDetailsScreen.dart';
-import 'package:eschool_teacher/ui/screens/subjectScreen.dart';
-import 'package:eschool_teacher/ui/screens/termsAndConditionScreen.dart';
-import 'package:eschool_teacher/ui/screens/topcisByLessonScreen.dart';
-import 'package:eschool_teacher/ui/screens/topicsScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../ui/screens/result/resultScreen.dart';
+import '../features/aboutUs/presentation/pages/aboutUsScreen.dart';
+import '../features/add&editAssignment/presentation/pages/add&editAssignmentScreen.dart';
+import '../features/addOrEditAnnouncement/presentation/pages/addOrEditAnnouncementScreen.dart';
+import '../features/addOrEditLesson/presentation/pages/addOrEditLessonScreen.dart';
+import '../features/addOrEditTopic/presentation/pages/addOrEditTopicScreen.dart';
+import '../features/announcements/presentation/pages/announcementsScreen.dart';
+import '../features/assignment/presentation/pages/assignmentScreen.dart';
+import '../features/assignments/presentation/pages/assignmentsScreen.dart';
+import '../features/attendance/presentation/pages/attendanceScreen.dart';
+import '../features/chat/presentation/pages/chatMessagesScreen.dart';
+import '../features/chat/presentation/pages/chatUserProfileScreen.dart';
+import '../features/chat/presentation/pages/chatUserSearchScreen.dart';
+import '../features/chat/presentation/pages/chatUsersScreen.dart';
+import '../features/class/presentation/pages/classScreen.dart';
+import '../features/contactUs/presentation/pages/contactUsScreen.dart';
+import '../features/exam/presentation/pages/examScreen.dart';
+import '../features/exam/presentation/pages/examTimeTableScreen.dart';
+import '../features/holidays/presentation/pages/holidaysScreen.dart';
+import '../features/home/presentation/pages/homeScreen.dart';
+import '../features/lessons/presentation/pages/lessonsScreen.dart';
+import '../features/login/presentation/pages/loginScreen.dart';
+import '../features/privacyPolicy/presentation/pages/privacyPolicyScreen.dart';
+import '../features/result/presentation/pages/addResultForAllStudentsScreen.dart';
+import '../features/result/presentation/pages/addResultOfStudentScreen.dart';
+import '../features/result/presentation/pages/resultScreen.dart';
+import '../features/searchStudent/presentation/pages/searchStudentScreen.dart';
+import '../features/studentDetails/presentation/pages/studentDetailsScreen.dart';
+import '../features/subject/presentation/pages/subjectScreen.dart';
+import '../features/topics/presentation/pages/topicsScreen.dart';
+
 
 // ignore: avoid_classes_with_only_static_members
 class Routes {
