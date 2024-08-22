@@ -1,4 +1,3 @@
-
 import 'package:eschool_teacher/core/models/pickedStudyMaterial.dart';
 import 'package:eschool_teacher/core/utils/labelKeys.dart';
 import 'package:eschool_teacher/core/utils/sharedWidgets/addedFileContainer.dart';
@@ -246,6 +245,7 @@ class _AddStudyMaterialBottomsheetState
                               },
                             )
                           : BottomsheetAddFilesDottedBorderContainer(
+                              icon: Icons.add,
                               onTap: () async {
                                 try {
                                   final pickedFile =
@@ -333,6 +333,7 @@ class _AddStudyMaterialBottomsheetState
                                   },
                                 )
                               : BottomsheetAddFilesDottedBorderContainer(
+                                  icon: Icons.add,
                                   onTap: () async {
                                     try {
                                       final pickedFile = await FilePicker

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dotted_border/dotted_border.dart';
 import 'package:eschool_teacher/core/models/studyMaterial.dart';
 import 'package:eschool_teacher/core/repositories/teacherRepository.dart';
@@ -17,14 +19,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:path/path.dart' as p;
 
 // ignore: depend_on_referenced_packages
 import 'package:intl/intl.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import 'package:file_picker/file_picker.dart';
 
 import 'package:flutter/material.dart';
+import 'package:record/record.dart';
 
 import '../../../../core/utils/sharedWidgets/assignmentAttachmentContainer.dart';
 import '../../../../core/utils/sharedWidgets/bottomSheetTextFiledContainer.dart';
@@ -40,10 +45,10 @@ class AddAssignmentScreen extends StatefulWidget {
   final Assignment? assignment;
 
   const AddAssignmentScreen({
-    Key? key,
+    super.key,
     required this.editassignment,
     this.assignment,
-  }) : super(key: key);
+  });
 
   static Route<bool?> routes(RouteSettings routeSettings) {
     final arguments = routeSettings.arguments as Map<String, dynamic>;
@@ -75,6 +80,59 @@ class AddAssignmentScreen extends StatefulWidget {
 }
 
 class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
+  final AudioRecorder audioRecorder = AudioRecorder();
+  final AudioPlayer audioPlayer = AudioPlayer();
+  File? recordFile;
+
+  String? recordingPath;
+  String? fileName;
+  bool isRecording = false, isPlaying = false;
+
+  Future<void> recordVoice() async {
+    if (isRecording) {
+      String? filePath = await audioRecorder.stop();
+      if (filePath != null) {
+        print("file path $filePath");
+        await prepareRecordFile(filePath);
+
+        setState(() {
+          isRecording = false;
+          recordingPath = filePath;
+        });
+      }
+    } else {
+      if (await audioRecorder.hasPermission()) {
+        final Directory appDocumentsDir =
+            Directory("/storage/emulated/0/Download/");
+        final String filePath =
+            p.join(appDocumentsDir.path, "assignmentRecord.wav");
+        await audioRecorder.start(
+          const RecordConfig(),
+          path: filePath,
+        );
+        setState(() {
+          isRecording = true;
+          recordingPath = null;
+        });
+      }
+    }
+  }
+
+  Future<void> playRecord() async {
+    if (audioPlayer.playing) {
+      audioPlayer.stop();
+      setState(() {
+        isPlaying = false;
+      });
+    } else {
+      await audioPlayer.setFilePath(recordingPath!);
+      audioPlayer.play();
+      setState(() {
+        isPlaying = true;
+      });
+    }
+  }
+
   late CustomDropDownItem currentSelectedClassSection = CustomDropDownItem(
       index: 0,
       title: widget.editassignment
@@ -149,6 +207,7 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
     });
   }
 
+// upload file
   List<PlatformFile> uploadedFiles = [];
 
   late List<StudyMaterial> assignmentattatchments =
@@ -183,6 +242,22 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
         }
         openAppSettings();
       }
+    }
+  }
+
+  Future<void> prepareRecordFile(filePath) async {
+    if (filePath != null) {
+      recordFile = File(filePath!);
+
+      final fileBytes = await recordFile!.readAsBytes();
+      final fileSize = await recordFile!.length();
+      fileName = recordFile!.uri.pathSegments.last;
+      PlatformFile recordfilePlatform =
+          PlatformFile(name: fileName!, size: fileSize, path: recordFile!.path);
+
+      print("recrd file $recordFile name $fileName");
+      uploadedFiles.add(recordfilePlatform);
+      print("uploadedFiles $uploadedFiles");
     }
   }
 
@@ -392,6 +467,8 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
     if (kDebugMode) {
       print("uploadedFiles create $uploadedFiles");
     }
+
+    //
     context.read<CreateAssignmentCubit>().createAssignment(
           classsId: context
               .read<MyClassesCubit>()
@@ -735,6 +812,7 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
           Padding(
             padding: EdgeInsets.only(bottom: _textFieldBottomPadding),
             child: BottomsheetAddFilesDottedBorderContainer(
+              icon: Icons.add,
               onTap: () async {
                 _addFiles();
               },
@@ -745,6 +823,28 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
           ...List.generate(uploadedFiles.length, (index) => index)
               .map((fileIndex) => _buildUploadedFileContainer(fileIndex))
               .toList(),
+          // teacher can send voice reacord
+
+          BottomsheetAddFilesDottedBorderContainer(
+            icon: isRecording ? Icons.stop : Icons.mic,
+            onTap: () async {
+              await recordVoice();
+              print("record : $recordingPath");
+            },
+            title: isPlaying ? "Stop Recording" : "Start Recording",
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+
+          if (recordingPath != null)
+            BottomsheetAddFilesDottedBorderContainer(
+              icon: isPlaying ? Icons.stop : Icons.play_arrow,
+              onTap: () async {
+                await playRecord();
+              },
+              title: fileName!,
+            ),
 
           widget.editassignment
               ? BlocConsumer<EditAssignmentCubit, EditAssignmentState>(
@@ -855,6 +955,8 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
                         if (state is CreateAssignmentInProcess) {
                           return;
                         }
+
+                        //create assignmet
                         createAssignment();
                       },
                     );
@@ -894,3 +996,37 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
     );
   }
 }
+// import 'package:flutter_sound/public/flutter_sound_recorder.dart';
+
+// final FlutterSoundRecorder _recorder = FlutterSoundRecorder();
+
+// if (await _checkMicrophonePermissions()) {
+//             if (state.isRecording) {
+//               await _recorder.stopRecorder();
+//               emit(state.copyWith(isRecording: false));
+//               fileName = 'Recording.aac';
+//             } else {
+//               await _recorder.startRecorder(toFile: 'recording.aac');
+//               emit(state.copyWith(isRecording: true));
+//               return;
+//             }
+//           } else {}
+//           break;
+
+// Future<void> _initializeRecorder() async {
+//     await _recorder.openRecorder();
+//   }
+
+//   Future<bool> _checkMicrophonePermissions() async {
+//     PermissionStatus status = await Permission.microphone.request();
+//     return status.isGranted;
+//   }
+
+//   @override
+//   Future<void> close() {
+//     _recorder.closeRecorder();
+//     return super.close();
+//   }
+
+// permission_handler: ^11.3.1
+// flutter_sound: ^9.10.4

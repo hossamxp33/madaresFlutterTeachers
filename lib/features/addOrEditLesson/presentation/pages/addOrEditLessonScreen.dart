@@ -28,8 +28,6 @@ import '../../../../core/utils/sharedWidgets/defaultDropDownLabelContainer.dart'
 import '../../../../core/utils/sharedWidgets/studyMaterialContainer.dart';
 import '../../../../core/utils/uiUtils.dart';
 
-
-
 class AddOrEditLessonScreen extends StatefulWidget {
   final ClassSectionDetails? classSectionDetails;
 
@@ -338,6 +336,7 @@ class _AddOrEditLessonScreenState extends State<AddOrEditLessonScreen> {
                   : const SizedBox(),
 
               BottomsheetAddFilesDottedBorderContainer(
+                icon: Icons.add,
                 onTap: () async {
                   FocusScope.of(context).unfocus();
                   UiUtils.showBottomSheet(

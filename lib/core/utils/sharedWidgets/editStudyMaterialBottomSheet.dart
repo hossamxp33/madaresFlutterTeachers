@@ -208,6 +208,7 @@ class _EditStudyMaterialBottomSheetState
                                 setState(() {});
                               })
                             : BottomsheetAddFilesDottedBorderContainer(
+                                icon: Icons.add,
                                 onTap: () async {
                                   try {
                                     final pickedFile =
@@ -277,6 +278,7 @@ class _EditStudyMaterialBottomSheetState
                                   padding: const EdgeInsets.only(bottom: 25),
                                   child:
                                       BottomsheetAddFilesDottedBorderContainer(
+                                    icon: Icons.add,
                                     onTap: () async {
                                       try {
                                         final pickedFile =

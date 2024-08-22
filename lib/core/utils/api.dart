@@ -27,7 +27,11 @@ class Api {
     if (kDebugMode) {
       print("token is: $jwtToken");
     }
-    return {"Authorization": "Bearer $jwtToken"};
+    return {
+      "Authorization": "Bearer $jwtToken",
+      "Schoolid": "102",
+      "Accept": "application/json"
+    };
   }
 
   //

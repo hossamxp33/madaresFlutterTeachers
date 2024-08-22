@@ -1,4 +1,3 @@
-
 import 'package:eschool_teacher/features/announcements/data/models/announcement.dart';
 import 'package:eschool_teacher/features/announcements/data/repositories/announcementRepository.dart';
 import 'package:eschool_teacher/features/announcements/presentation/manager/createAnnouncementCubit.dart';
@@ -314,6 +313,7 @@ class _AddOrEditAnnouncementScreenState
                 )
               : const SizedBox(),
           BottomsheetAddFilesDottedBorderContainer(
+            icon: Icons.add,
             onTap: () async {
               FocusScope.of(context).unfocus();
               addAttachment();
