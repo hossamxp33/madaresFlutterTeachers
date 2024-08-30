@@ -317,6 +317,11 @@
     "tue": "الثلاثاء",
     "wed": "الأربعاء",
     "thu": "الخميس",
-    "fri": "الجمعة"
+    "fri": "الجمعة",
+    "startRecord": "بدأ التسجيل",
+    "stopRecord": "ايقاف التسجيل",
+    "playRecord": "تشغيل ",
+    "stopPlayingRecord": "ايقاف "
+
     
 }

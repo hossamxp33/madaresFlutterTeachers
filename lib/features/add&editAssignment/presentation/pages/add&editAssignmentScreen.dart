@@ -104,8 +104,8 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
       if (await audioRecorder.hasPermission()) {
         final Directory appDocumentsDir =
             Directory("/storage/emulated/0/Download/");
-        final String filePath =
-            p.join(appDocumentsDir.path, "assignmentRecord.wav");
+        final String filePath = p.join(appDocumentsDir.path,
+            "${currentSelectedClassSection.title}assignment.wav");
         await audioRecorder.start(
           const RecordConfig(),
           path: filePath,
@@ -831,7 +831,15 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
               await recordVoice();
               print("record : $recordingPath");
             },
-            title: isPlaying ? "Stop Recording" : "Start Recording",
+            title: isPlaying
+                ? UiUtils.getTranslatedLabel(
+                    context,
+                    stopRecordKey,
+                  )
+                : UiUtils.getTranslatedLabel(
+                    context,
+                    startRecordKey,
+                  ),
           ),
           const SizedBox(
             height: 10,

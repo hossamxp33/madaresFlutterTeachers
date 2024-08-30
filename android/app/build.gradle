@@ -68,6 +68,17 @@ android {
            storePassword keystoreProperties['storePassword']
        }
    }
+   flavorDimensions "default"
+    productFlavors {
+        school1 {
+            dimension "default"
+            resValue "string", "app_name", "School 2"
+             applicationIdSuffix ".second"
+
+        }
+
+    }
+
 
     buildTypes {
         release {

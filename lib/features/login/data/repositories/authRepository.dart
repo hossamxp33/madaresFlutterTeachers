@@ -64,7 +64,7 @@ class AuthRepository {
       };
 
       final result =
-          await Api.post(body: body, url: Api.login, useAuthToken: false);
+          await Api.post(body: body, url: Api.login, useAuthToken: true);
 
       return {
         "jwtToken": result['token'],
