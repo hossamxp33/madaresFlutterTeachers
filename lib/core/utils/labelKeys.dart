@@ -369,3 +369,7 @@ const String searchHintKey = "searchHint";
 const String logoutDialogMessageKey = "logoutDialogMessage";
 const String deleteDialogTitleKey = "deleteDialogTitle";
 const String deleteDialogMessageKey = "deleteDialogMessage";
+const String playRecordKey = "playRecord";
+const String stopPlayingRecordKey = "stopPlayingRecord";
+const String startRecordKey = "startRecord";
+const String stopRecordKey = "stopRecord";

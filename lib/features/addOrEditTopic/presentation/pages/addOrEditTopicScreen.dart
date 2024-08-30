@@ -1,5 +1,3 @@
-
-
 import 'package:eschool_teacher/core/utils/sharedWidgets/customCircularProgressIndicator.dart';
 import 'package:eschool_teacher/core/utils/sharedWidgets/customRoundedButton.dart';
 import 'package:flutter/cupertino.dart';
@@ -453,6 +451,7 @@ class _AddOrEditTopicScreenState extends State<AddOrEditTopicScreen> {
                     )
                   : const SizedBox(),
               BottomsheetAddFilesDottedBorderContainer(
+                icon: Icons.add,
                 onTap: () async {
                   FocusScope.of(context).unfocus();
                   UiUtils.showBottomSheet(

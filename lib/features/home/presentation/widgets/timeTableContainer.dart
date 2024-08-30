@@ -1,4 +1,3 @@
-
 import 'package:eschool_teacher/features/class/presentation/widgets/subjectImageContainer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';

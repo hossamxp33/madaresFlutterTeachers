@@ -1,9 +1,9 @@
-
 //database urls
 //Please add your admin panel url here and make sure you do not add '/' at the end of the url
 import 'package:eschool_teacher/core/utils/labelKeys.dart';
 
-const String baseUrl = "https://eschool.wrteam.me"; //https://eschool.wrteam.me
+const String baseUrl =
+    "https://madaresapp.codesroots.com"; //https://eschool.wrteam.me // newUrl: https://madaresapp.codesroots.com
 
 //please do not change the below 2 values it's for convience of usage in code
 const String databaseUrl = "$baseUrl/api/";

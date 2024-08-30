@@ -1,6 +1,5 @@
 //by default language of the app
 
-
 import 'package:eschool_teacher/app/models/appLanguage.dart';
 
 const String defaultLanguageCode = "en";
@@ -11,6 +10,8 @@ const String defaultLanguageCode = "en";
 const List<AppLanguage> appLanguages = [
   //Please add language code here and language name
   AppLanguage(languageCode: "en", languageName: "English"),
+  AppLanguage(languageCode: "ar", languageName: "عربي"),
+
   AppLanguage(languageCode: "hi", languageName: "हिन्दी - Hindi"),
   AppLanguage(languageCode: "ur", languageName: "اردو - Urdu"),
 ];

@@ -52,19 +52,19 @@ class AuthRepository {
     required String password,
   }) async {
     try {
-      final fcmToken = await FirebaseMessaging.instance.getToken();
-      if (kDebugMode) {
-        print("FCM Token: $fcmToken");
-      }
+      // final fcmToken = await FirebaseMessaging.instance.getToken();
+      // if (kDebugMode) {
+      //   print("FCM Token: $fcmToken");
+      // }
       final body = {
         "password": password,
         "email": email,
-        "fcm_id": fcmToken,
+        // "fcm_id": fcmToken,
         "device_type": Platform.isAndroid ? "android" : "ios",
       };
 
       final result =
-          await Api.post(body: body, url: Api.login, useAuthToken: false);
+          await Api.post(body: body, url: Api.login, useAuthToken: true);
 
       return {
         "jwtToken": result['token'],

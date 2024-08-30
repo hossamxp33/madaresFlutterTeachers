@@ -4,9 +4,13 @@ import 'package:flutter/material.dart';
 class BottomsheetAddFilesDottedBorderContainer extends StatelessWidget {
   final String title;
   final Function onTap;
-  const BottomsheetAddFilesDottedBorderContainer(
-      {Key? key, required this.onTap, required this.title,})
-      : super(key: key);
+  final IconData icon;
+  const BottomsheetAddFilesDottedBorderContainer({
+    super.key,
+    required this.onTap,
+    required this.title,
+    required this.icon,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -27,21 +31,23 @@ class BottomsheetAddFilesDottedBorderContainer extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Theme.of(context).colorScheme.primary,
-                    boxShadow: [
-                      BoxShadow(
-                          blurRadius: 15,
-                          offset: const Offset(0, 2.0),
-                          color: Theme.of(context)
-                              .colorScheme
-                              .primary
-                              .withOpacity(0.25),)
-                    ],),
+                  shape: BoxShape.circle,
+                  color: Theme.of(context).colorScheme.primary,
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 15,
+                      offset: const Offset(0, 2.0),
+                      color: Theme.of(context)
+                          .colorScheme
+                          .primary
+                          .withOpacity(0.25),
+                    )
+                  ],
+                ),
                 width: 30,
                 height: 30,
                 child: Icon(
-                  Icons.add,
+                  icon,
                   size: 20,
                   color: Theme.of(context).scaffoldBackgroundColor,
                 ),
