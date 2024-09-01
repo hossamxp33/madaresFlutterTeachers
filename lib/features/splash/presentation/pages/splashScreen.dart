@@ -1,4 +1,5 @@
 import 'package:eschool_teacher/app/routes.dart';
+import 'package:eschool_teacher/core/utils/flavor_config.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -108,8 +109,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     ),
                   ),
                   child: SvgPicture.asset(
-                    UiUtils.getImagePath("appLogo.svg"),
-                  ),
+                      FlavorConfig.getAssetPath("appLogo.svg")),
                 ),
               );
             },
