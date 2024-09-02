@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Define school-specific configuration values -->
+    <string name="app_name_school1">School2App</string>
+    <string name="baseUrl">https://madaresapp.codesroots.com</string>
+</resources>

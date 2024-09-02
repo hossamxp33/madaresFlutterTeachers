@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:eschool_teacher/core/utils/errorMessageKeysAndCodes.dart';
+import 'package:eschool_teacher/core/utils/flavor_config.dart';
 
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -29,7 +30,7 @@ class Api {
     }
     return {
       "Authorization": "Bearer $jwtToken",
-      "Schoolid": 123,
+      "Schoolid": FlavorConfig.getSchoolId(),
     };
   }
 
