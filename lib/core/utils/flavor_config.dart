@@ -15,7 +15,7 @@ class FlavorConfig {
       case 'school1':
         return '123';
       default:
-        return '111';
+        return '123';
     }
   }
 }
