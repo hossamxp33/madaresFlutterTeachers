@@ -5,11 +5,13 @@ class BottomsheetAddFilesDottedBorderContainer extends StatelessWidget {
   final String title;
   final Function onTap;
   final IconData icon;
+  final bool record;
   const BottomsheetAddFilesDottedBorderContainer({
     super.key,
     required this.onTap,
     required this.title,
     required this.icon,
+    required this.record,
   });
 
   @override
@@ -55,12 +57,23 @@ class BottomsheetAddFilesDottedBorderContainer extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width * (0.05),
               ),
-              Text(
-                title,
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.secondary,
-                ),
-              )
+              record
+                  ? Expanded(
+                      child: Text(
+                        title,
+                        style: TextStyle(
+                          overflow: TextOverflow.ellipsis,
+                          color: Theme.of(context).colorScheme.secondary,
+                        ),
+                      ),
+                    )
+                  : Text(
+                      title,
+                      style: TextStyle(
+                        overflow: TextOverflow.ellipsis,
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
+                    ),
             ],
           ),
         ),
