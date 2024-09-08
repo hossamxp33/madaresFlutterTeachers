@@ -7,8 +7,11 @@ import 'package:eschool_teacher/core/repositories/systemInfoRepository.dart';
 import 'package:eschool_teacher/core/repositories/teacherRepository.dart';
 import 'package:eschool_teacher/core/utils/appLanguages.dart';
 import 'package:eschool_teacher/core/utils/hiveBoxKeys.dart';
+import 'package:eschool_teacher/core/utils/notificationUtils/generalNotificationUtility.dart';
 import 'package:eschool_teacher/core/utils/styles/colors.dart';
 import 'package:eschool_teacher/core/utils/uiUtils.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -53,11 +56,13 @@ Future<void> initializeApp() async {
     ),
   );
 
- // await Firebase.initializeApp();
-//  await NotificationUtility.initializeAwesomeNotification();
-
+  await Firebase.initializeApp();
+  await NotificationUtility.initializeAwesomeNotification();
+  final fcmToken = await FirebaseMessaging.instance.getToken();
+  if (kDebugMode) {
+    print("FCM Token: $fcmToken");
+  }
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-//  await Firebase.initializeApp();
   await Hive.initFlutter();
   await Hive.openBox(authBoxKey);
   await Hive.openBox(settingsBoxKey);
