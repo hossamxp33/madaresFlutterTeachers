@@ -10,12 +10,12 @@ class FlavorConfig {
     }
   }
 
-  static String getSchoolId() {
+  static int getSchoolId() {
     switch (flavor) {
       case 'school1':
-        return '123';
+        return 123;
       default:
-        return '123';
+        return 123;
     }
   }
 }
