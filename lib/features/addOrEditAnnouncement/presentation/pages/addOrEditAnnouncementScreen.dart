@@ -314,6 +314,7 @@ class _AddOrEditAnnouncementScreenState
               : const SizedBox(),
           BottomsheetAddFilesDottedBorderContainer(
             icon: Icons.add,
+            record: false,
             onTap: () async {
               FocusScope.of(context).unfocus();
               addAttachment();

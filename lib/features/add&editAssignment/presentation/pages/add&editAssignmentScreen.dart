@@ -813,6 +813,7 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
             padding: EdgeInsets.only(bottom: _textFieldBottomPadding),
             child: BottomsheetAddFilesDottedBorderContainer(
               icon: Icons.add,
+              record: false,
               onTap: () async {
                 _addFiles();
               },
@@ -827,6 +828,7 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
 
           BottomsheetAddFilesDottedBorderContainer(
             icon: isRecording ? Icons.stop : Icons.mic,
+            record: false,
             onTap: () async {
               await recordVoice();
               print("record : $recordingPath");
@@ -848,6 +850,7 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
           if (recordingPath != null)
             BottomsheetAddFilesDottedBorderContainer(
               icon: isPlaying ? Icons.stop : Icons.play_arrow,
+              record: true,
               onTap: () async {
                 await playRecord();
               },

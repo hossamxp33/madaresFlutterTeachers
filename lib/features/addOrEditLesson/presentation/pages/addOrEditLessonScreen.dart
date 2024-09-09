@@ -336,6 +336,7 @@ class _AddOrEditLessonScreenState extends State<AddOrEditLessonScreen> {
                   : const SizedBox(),
 
               BottomsheetAddFilesDottedBorderContainer(
+                record: false,
                 icon: Icons.add,
                 onTap: () async {
                   FocusScope.of(context).unfocus();
