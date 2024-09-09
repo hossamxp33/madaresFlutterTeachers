@@ -452,6 +452,7 @@ class _AddOrEditTopicScreenState extends State<AddOrEditTopicScreen> {
                   : const SizedBox(),
               BottomsheetAddFilesDottedBorderContainer(
                 icon: Icons.add,
+                record: false,
                 onTap: () async {
                   FocusScope.of(context).unfocus();
                   UiUtils.showBottomSheet(

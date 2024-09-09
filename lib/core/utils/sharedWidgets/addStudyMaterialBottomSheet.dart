@@ -245,6 +245,7 @@ class _AddStudyMaterialBottomsheetState
                               },
                             )
                           : BottomsheetAddFilesDottedBorderContainer(
+                              record: false,
                               icon: Icons.add,
                               onTap: () async {
                                 try {
@@ -333,6 +334,7 @@ class _AddStudyMaterialBottomsheetState
                                   },
                                 )
                               : BottomsheetAddFilesDottedBorderContainer(
+                                  record: false,
                                   icon: Icons.add,
                                   onTap: () async {
                                     try {

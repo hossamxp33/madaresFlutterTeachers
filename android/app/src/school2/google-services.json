@@ -1,0 +1,124 @@
+{
+  "project_info": {
+    "project_number": "93520308007",
+    "project_id": "madares-68612",
+    "storage_bucket": "madares-68612.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93520308007:android:c40be452f35c723a4d6b02",
+        "android_client_info": {
+          "package_name": "com.wrteam.eschool"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-4RC5Z_YnXTuDdLbfkeCKM9H3lEruJwY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93520308007:android:e10437609ff041cf4d6b02",
+        "android_client_info": {
+          "package_name": "com.wrteam.eschool.first"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-4RC5Z_YnXTuDdLbfkeCKM9H3lEruJwY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93520308007:android:6cb1edb6a691caa44d6b02",
+        "android_client_info": {
+          "package_name": "com.wrteam.eschool.second"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-4RC5Z_YnXTuDdLbfkeCKM9H3lEruJwY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93520308007:android:4a2a61a6f22a11464d6b02",
+        "android_client_info": {
+          "package_name": "com.wrteam.eschool.teacher"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-4RC5Z_YnXTuDdLbfkeCKM9H3lEruJwY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93520308007:android:f72276e5bcb086404d6b02",
+        "android_client_info": {
+          "package_name": "com.wrteam.eschool.teacher.first"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-4RC5Z_YnXTuDdLbfkeCKM9H3lEruJwY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93520308007:android:cff18fdf358e21894d6b02",
+        "android_client_info": {
+          "package_name": "com.wrteam.eschool.teacher.second"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-4RC5Z_YnXTuDdLbfkeCKM9H3lEruJwY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
