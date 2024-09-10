@@ -2,19 +2,20 @@
     "version": "0.2.0",
     "configurations": [
       {
-        "name": "School2 Flavor",
-        "request": "launch",
-        "type": "dart",
-        "program": "lib/main.dart",
-        "args": ["--flavor", "school2", "--target", "lib/main.dart" ]
-      },
-      {
         "name": "School1 Flavor",
         "request": "launch",
         "type": "dart",
         "program": "lib/main.dart",
         "args": ["--flavor", "school1", "--target", "lib/main.dart" ]
       },
+      {
+        "name": "School2 Flavor",
+        "request": "launch",
+        "type": "dart",
+        "program": "lib/main.dart",
+        "args": ["--flavor", "school2", "--target", "lib/main.dart" ]
+      }
+
     ],
     "compounds": []
  
