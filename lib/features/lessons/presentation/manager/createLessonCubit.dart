@@ -1,4 +1,3 @@
-
 import 'package:eschool_teacher/core/models/pickedStudyMaterial.dart';
 import 'package:eschool_teacher/features/lessons/data/repositories/lessonRepository.dart';
 import 'package:flutter/foundation.dart';
@@ -28,6 +27,7 @@ class CreateLessonCubit extends Cubit<CreateLessonState> {
     required int classSectionId,
     required int subjectId,
     required String lessonDescription,
+    required Enum lessonLink,
     required List<PickedStudyMaterial> files,
   }) async {
     emit(CreateLessonInProgress());
@@ -43,6 +43,7 @@ class CreateLessonCubit extends Cubit<CreateLessonState> {
         subjectId: subjectId,
         lessonDescription: lessonDescription,
         files: filesJosn,
+        lessonLink: lessonLink,
       );
       emit(CreateLessonSuccess());
     } catch (e) {

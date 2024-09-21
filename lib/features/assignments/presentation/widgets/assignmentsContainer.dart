@@ -107,7 +107,7 @@ class AssignmentsContainer extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: Text(
-                                  assignment.name.toString(),
+                                  assignment.subject.name.toString(),
                                   maxLines: 5,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(

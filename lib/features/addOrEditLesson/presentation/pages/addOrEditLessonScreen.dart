@@ -93,6 +93,10 @@ class _AddOrEditLessonScreenState extends State<AddOrEditLessonScreen> {
       TextEditingController(
     text: widget.lesson != null ? widget.lesson!.description : null,
   );
+  late final TextEditingController _lessonLinkTextEditingController =
+      TextEditingController(
+    text: widget.lesson != null ? "${widget.lesson!.link}" : null,
+  );
 
   List<PickedStudyMaterial> _addedStudyMaterials = [];
 
@@ -199,6 +203,12 @@ class _AddOrEditLessonScreenState extends State<AddOrEditLessonScreen> {
       );
       return;
     }
+    if (_lessonLinkTextEditingController.text.trim().isEmpty) {
+      showErrorMessage(
+        UiUtils.getTranslatedLabel(context, pleaseEnterLessonDescriptionKey),
+      );
+      return;
+    }
 
     final selectedSubjectId = widget.subject != null
         ? widget.subject!.id
@@ -228,6 +238,7 @@ class _AddOrEditLessonScreenState extends State<AddOrEditLessonScreen> {
           lessonDescription:
               _lessonDescriptionTextEditingController.text.trim(),
           lessonName: _lessonNameTextEditingController.text.trim(),
+          lessonLink: _lessonLinkTextEditingController.text.trim() as Enum,
         );
   }
 
@@ -318,7 +329,13 @@ class _AddOrEditLessonScreenState extends State<AddOrEditLessonScreen> {
                 contentPadding: const EdgeInsetsDirectional.only(start: 15),
                 textEditingController: _lessonDescriptionTextEditingController,
               ),
-
+              BottomSheetTextFieldContainer(
+                hintText: UiUtils.getTranslatedLabel(context, chapterLinkKey),
+                margin: const EdgeInsets.only(bottom: 20),
+                maxLines: 1,
+                contentPadding: const EdgeInsetsDirectional.only(start: 15),
+                textEditingController: _lessonLinkTextEditingController,
+              ),
               //
               widget.lesson != null
                   ? Column(

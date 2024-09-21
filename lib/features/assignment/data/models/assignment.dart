@@ -1,4 +1,3 @@
-
 import 'package:eschool_teacher/features/subject/data/models/subject.dart';
 
 import '../../../../core/models/studyMaterial.dart';
@@ -17,6 +16,7 @@ class Assignment {
     required this.sessionYearId,
     required this.createdAt,
     required this.classSection,
+    required this.link,
     required this.studyMaterial,
     required this.subject,
   });
@@ -34,6 +34,7 @@ class Assignment {
   late final ClassSection classSection;
   late final List<StudyMaterial> studyMaterial;
   late final Subject subject;
+  late final Enum link;
 
   Assignment.fromJson(Map<String, dynamic> json) {
     id = json['id'] ?? 0;
@@ -47,6 +48,7 @@ class Assignment {
     extraDaysForResubmission = json["extra_days_for_resubmission"] ?? 0;
     sessionYearId = json['session_year_id'] ?? 0;
     createdAt = json['created_at'] ?? "";
+    link = json['link'] ?? "";
     classSection = ClassSection.fromJson(json['class_section'] ?? {});
     studyMaterial = ((json['file'] ?? {}) as List)
         .map((e) => StudyMaterial.fromJson(Map.from(e)))

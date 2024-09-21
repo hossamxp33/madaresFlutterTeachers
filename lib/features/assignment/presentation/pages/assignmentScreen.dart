@@ -1,4 +1,3 @@
-
 import 'package:eschool_teacher/features/assignment/data/models/assignment.dart';
 import 'package:eschool_teacher/features/assignment/data/repositories/reviewAssignmentRepository.dart';
 import 'package:eschool_teacher/features/assignment/presentation/manager/editreviewassignmetcubit.dart';
@@ -23,7 +22,6 @@ import '../../../../core/utils/sharedWidgets/errorContainer.dart';
 import '../../../../core/utils/sharedWidgets/shimmerLoadingContainer.dart';
 import '../../../../core/utils/styles/colors.dart';
 import '../../../../core/utils/uiUtils.dart';
-
 
 class AssignmentScreen extends StatefulWidget {
   final Assignment assignment;
@@ -128,7 +126,7 @@ class _AssignmentScreenState extends State<AssignmentScreen> {
   Widget _buildAppbar() {
     return Align(
       alignment: Alignment.topCenter,
-      child: CustomAppBar(title: widget.assignment.name),
+      child: CustomAppBar(title: widget.assignment.subject.name),
     );
   }
 
