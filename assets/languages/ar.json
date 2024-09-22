@@ -321,7 +321,10 @@
     "startRecord": "بدأ التسجيل",
     "stopRecord": "ايقاف التسجيل",
     "playRecord": "تشغيل ",
-    "stopPlayingRecord": "ايقاف "
+    "stopPlayingRecord": "ايقاف ",
+    "assignmentLink":"رابط الواجب",
+    "chapterLink":"رابط الدرس"
+
 
     
 }

@@ -1,10 +1,8 @@
-
 import 'package:eschool_teacher/core/utils/uiUtils.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:intl/intl.dart';
 import 'package:eschool_teacher/app/routes.dart';
-
 
 import '../../../../core/utils/labelKeys.dart';
 import '../../../../core/utils/sharedWidgets/announcementAttachmentContainer.dart';
@@ -70,9 +68,9 @@ class _AssignmentDetailsBottomsheetContainerState
             height: 5.0,
           ),
           Text(
-            widget.assignment.subject.showType
-                ? widget.assignment.subject.subjectNameWithType
-                : widget.assignment.subject.name,
+            widget.assignment.subject.name,
+            // ? widget.assignment.subject.subjectNameWithType
+            // : widget.assignment.subject.name,
             style: _getAssignmentDetailsLabelValueTextStyle(),
           ),
         ],
@@ -318,7 +316,7 @@ class _AssignmentDetailsBottomsheetContainerState
                   children: [
                     Expanded(
                       child: Text(
-                        widget.assignment.name,
+                        widget.assignment.subject.name,
                         textAlign: TextAlign.left,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
@@ -359,21 +357,21 @@ class _AssignmentDetailsBottomsheetContainerState
                   height: UiUtils.bottomSheetHorizontalContentPadding,
                 ),
                 _buildAssignmentSubjectNameContainer(),
-                _buildAssignmentAssignedDateContainer(),
-                _buildAssignmentDueDateContainer(),
+                // _buildAssignmentAssignedDateContainer(),
+                // _buildAssignmentDueDateContainer(),
                 if (widget.assignment.instructions.isNotEmpty)
                   _buildAssignmentInstructionsContainer(),
                 if (widget.assignment.studyMaterial.isNotEmpty &&
                     widget.assignment.studyMaterial != [])
                   _buildAssignmentReferenceMaterialsContainer(),
 
-                _buildAssignmentPointsContainer(),
+                // _buildAssignmentPointsContainer(),
                 // _buildLateSubmissionToggleContainer(),
 
-                _buildReSubmissionOfRejectedASsignmentToggleContainer(),
-                if (widget.assignment.resubmission == 1)
-                  _buildExtraDayForRejectedAssignmentContainer(),
-                //_buildDeleteAndEditButtonContainer(),
+                // _buildReSubmissionOfRejectedASsignmentToggleContainer(),
+                // if (widget.assignment.resubmission == 1)
+                //   _buildExtraDayForRejectedAssignmentContainer(),
+                // //_buildDeleteAndEditButtonContainer(),
                 SizedBox(
                   height: UiUtils.bottomSheetHorizontalContentPadding,
                 ),

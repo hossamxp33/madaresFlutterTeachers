@@ -53,6 +53,8 @@ const String chaptersKey = "chapters";
 const String announcementKey = "announcement";
 
 const String chapterNameKey = "chapterName";
+const String chapterLinkKey = "chapterLink";
+
 const String chapterDescriptionKey = "chapterDescription";
 
 const String topicNameKey = "topicName";
@@ -91,6 +93,8 @@ const String submittingKey = "submitting";
 const String editAssignmentKey = "editassignment";
 const String createAssignmentKey = "createAssignment";
 const String assignmentNameKey = "assignmentName";
+const String assignmentLinkKey = "assignmentLink";
+
 const String dueTimeKey = "dueTime";
 
 const String videosKey = "videos";

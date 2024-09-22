@@ -149,7 +149,10 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
   DateTime? dueDate;
 
   TimeOfDay? dueTime;
-
+  late final TextEditingController _assignmentLinkTextEditingController =
+      TextEditingController(
+    text: "${widget.editassignment ? widget.assignment!.link : null}",
+  );
   late final TextEditingController _assignmentNameTextEditingController =
       TextEditingController(
     text: widget.editassignment ? widget.assignment!.name : null,
@@ -432,38 +435,38 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
           UiUtils.getTranslatedLabel(context, noSubjectSelectedKey));
       return;
     }
-    if (_assignmentNameTextEditingController.text.trim().isEmpty) {
-      showErrorMessage(
-        UiUtils.getTranslatedLabel(context, pleaseEnterAssignmentnameKey),
-      );
-      return;
-    }
-    if (_assignmentPointsTextEditingController.text.length >= 10) {
-      showErrorMessage(UiUtils.getTranslatedLabel(context, pointsLengthKey));
-      return;
-    }
-    if (dueDate == null) {
-      showErrorMessage(
-        UiUtils.getTranslatedLabel(context, pleaseSelectDateKey),
-      );
-      return;
-    }
-    if (dueTime == null) {
-      showErrorMessage(
-        UiUtils.getTranslatedLabel(context, pleaseSelectTimeKey),
-      );
-      return;
-    }
-    if (_extraResubmissionDaysTextEditingController.text.trim().isEmpty &&
-        _allowedReSubmissionOfRejectedAssignment) {
-      showErrorMessage(
-        UiUtils.getTranslatedLabel(
-          context,
-          pleaseEnterExtraDaysForResubmissionKey,
-        ),
-      );
-      return;
-    }
+    // if (_assignmentNameTextEditingController.text.trim().isEmpty) {
+    //   showErrorMessage(
+    //     UiUtils.getTranslatedLabel(context, pleaseEnterAssignmentnameKey),
+    //   );
+    //   return;
+    // }
+    // if (_assignmentPointsTextEditingController.text.length >= 10) {
+    //   showErrorMessage(UiUtils.getTranslatedLabel(context, pointsLengthKey));
+    //   return;
+    // }
+    // if (dueDate == null) {
+    //   showErrorMessage(
+    //     UiUtils.getTranslatedLabel(context, pleaseSelectDateKey),
+    //   );
+    //   return;
+    // }
+    // if (dueTime == null) {
+    //   showErrorMessage(
+    //     UiUtils.getTranslatedLabel(context, pleaseSelectTimeKey),
+    //   );
+    //   return;
+    // }
+    // if (_extraResubmissionDaysTextEditingController.text.trim().isEmpty &&
+    //     _allowedReSubmissionOfRejectedAssignment) {
+    //   showErrorMessage(
+    //     UiUtils.getTranslatedLabel(
+    //       context,
+    //       pleaseEnterExtraDaysForResubmissionKey,
+    //     ),
+    //   );
+    //   return;
+    // }
     if (kDebugMode) {
       print("uploadedFiles create $uploadedFiles");
     }
@@ -479,49 +482,50 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
           subjectId: context
               .read<SubjectsOfClassSectionCubit>()
               .getSubjectId(currentSelectedSubject.index),
-          name: _assignmentNameTextEditingController.text.trim(),
-          datetime:
-              "${DateFormat('dd-MM-yyyy').format(dueDate!).toString()} ${dueTime!.hour}:${dueTime!.minute}",
-          extraDayForResubmission:
-              _extraResubmissionDaysTextEditingController.text.trim(),
+          // name: _assignmentNameTextEditingController.text.trim(),
+          // datetime:
+          //     "${DateFormat('dd-MM-yyyy').format(dueDate!).toString()} ${dueTime!.hour}:${dueTime!.minute}",
+          // extraDayForResubmission:
+          //     _extraResubmissionDaysTextEditingController.text.trim(),
           instruction: _assignmentInstructionTextEditingController.text.trim(),
-          points: _assignmentPointsTextEditingController.text.trim(),
-          resubmission: _allowedReSubmissionOfRejectedAssignment,
+          link: _assignmentLinkTextEditingController.text.trim() as Enum,
+          // points: _assignmentPointsTextEditingController.text.trim(),
+          // resubmission: _allowedReSubmissionOfRejectedAssignment,
           file: uploadedFiles,
         );
   }
 
   void editAssignment() {
     FocusManager.instance.primaryFocus?.unfocus();
-    if (_assignmentNameTextEditingController.text.trim().isEmpty) {
-      showErrorMessage(
-        UiUtils.getTranslatedLabel(context, pleaseEnterAssignmentnameKey),
-      );
-    }
-    if (dueDate == null) {
-      showErrorMessage(
-        UiUtils.getTranslatedLabel(context, pleaseSelectDateKey),
-      );
-    }
-    if (_assignmentPointsTextEditingController.text.length >= 10) {
-      showErrorMessage(UiUtils.getTranslatedLabel(context, pointsLengthKey));
-      return;
-    }
-    if (dueTime == null) {
-      showErrorMessage(
-        UiUtils.getTranslatedLabel(context, pleaseSelectDateKey),
-      );
-    }
-    if (_extraResubmissionDaysTextEditingController.text.trim().isEmpty &&
-        _allowedReSubmissionOfRejectedAssignment) {
-      showErrorMessage(
-        UiUtils.getTranslatedLabel(
-          context,
-          pleaseEnterExtraDaysForResubmissionKey,
-        ),
-      );
-      return;
-    }
+    // if (_assignmentNameTextEditingController.text.trim().isEmpty) {
+    //   showErrorMessage(
+    //     UiUtils.getTranslatedLabel(context, pleaseEnterAssignmentnameKey),
+    //   );
+    // }
+    // if (dueDate == null) {
+    //   showErrorMessage(
+    //     UiUtils.getTranslatedLabel(context, pleaseSelectDateKey),
+    //   );
+    // }
+    // if (_assignmentPointsTextEditingController.text.length >= 10) {
+    //   showErrorMessage(UiUtils.getTranslatedLabel(context, pointsLengthKey));
+    //   return;
+    // }
+    // if (dueTime == null) {
+    //   showErrorMessage(
+    //     UiUtils.getTranslatedLabel(context, pleaseSelectDateKey),
+    //   );
+    // }
+    // if (_extraResubmissionDaysTextEditingController.text.trim().isEmpty &&
+    //     _allowedReSubmissionOfRejectedAssignment) {
+    //   showErrorMessage(
+    //     UiUtils.getTranslatedLabel(
+    //       context,
+    //       pleaseEnterExtraDaysForResubmissionKey,
+    //     ),
+    //   );
+    // return;
+    //  }
     if (kDebugMode) {
       print("uploadedFiles upload $uploadedFiles");
     }
@@ -746,12 +750,12 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
         children: [
           //
           _buildAssignmentClassDropdownButtons(),
-          BottomSheetTextFieldContainer(
-            margin: EdgeInsetsDirectional.only(bottom: _textFieldBottomPadding),
-            hintText: UiUtils.getTranslatedLabel(context, assignmentNameKey),
-            maxLines: 1,
-            textEditingController: _assignmentNameTextEditingController,
-          ),
+          // BottomSheetTextFieldContainer(
+          //   margin: EdgeInsetsDirectional.only(bottom: _textFieldBottomPadding),
+          //   hintText: UiUtils.getTranslatedLabel(context, assignmentNameKey),
+          //   maxLines: 1,
+          //   textEditingController: _assignmentNameTextEditingController,
+          // ),
 
           BottomSheetTextFieldContainer(
             margin: EdgeInsetsDirectional.only(bottom: _textFieldBottomPadding),
@@ -759,55 +763,60 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
             maxLines: 3,
             textEditingController: _assignmentInstructionTextEditingController,
           ),
-
-          _buildAddDueDateAndTimeContainer(),
-
           BottomSheetTextFieldContainer(
             margin: EdgeInsetsDirectional.only(bottom: _textFieldBottomPadding),
-            hintText: UiUtils.getTranslatedLabel(context, pointsKey),
+            hintText: UiUtils.getTranslatedLabel(context, assignmentLinkKey),
             maxLines: 1,
-            keyboardType: TextInputType.number,
-            textEditingController: _assignmentPointsTextEditingController,
-            textInputFormatter: [FilteringTextInputFormatter.digitsOnly],
+            textEditingController: _assignmentLinkTextEditingController,
           ),
+          // _buildAddDueDateAndTimeContainer(),
+
+          // BottomSheetTextFieldContainer(
+          //   margin: EdgeInsetsDirectional.only(bottom: _textFieldBottomPadding),
+          //   hintText: UiUtils.getTranslatedLabel(context, pointsKey),
+          //   maxLines: 1,
+          //   keyboardType: TextInputType.number,
+          //   textEditingController: _assignmentPointsTextEditingController,
+          //   textInputFormatter: [FilteringTextInputFormatter.digitsOnly],
+          // ),
 
           //_buildLateSubmissionToggleContainer(),
 
-          _buildReSubmissionOfRejectedAssignmentToggleContainer(),
+          // _buildReSubmissionOfRejectedAssignmentToggleContainer(),
 
-          _allowedReSubmissionOfRejectedAssignment
-              ? BottomSheetTextFieldContainer(
-                  margin: EdgeInsetsDirectional.only(
-                    bottom: _textFieldBottomPadding,
-                  ),
-                  hintText: UiUtils.getTranslatedLabel(
-                    context,
-                    extraDaysForRejectedAssignmentKey,
-                  ),
-                  maxLines: 2,
-                  textEditingController:
-                      _extraResubmissionDaysTextEditingController,
-                  keyboardType: TextInputType.number,
-                  textInputFormatter: [FilteringTextInputFormatter.digitsOnly],
-                )
-              : const SizedBox(),
-          assignmentattatchments.isNotEmpty
-              ? Column(
-                  children: assignmentattatchments
-                      .map(
-                        (studyMaterial) => AssignmentAttachmentContainer(
-                          onDeleteCallback: (fileId) {
-                            assignmentattatchments
-                                .removeWhere((element) => element.id == fileId);
-                            setState(() {});
-                          },
-                          showDeleteButton: true,
-                          studyMaterial: studyMaterial,
-                        ),
-                      )
-                      .toList(),
-                )
-              : const SizedBox(),
+          // _allowedReSubmissionOfRejectedAssignment
+          //     ? BottomSheetTextFieldContainer(
+          //         margin: EdgeInsetsDirectional.only(
+          //           bottom: _textFieldBottomPadding,
+          //         ),
+          //         hintText: UiUtils.getTranslatedLabel(
+          //           context,
+          //           extraDaysForRejectedAssignmentKey,
+          //         ),
+          //         maxLines: 2,
+          //         textEditingController:
+          //             _extraResubmissionDaysTextEditingController,
+          //         keyboardType: TextInputType.number,
+          //         textInputFormatter: [FilteringTextInputFormatter.digitsOnly],
+          //       )
+          //     : const SizedBox(),
+          // assignmentattatchments.isNotEmpty
+          //     ? Column(
+          //         children: assignmentattatchments
+          //             .map(
+          //               (studyMaterial) => AssignmentAttachmentContainer(
+          //                 onDeleteCallback: (fileId) {
+          //                   assignmentattatchments
+          //                       .removeWhere((element) => element.id == fileId);
+          //                   setState(() {});
+          //                 },
+          //                 showDeleteButton: true,
+          //                 studyMaterial: studyMaterial,
+          //               ),
+          //             )
+          //             .toList(),
+          //       )
+          //     : const SizedBox(),
 
           Padding(
             padding: EdgeInsets.only(bottom: _textFieldBottomPadding),

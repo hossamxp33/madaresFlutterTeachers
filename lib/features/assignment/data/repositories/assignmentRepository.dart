@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:eschool_teacher/features/assignment/data/models/assignment.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
+import 'package:intl/intl.dart';
 
 import '../../../../core/utils/api.dart';
 
@@ -114,14 +115,16 @@ class AssignmentRepository {
   Future<void> createAssignment({
     required int classsId,
     required int subjectId,
-    required String name,
+    required Enum link,
+    // required String name,
     required String instruction,
-    required String datetime,
-    required int points,
+    // required String datetime,
+    // required int points,
     required bool resubmission,
-    required int extraDayForResubmission,
+    // required int extraDayForResubmission,
     required List<PlatformFile>? filePaths,
   }) async {
+    var datetime = DateTime.now();
     try {
       List<MultipartFile> files = [];
       for (var filePath in filePaths!) {
@@ -130,26 +133,27 @@ class AssignmentRepository {
       var body = {
         "class_section_id": classsId,
         "subject_id": subjectId,
-        "name": name,
+        "name": "name",
+        // "link": link,
         "instructions": instruction,
-        "due_date": datetime,
-        "points": points,
+        "due_date": DateFormat('dd-MM-yyyy').format(datetime).toString(),
+        "points": 0,
         "resubmission": resubmission ? 1 : 0,
-        "extra_days_for_resubmission": extraDayForResubmission,
+        "extra_days_for_resubmission": 1,
         "file": files
       };
       if (instruction.isEmpty) {
         body.remove("instructions");
       }
-      if (points == 0) {
-        body.remove("points");
-      }
+      // if (points == 0) {
+      //   body.remove("points");
+      // }
       if (filePaths.isEmpty) {
         body.remove("file");
       }
-      if (resubmission == false) {
-        body.remove("extra_days_for_resubmission");
-      }
+      // if (resubmission == false) {
+      //   body.remove("extra_days_for_resubmission");
+      // }
 
       await Api.post(
         url: Api.createassignment,

@@ -27,34 +27,31 @@ class CreateAssignmentCubit extends Cubit<CreateAssignmentState> {
   Future<void> createAssignment({
     required int classsId,
     required int subjectId,
-    required String name,
+    required Enum link,
+    // required String name,
     required String instruction,
-    required String datetime,
-    required String points,
-    required bool resubmission,
-    required String extraDayForResubmission,
+    // required String datetime,
+    // required String points,
+    // required bool resubmission,
+    // required String extraDayForResubmission,
     List<PlatformFile>? file,
-    
-
   }) async {
-    if (kDebugMode) {
-      print("bodypoints $points");
-    }
     emit(CreateAssignmentInProcess());
     try {
       await _assignmentRepository
           .createAssignment(
             classsId: classsId,
             subjectId: subjectId,
-            name: name,
-            datetime: datetime,
-            resubmission: resubmission,
-            extraDayForResubmission: int.parse(
-              extraDayForResubmission.isEmpty ? "0" : extraDayForResubmission,
-            ),
+            // name: name,
+            // datetime: datetime,
+            resubmission: true,
+            link: link,
+            // extraDayForResubmission: int.parse(
+            //   extraDayForResubmission.isEmpty ? "0" : extraDayForResubmission,
+            // ),
             filePaths: file,
             instruction: instruction,
-            points: int.parse(points.isEmpty ? "0" : points),
+            // points: int.parse(points.isEmpty ? "0" : points),
           )
           .then((value) => emit(CreateAssignmentSuccess()));
     } catch (e) {
