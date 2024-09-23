@@ -151,7 +151,7 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
   TimeOfDay? dueTime;
   late final TextEditingController _assignmentLinkTextEditingController =
       TextEditingController(
-    text: "${widget.editassignment ? widget.assignment!.link : null}",
+    text: widget.editassignment ? widget.assignment!.link.fileUrl : null,
   );
   late final TextEditingController _assignmentNameTextEditingController =
       TextEditingController(
@@ -488,7 +488,9 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
           // extraDayForResubmission:
           //     _extraResubmissionDaysTextEditingController.text.trim(),
           instruction: _assignmentInstructionTextEditingController.text.trim(),
-          link: _assignmentLinkTextEditingController.text.trim() as Enum,
+          link: StudyMaterial.fromURL(
+            _assignmentLinkTextEditingController.text.trim(),
+          ),
           // points: _assignmentPointsTextEditingController.text.trim(),
           // resubmission: _allowedReSubmissionOfRejectedAssignment,
           file: uploadedFiles,

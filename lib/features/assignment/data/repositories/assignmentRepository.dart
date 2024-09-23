@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:eschool_teacher/core/models/studyMaterial.dart';
 import 'package:eschool_teacher/features/assignment/data/models/assignment.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
@@ -115,7 +116,7 @@ class AssignmentRepository {
   Future<void> createAssignment({
     required int classsId,
     required int subjectId,
-    required Enum link,
+    required StudyMaterial link,
     // required String name,
     required String instruction,
     // required String datetime,

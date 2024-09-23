@@ -16,7 +16,6 @@ StudyMaterialType getStudyMaterialType(int type) {
 
 class StudyMaterial {
   late final StudyMaterialType studyMaterialType;
-
   late final int id;
   late final String fileName;
   late final String fileThumbnail;

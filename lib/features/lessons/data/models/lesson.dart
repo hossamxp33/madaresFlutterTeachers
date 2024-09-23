@@ -9,7 +9,6 @@ class Lesson {
     required this.subjectId,
     required this.studyMaterials,
     required this.topicsCount,
-    required this.link,
   });
   late final int id;
   late final List<StudyMaterial> studyMaterials;
@@ -18,12 +17,10 @@ class Lesson {
   late final String description;
   late final int classSectionId;
   late final int subjectId;
-  late final Enum link;
   late final int topicsCount;
 
   Lesson.fromJson(Map<String, dynamic> json) {
     id = json['id'] ?? 0;
-    link = json['link'];
     name = json['name'] ?? "";
     topicsCount = json['topic_count'] ?? 0;
     description = json['description'] ?? "";

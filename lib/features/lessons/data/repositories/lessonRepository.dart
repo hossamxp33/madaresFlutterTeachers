@@ -8,14 +8,12 @@ class LessonRepository {
     required int subjectId,
     required String lessonDescription,
     required List<Map<String, dynamic>> files,
-    required Enum lessonLink,
   }) async {
     try {
       Map<String, dynamic> body = {
         "class_section_id": classSectionId,
         "subject_id": subjectId,
         "name": lessonName,
-        // "link": lessonLink,
         "description": lessonDescription
       };
 
