@@ -27,7 +27,6 @@ class CreateLessonCubit extends Cubit<CreateLessonState> {
     required int classSectionId,
     required int subjectId,
     required String lessonDescription,
-    required Enum lessonLink,
     required List<PickedStudyMaterial> files,
   }) async {
     emit(CreateLessonInProgress());
@@ -43,7 +42,6 @@ class CreateLessonCubit extends Cubit<CreateLessonState> {
         subjectId: subjectId,
         lessonDescription: lessonDescription,
         files: filesJosn,
-        lessonLink: lessonLink,
       );
       emit(CreateLessonSuccess());
     } catch (e) {

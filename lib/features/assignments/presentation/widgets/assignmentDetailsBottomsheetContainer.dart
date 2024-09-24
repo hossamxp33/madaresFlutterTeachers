@@ -173,6 +173,28 @@ class _AssignmentDetailsBottomsheetContainerState
     );
   }
 
+  Widget _buildAssignmentInsLinkContainer() {
+    return _buildAssignmentDetailBackgroundContainer(
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            UiUtils.getTranslatedLabel(context, youtubeLinkKey),
+            style: _getAssignmentDetailsLabelTextStyle(),
+          ),
+          const SizedBox(
+            height: 5.0,
+          ),
+          Text(
+            widget.assignment.link.fileUrl,
+            style: _getAssignmentDetailsLabelValueTextStyle(),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _buildAssignmentReferenceMaterialsContainer() {
     return _buildAssignmentDetailBackgroundContainer(
       LayoutBuilder(
@@ -364,6 +386,8 @@ class _AssignmentDetailsBottomsheetContainerState
                 if (widget.assignment.studyMaterial.isNotEmpty &&
                     widget.assignment.studyMaterial != [])
                   _buildAssignmentReferenceMaterialsContainer(),
+                if (widget.assignment.link.fileUrl.isNotEmpty)
+                  _buildAssignmentInsLinkContainer(),
 
                 // _buildAssignmentPointsContainer(),
                 // _buildLateSubmissionToggleContainer(),
