@@ -626,17 +626,17 @@ class _HomeContainerState extends State<HomeContainer> {
                           title: UiUtils.getTranslatedLabel(
                               context, announcementsKey),
                         ),
-                        MenuContainerDetails(
-                          route: Routes.lessons,
-                          iconPath: UiUtils.getImagePath("lesson.svg"),
-                          title:
-                              UiUtils.getTranslatedLabel(context, chaptersKey),
-                        ),
-                        MenuContainerDetails(
-                          route: Routes.topics,
-                          iconPath: UiUtils.getImagePath("topics.svg"),
-                          title: UiUtils.getTranslatedLabel(context, topicsKey),
-                        ),
+                        // MenuContainerDetails(
+                        //   route: Routes.lessons,
+                        //   iconPath: UiUtils.getImagePath("lesson.svg"),
+                        //   title:
+                        //       UiUtils.getTranslatedLabel(context, chaptersKey),
+                        // ),
+                        // MenuContainerDetails(
+                        //   route: Routes.topics,
+                        //   iconPath: UiUtils.getImagePath("topics.svg"),
+                        //   title: UiUtils.getTranslatedLabel(context, topicsKey),
+                        // ),
                         MenuContainerDetails(
                           route: Routes.holidays,
                           iconPath: UiUtils.getImagePath("holiday_icon.svg"),

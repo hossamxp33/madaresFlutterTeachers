@@ -1,5 +1,3 @@
-
-
 import '../../../../core/models/guardianDetails.dart';
 import '../../../../core/utils/api.dart';
 import '../../../exam/data/models/exam.dart';
@@ -171,7 +169,7 @@ class StudentRepository {
         queryParameters: queryParameters,
       );
 
-      return {'error': result['error'], 'message': result['message']};
+      return {'error ': result['error'], 'message': result['message']};
     } catch (e) {
       throw ApiException(e.toString());
     }
