@@ -38,9 +38,7 @@ class SingleChatMessageItem extends StatefulWidget {
 class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
   final double _messageItemBorderRadius = 12;
 
-  //note: opacity is used in UI with this color
   final Color _sentMessageBackgroundColor = secondaryColor;
-
   final Color _receivedMessageBackgroundColor = primaryColor;
 
   final ValueNotifier _linkAddNotifier = ValueNotifier("");
@@ -56,13 +54,13 @@ class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
       required BoxConstraints constraints,
       required ChatMessage textMessage}) {
     return Row(
-      mainAxisAlignment: textMessage.senderId == widget.currentUserId
+      mainAxisAlignment: textMessage.senderId != widget.currentUserId
           ? MainAxisAlignment.end
           : MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        if (textMessage.senderId != widget.currentUserId)
+        if (textMessage.senderId == widget.currentUserId)
           TriangleContainer(
             isFlipped: Directionality.of(context) == TextDirection.rtl,
             size: const Size(10, 10),
@@ -76,14 +74,14 @@ class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
             clipBehavior: Clip.antiAlias,
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: textMessage.senderId == widget.currentUserId
+              color: textMessage.senderId != widget.currentUserId
                   ? _sentMessageBackgroundColor.withOpacity(0.05)
                   : _receivedMessageBackgroundColor,
               borderRadius: BorderRadiusDirectional.only(
-                topEnd: textMessage.senderId == widget.currentUserId
+                topEnd: textMessage.senderId != widget.currentUserId
                     ? Radius.zero
                     : Radius.circular(_messageItemBorderRadius),
-                topStart: textMessage.senderId == widget.currentUserId
+                topStart: textMessage.senderId != widget.currentUserId
                     ? Radius.circular(_messageItemBorderRadius)
                     : Radius.zero,
                 bottomEnd: Radius.circular(_messageItemBorderRadius),
@@ -91,12 +89,11 @@ class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
               ),
             ),
             child: Column(
-              crossAxisAlignment: (textMessage.senderId == widget.currentUserId)
+              crossAxisAlignment: textMessage.senderId != widget.currentUserId
                   ? CrossAxisAlignment.start
                   : CrossAxisAlignment.end,
               mainAxisSize: MainAxisSize.min,
               children: [
-                //This is preview builder for image
                 ValueListenableBuilder(
                     valueListenable: _linkAddNotifier,
                     builder: (context, dynamic value, c) {
@@ -123,15 +120,14 @@ class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
                 SelectableText.rich(
                   TextSpan(
                     style: TextStyle(
-                      color: textMessage.senderId == widget.currentUserId
+                      color: textMessage.senderId != widget.currentUserId
                           ? Colors.black
                           : Colors.white,
                     ),
                     children:
                         replaceLink(text: textMessage.message).map((data) {
-                      //This will add link to msg
+                      // This handles link recognition and message formatting
                       if (isLink(data)) {
-                        //This will notify priview object that it has link
                         _linkAddNotifier.value = data;
 
                         return TextSpan(
@@ -144,13 +140,12 @@ class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
                             },
                           style: TextStyle(
                             decoration: TextDecoration.underline,
-                            color: textMessage.senderId == widget.currentUserId
+                            color: textMessage.senderId != widget.currentUserId
                                 ? primaryColor
                                 : Colors.black,
                           ),
                         );
                       }
-                      //This will make text bold
                       return TextSpan(
                         text: "",
                         children: matchAstric(data).map((text) {
@@ -159,7 +154,7 @@ class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
                             return TextSpan(
                                 text: text.replaceAll("*", ""),
                                 style: TextStyle(
-                                  color: textMessage.senderId ==
+                                  color: textMessage.senderId !=
                                           widget.currentUserId
                                       ? Colors.black
                                       : Colors.white,
@@ -170,14 +165,14 @@ class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
                             text: text,
                             style: TextStyle(
                               color:
-                                  textMessage.senderId == widget.currentUserId
+                                  textMessage.senderId != widget.currentUserId
                                       ? Colors.black
                                       : Colors.white,
                             ),
                           );
                         }).toList(),
                         style: TextStyle(
-                          color: textMessage.senderId == widget.currentUserId
+                          color: textMessage.senderId != widget.currentUserId
                               ? Colors.black
                               : Colors.white,
                         ),
@@ -185,23 +180,123 @@ class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
                     }).toList(),
                   ),
                   textAlign: TextAlign.start,
-                  style: TextStyle(
-                    color: textMessage.senderId == widget.currentUserId
-                        ? Colors.black
-                        : Colors.white,
-                  ),
                 ),
               ],
             ),
           ),
         ),
-        if (textMessage.senderId == widget.currentUserId)
+        if (textMessage.senderId != widget.currentUserId)
           TriangleContainer(
             isFlipped: !(Directionality.of(context) == TextDirection.rtl),
             size: const Size(10, 10),
             color: _sentMessageBackgroundColor.withOpacity(0.05),
           ),
       ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(top: widget.showTime ? 10 : 5),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (widget.showTime)
+            Align(
+              alignment: widget.chatMessage.senderId != widget.currentUserId
+                  ? AlignmentDirectional.centerEnd
+                  : AlignmentDirectional.centerStart,
+              child: Text(
+                UiUtils.formatTimeWithDateTime(
+                  widget.chatMessage.sendOrReceiveDateTime,
+                  is24: false,
+                ),
+                style: TextStyle(
+                  fontSize: 12,
+                  color: secondaryColor.withOpacity(0.4),
+                ),
+              ),
+            ),
+          LayoutBuilder(
+            builder: (context, constraints) {
+              return Align(
+                alignment: widget.chatMessage.senderId != widget.currentUserId
+                    ? AlignmentDirectional.centerEnd
+                    : AlignmentDirectional.centerStart,
+                child: widget.chatMessage.messageType ==
+                        ChatMessageType.textMessage
+                    ? _buildTextMessageWidget(
+                        context: context,
+                        constraints: constraints,
+                        textMessage: widget.chatMessage)
+                    : widget.chatMessage.messageType ==
+                            ChatMessageType.imageMessage
+                        ? _buildImageMessageWidget(
+                            context: context,
+                            constraints: constraints,
+                            imageMessage: widget.chatMessage)
+                        : widget.chatMessage.messageType ==
+                                ChatMessageType.fileMessage
+                            ? _buildFileMessageWidget(
+                                context: context,
+                                constraints: constraints,
+                                fileMessage: widget.chatMessage)
+                            : const SizedBox.shrink(),
+              );
+            },
+          ),
+          Align(
+            alignment: widget.chatMessage.senderId != widget.currentUserId
+                ? AlignmentDirectional.centerEnd
+                : AlignmentDirectional.centerStart,
+            child: widget.isLoading
+                ? const Padding(
+                    padding: EdgeInsets.all(5),
+                    child: SizedBox(
+                      height: 12,
+                      width: 12,
+                      child: CustomCircularProgressIndicator(
+                        indicatorColor: primaryColor,
+                      ),
+                    ),
+                  )
+                : widget.isError
+                    ? GestureDetector(
+                        onTap: () {
+                          widget.onRetry(widget.chatMessage);
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const Icon(
+                              Icons.refresh,
+                              size: 10,
+                              color: redColor,
+                            ),
+                            const SizedBox(
+                              width: 2,
+                            ),
+                            Flexible(
+                              child: Text(
+                                UiUtils.getTranslatedLabel(
+                                    context, errorSendingMessageRetrykey),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                  fontSize: 10,
+                                  color: redColor,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    : const SizedBox.shrink(),
+          ),
+        ],
+      ),
     );
   }
 
@@ -214,7 +309,8 @@ class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
       child: Wrap(
         spacing: 10,
         runSpacing: 10,
-        alignment: widget.chatMessage.senderId == widget.currentUserId
+        // Invert sender/receiver logic
+        alignment: imageMessage.senderId != widget.currentUserId
             ? WrapAlignment.end
             : WrapAlignment.start,
         children: List.generate(
@@ -242,10 +338,11 @@ class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
                 height: (constraints.maxWidth * 0.8) / 2 - 10,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadiusDirectional.only(
-                    topEnd: imageMessage.senderId == widget.currentUserId
+                    // Invert the border-radius logic
+                    topEnd: imageMessage.senderId != widget.currentUserId
                         ? Radius.zero
                         : Radius.circular(_messageItemBorderRadius),
-                    topStart: imageMessage.senderId == widget.currentUserId
+                    topStart: imageMessage.senderId != widget.currentUserId
                         ? Radius.circular(_messageItemBorderRadius)
                         : Radius.zero,
                     bottomEnd: Radius.circular(_messageItemBorderRadius),
@@ -312,10 +409,11 @@ class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadiusDirectional.only(
-                    topEnd: fileMessage.senderId == widget.currentUserId
+                    // Invert the border-radius logic
+                    topEnd: fileMessage.senderId != widget.currentUserId
                         ? Radius.zero
                         : Radius.circular(_messageItemBorderRadius),
-                    topStart: fileMessage.senderId == widget.currentUserId
+                    topStart: fileMessage.senderId != widget.currentUserId
                         ? Radius.circular(_messageItemBorderRadius)
                         : Radius.zero,
                     bottomEnd: Radius.circular(_messageItemBorderRadius),
@@ -366,111 +464,6 @@ class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
             );
           },
         ),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: widget.showTime ? 10 : 5),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          if (widget.showTime)
-            Align(
-              alignment: widget.chatMessage.senderId == widget.currentUserId
-                  ? AlignmentDirectional.centerEnd
-                  : AlignmentDirectional.centerStart,
-              child: Text(
-                UiUtils.formatTimeWithDateTime(
-                  widget.chatMessage.sendOrReceiveDateTime,
-                  is24: false,
-                ),
-                style: TextStyle(
-                  fontSize: 12,
-                  color: secondaryColor.withOpacity(0.4),
-                ),
-              ),
-            ),
-          LayoutBuilder(
-            builder: (context, constraints) {
-              return Align(
-                alignment: widget.chatMessage.senderId == widget.currentUserId
-                    ? AlignmentDirectional.centerEnd
-                    : AlignmentDirectional.centerStart,
-                child: widget.chatMessage.messageType ==
-                        ChatMessageType.textMessage
-                    ? _buildTextMessageWidget(
-                        context: context,
-                        constraints: constraints,
-                        textMessage: widget.chatMessage)
-                    : widget.chatMessage.messageType ==
-                            ChatMessageType.imageMessage
-                        ? _buildImageMessageWidget(
-                            context: context,
-                            constraints: constraints,
-                            imageMessage: widget.chatMessage)
-                        : widget.chatMessage.messageType ==
-                                ChatMessageType.fileMessage
-                            ? _buildFileMessageWidget(
-                                context: context,
-                                constraints: constraints,
-                                fileMessage: widget.chatMessage)
-                            : const SizedBox.shrink(),
-              );
-            },
-          ),
-          Align(
-            alignment: widget.chatMessage.senderId == widget.currentUserId
-                ? AlignmentDirectional.centerEnd
-                : AlignmentDirectional.centerStart,
-            child: widget.isLoading
-                ? Padding(
-                    padding: const EdgeInsets.all(5),
-                    child: SizedBox(
-                      height: 12,
-                      width: 12,
-                      child: const CustomCircularProgressIndicator(
-                        indicatorColor: primaryColor,
-                      ),
-                    ),
-                  )
-                : widget.isError
-                    ? GestureDetector(
-                        onTap: () {
-                          widget.onRetry(widget.chatMessage);
-                        },
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const Icon(
-                              Icons.refresh,
-                              size: 10,
-                              color: redColor,
-                            ),
-                            const SizedBox(
-                              width: 2,
-                            ),
-                            Flexible(
-                              child: Text(
-                                UiUtils.getTranslatedLabel(
-                                    context, errorSendingMessageRetrykey),
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(
-                                  fontSize: 10,
-                                  color: redColor,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                    : const SizedBox.shrink(),
-          ),
-        ],
       ),
     );
   }
