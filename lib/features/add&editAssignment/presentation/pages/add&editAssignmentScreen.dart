@@ -441,10 +441,10 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
     //   );
     //   return;
     // }
-    // if (_assignmentPointsTextEditingController.text.length >= 10) {
-    //   showErrorMessage(UiUtils.getTranslatedLabel(context, pointsLengthKey));
-    //   return;
-    // }
+    if (_assignmentPointsTextEditingController.text.length >= 10) {
+      showErrorMessage(UiUtils.getTranslatedLabel(context, pointsLengthKey));
+      return;
+    }
     // if (dueDate == null) {
     //   showErrorMessage(
     //     UiUtils.getTranslatedLabel(context, pleaseSelectDateKey),
@@ -491,7 +491,7 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
           link: StudyMaterial.fromURL(
             _assignmentLinkTextEditingController.text.trim(),
           ),
-          // points: _assignmentPointsTextEditingController.text.trim(),
+          points: _assignmentPointsTextEditingController.text.trim(),
           // resubmission: _allowedReSubmissionOfRejectedAssignment,
           file: uploadedFiles,
         );
@@ -509,10 +509,10 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
     //     UiUtils.getTranslatedLabel(context, pleaseSelectDateKey),
     //   );
     // }
-    // if (_assignmentPointsTextEditingController.text.length >= 10) {
-    //   showErrorMessage(UiUtils.getTranslatedLabel(context, pointsLengthKey));
-    //   return;
-    // }
+    if (_assignmentPointsTextEditingController.text.length >= 10) {
+      showErrorMessage(UiUtils.getTranslatedLabel(context, pointsLengthKey));
+      return;
+    }
     // if (dueTime == null) {
     //   showErrorMessage(
     //     UiUtils.getTranslatedLabel(context, pleaseSelectDateKey),
@@ -773,14 +773,14 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
           ),
           // _buildAddDueDateAndTimeContainer(),
 
-          // BottomSheetTextFieldContainer(
-          //   margin: EdgeInsetsDirectional.only(bottom: _textFieldBottomPadding),
-          //   hintText: UiUtils.getTranslatedLabel(context, pointsKey),
-          //   maxLines: 1,
-          //   keyboardType: TextInputType.number,
-          //   textEditingController: _assignmentPointsTextEditingController,
-          //   textInputFormatter: [FilteringTextInputFormatter.digitsOnly],
-          // ),
+          BottomSheetTextFieldContainer(
+            margin: EdgeInsetsDirectional.only(bottom: _textFieldBottomPadding),
+            hintText: UiUtils.getTranslatedLabel(context, pointsKey),
+            maxLines: 1,
+            keyboardType: TextInputType.number,
+            textEditingController: _assignmentPointsTextEditingController,
+            textInputFormatter: [FilteringTextInputFormatter.digitsOnly],
+          ),
 
           //_buildLateSubmissionToggleContainer(),
 
