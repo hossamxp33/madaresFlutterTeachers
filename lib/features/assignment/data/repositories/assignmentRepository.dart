@@ -44,7 +44,8 @@ class AssignmentRepository {
 
   Future<void> deleteAssignment({
     required int assignmentId,
-  }) async {
+  })
+  async {
     try {
       final body = {"assignment_id": assignmentId};
 
@@ -72,7 +73,8 @@ class AssignmentRepository {
     required int resubmission,
     required int extraDayForResubmission,
     List<PlatformFile>? filePaths,
-  }) async {
+  })
+  async {
     try {
       List<MultipartFile> files = [];
       for (var filePath in filePaths!) {

@@ -45,11 +45,11 @@ class _AcceptAssignmentBottomsheetContainerState
   }
 
   void updateAssignment() {
-    if (_remarkTextEditingController.text.trim().isEmpty) {
-      showErrorMessage(
-        UiUtils.getTranslatedLabel(context, pleaseEnterRemarkkey),
-      );
-    }
+    // if (_remarkTextEditingController.text.trim().isEmpty) {
+    //   showErrorMessage(
+    //     UiUtils.getTranslatedLabel(context, pleaseEnterRemarkkey),
+    //   );
+    // }
     if (_pointsTextEditingController.text.trim().isEmpty) {
       showErrorMessage(
         UiUtils.getTranslatedLabel(context, pleaseEnterPointskey),

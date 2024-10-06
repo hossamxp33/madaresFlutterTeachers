@@ -1,17 +1,14 @@
 import 'package:eschool_teacher/app/routes.dart';
 import 'package:eschool_teacher/core/utils/flavor_config.dart';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../../../../app/manager/appConfigurationCubit.dart';
 import '../../../../core/cubits/userProfileCubit.dart';
 import '../../../../core/utils/animationConfiguration.dart';
 import '../../../../core/utils/sharedWidgets/errorContainer.dart';
-import '../../../../core/utils/uiUtils.dart';
 import '../../../login/data/repositories/authRepository.dart';
 import '../../../login/presentation/manager/authCubit.dart';
 

@@ -38,7 +38,7 @@ class SignInCubit extends Cubit<SignInState> {
     try {
       Map<String, dynamic> result =
           await _authRepository.signInTeacher(email: email, password: password);
-
+print("===>  login Token ${result["teacher"]}");
       emit(
         SignInSuccess(
           jwtToken: result['jwtToken'],

@@ -40,4 +40,14 @@ class StudyMaterial {
     fileName = url.split("/").last.toString();
     fileThumbnail = '';
   }
+
+
+  StudyMaterial.fromYoutubeVideoURL(String url) {
+    fileUrl = url;
+    fileExtension = url.split('.').last.toString();
+    studyMaterialType = StudyMaterialType.youtubeVideo;
+    id = 0;
+    fileName = url.split("/").last.toString();
+    fileThumbnail = '';
+  }
 }

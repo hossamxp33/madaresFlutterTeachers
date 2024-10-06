@@ -3,8 +3,7 @@ import 'package:file_picker/file_picker.dart';
 
 class PickedStudyMaterial {
   final String fileName;
-  final int
-      pickedStudyMaterialTypeId; // 1 = file_upload , 2 = youtube_link , 3 = video_upload
+  final int pickedStudyMaterialTypeId; // 1 = file_upload , 2 = youtube_link , 3 = video_upload
   final String? youTubeLink;
   final PlatformFile? videoThumbnailFile;
   final PlatformFile? studyMaterialFile;
