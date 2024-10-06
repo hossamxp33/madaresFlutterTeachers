@@ -78,9 +78,8 @@ class _ChatMessagesScreenState extends State<ChatMessagesScreen> {
   void initState() {
     Future.delayed(Duration.zero, () {
       fetchChatMessages();
-      currentUserId = context.read<AuthCubit>().getTeacherDetails().id;
+      currentUserId = context.read<AuthCubit>().getTeacherDetails().userId;
     });
-    //registring user id with which the current user is talking with
     ChatNotificationsUtils.currentChattingUserId = widget.chatUser.userId;
     super.initState();
   }

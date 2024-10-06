@@ -34,6 +34,8 @@ def keystoreProperties = new Properties()
        keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
    }
 
+
+
 android {
     namespace "com.wrteam.eschool.teacher"
     compileSdk = flutter.compileSdkVersion
@@ -57,7 +59,7 @@ android {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.wrteam.eschool.teacher"
         minSdkVersion 26
-        targetSdkVersion 34
+        targetSdkVersion 35
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true
@@ -89,9 +91,17 @@ android {
 
     }
 
-
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+            storePassword keystoreProperties['storePassword']
+        }
+    }
     buildTypes {
         release {
+            //debug
             minifyEnabled true // Keep this true if using ProGuard or R8
             shrinkResources false
             signingConfig signingConfigs.release

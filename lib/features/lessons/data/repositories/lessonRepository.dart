@@ -1,4 +1,9 @@
+import 'package:dio/dio.dart';
+import 'package:hive/hive.dart';
+
 import '../../../../core/utils/api.dart';
+import '../../../../core/utils/flavor_config.dart';
+import '../../../../core/utils/hiveBoxKeys.dart';
 import '../models/lesson.dart';
 
 class LessonRepository {
@@ -32,15 +37,21 @@ class LessonRepository {
     required int subjectId,
   }) async {
     try {
-      final result = await Api.get(
-        url: Api.getLessons,
-        useAuthToken: true,
-        queryParameters: {
-          "class_section_id": classSectionId,
-          "subject_id": subjectId
-        },
+      var headers = {
+        "Authorization": "Bearer ${Hive.box(authBoxKey).get(jwtTokenKey)}",
+        "Schoolid": FlavorConfig.getSchoolId(),
+        'token': '${Hive.box(authBoxKey).get(jwtTokenKey)}',
+      };
+
+      var dio = Dio();
+      Response result = await dio.request(
+        'https://madaresapp.codesroots.com/api/teacher/get-lesson',
+        options: Options(
+          method: 'GET',
+          headers: headers,
+        ),
       );
-      return (result['data'] as List)
+      return (result.data['data'] as List)
           .map((lesson) => Lesson.fromJson(Map.from(lesson)))
           .toList();
     } catch (e) {

@@ -17,7 +17,7 @@ import 'package:eschool_teacher/features/class/presentation/widgets/myClassesDro
 import 'package:eschool_teacher/features/subject/presentation/manager/subjectsOfClassSectionCubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:path/path.dart' as p;
 
@@ -30,8 +30,6 @@ import 'package:file_picker/file_picker.dart';
 
 import 'package:flutter/material.dart';
 import 'package:record/record.dart';
-
-import '../../../../core/utils/sharedWidgets/assignmentAttachmentContainer.dart';
 import '../../../../core/utils/sharedWidgets/bottomSheetTextFiledContainer.dart';
 import '../../../../core/utils/sharedWidgets/bottomsheetAddFilesDottedBorderContainer.dart';
 import '../../../../core/utils/sharedWidgets/customCircularProgressIndicator.dart';
@@ -251,8 +249,6 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
   Future<void> prepareRecordFile(filePath) async {
     if (filePath != null) {
       recordFile = File(filePath!);
-
-      final fileBytes = await recordFile!.readAsBytes();
       final fileSize = await recordFile!.length();
       fileName = recordFile!.uri.pathSegments.last;
       PlatformFile recordfilePlatform =

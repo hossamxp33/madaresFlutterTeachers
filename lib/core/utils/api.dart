@@ -113,6 +113,7 @@ class Api {
     Function(int, int)? onSendProgress,
     Function(int, int)? onReceiveProgress,
   }) async {
+    print("UserId :   ${Hive.box(authBoxKey).values.toList()}");
     try {
       final Dio dio = Dio();
       final FormData formData =
