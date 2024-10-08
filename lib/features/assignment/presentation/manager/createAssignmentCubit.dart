@@ -32,7 +32,7 @@ class CreateAssignmentCubit extends Cubit<CreateAssignmentState> {
     // required String name,
     required String instruction,
     // required String datetime,
-    // required String points,
+    required String points,
     // required bool resubmission,
     // required String extraDayForResubmission,
     List<PlatformFile>? file,
@@ -52,7 +52,7 @@ class CreateAssignmentCubit extends Cubit<CreateAssignmentState> {
             // ),
             filePaths: file,
             instruction: instruction,
-            // points: int.parse(points.isEmpty ? "0" : points),
+            points: int.parse(points.isEmpty ? "0" : points),
           )
           .then((value) => emit(CreateAssignmentSuccess()));
     } catch (e) {

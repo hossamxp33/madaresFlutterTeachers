@@ -122,7 +122,7 @@ class AssignmentRepository {
     // required String name,
     required String instruction,
     // required String datetime,
-    // required int points,
+    required int points,
     required bool resubmission,
     // required int extraDayForResubmission,
     required List<PlatformFile>? filePaths,
@@ -148,9 +148,9 @@ class AssignmentRepository {
       if (instruction.isEmpty) {
         body.remove("instructions");
       }
-      // if (points == 0) {
-      //   body.remove("points");
-      // }
+      if (points == 0) {
+        body.remove("points");
+      }
       if (filePaths.isEmpty) {
         body.remove("file");
       }
