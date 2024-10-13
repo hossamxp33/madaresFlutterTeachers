@@ -638,10 +638,9 @@ class _HomeContainerState extends State<HomeContainer> {
                         //   title: UiUtils.getTranslatedLabel(context, topicsKey),
                         // ),
                         MenuContainerDetails(
-                          route: Routes.holidays,
-                          iconPath: UiUtils.getImagePath("holiday_icon.svg"),
-                          title:
-                              UiUtils.getTranslatedLabel(context, holidaysKey),
+                          route: Routes.chatUserPage,
+                          iconPath: UiUtils.getImagePath("chat_icon.svg"),
+                          title: UiUtils.getTranslatedLabel(context, chatKey),
                         ),
                         MenuContainerDetails(
                           route: Routes.exams,
