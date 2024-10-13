@@ -77,7 +77,8 @@ class GlobalScrollBehavior extends ScrollBehavior {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
+
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -137,6 +138,7 @@ class _MyAppState extends State<MyApp> {
                     onSecondary: onSecondaryColor,
                     onBackground: onBackgroundColor,
                   ),
+
             ),
             builder: (context, widget) {
               return ScrollConfiguration(

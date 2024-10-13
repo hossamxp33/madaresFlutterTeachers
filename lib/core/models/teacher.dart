@@ -15,6 +15,7 @@ class Teacher {
     required this.resetRequest,
     required this.qualification,
     required this.teacherId,
+    required this.userId,
   });
   late final int id;
   late final String firstName;
@@ -31,6 +32,7 @@ class Teacher {
   late final int resetRequest;
   late final String qualification;
   late final int teacherId;
+  late final int userId;
 
   Teacher.fromJson(Map<String, dynamic> json) {
     id = json['id'] ?? 0;
@@ -47,6 +49,7 @@ class Teacher {
     status = json['status'] ?? 0;
     resetRequest = json['reset_request'] ?? 0;
     teacherId = (json['teacher'] != null) ? json['teacher']['id'] : 0;
+    userId = json['user_id'] ?? 0;
     qualification =
         (json['teacher'] != null) ? json['teacher']['qualification'] : "";
   }
@@ -71,6 +74,7 @@ class Teacher {
     data['status'] = status;
     data['reset_request'] = resetRequest;
     data['teacher'] = {"id": teacherId, "qualification": qualification};
+    data['user_id'] = userId;
     return data;
   }
 }

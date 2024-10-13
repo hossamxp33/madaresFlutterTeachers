@@ -27,9 +27,9 @@ class AssignmentScreen extends StatefulWidget {
   final Assignment assignment;
 
   const AssignmentScreen({
-    Key? key,
+    super.key,
     required this.assignment,
-  }) : super(key: key);
+  });
 
   static Route<dynamic> route(RouteSettings routeSettings) {
     final arguments = routeSettings.arguments as Map<String, dynamic>;

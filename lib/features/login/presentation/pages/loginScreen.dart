@@ -337,9 +337,10 @@ class _LoginScreenState extends State<LoginScreen>
           false, //to aboide the lower pattern from hiding login form when keyboard is open
       body: Stack(
         children: [
-          _buildLoginForm(),
+
           _buildUpperPattern(),
           _buildLowerPattern(),
+          _buildLoginForm(),
         ],
       ),
     );
