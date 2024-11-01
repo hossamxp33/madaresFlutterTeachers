@@ -18,7 +18,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/utils/sharedWidgets/customBackButton.dart';
 import '../../../../core/utils/uiUtils.dart';
 
 class ChatUsersScreen extends StatefulWidget {
@@ -118,7 +117,7 @@ class _ChatUsersScreenState extends State<ChatUsersScreen> {
           builder: (context, selectedTitle, _) => Stack(
             clipBehavior: Clip.none,
             children: [
-              const CustomBackButton(),
+              // const CustomBackButton(),
               Align(
                 alignment: AlignmentDirectional.topEnd,
                 child: Padding(
@@ -341,16 +340,14 @@ class _ChatUsersScreenState extends State<ChatUsersScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          _buildParentChatUsers(context: context),
-          Align(
-            alignment: Alignment.topCenter,
-            child: _buildAppBar(context),
-          ),
-        ],
-      ),
+    return Stack(
+      children: [
+        _buildParentChatUsers(context: context),
+        Align(
+          alignment: Alignment.topCenter,
+          child: _buildAppBar(context),
+        ),
+      ],
     );
   }
 }
