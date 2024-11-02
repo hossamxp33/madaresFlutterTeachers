@@ -1,4 +1,4 @@
-import 'dart:convert';
+
 
 import '../../../../core/models/guardianDetails.dart';
 import '../../../../core/utils/api.dart';
@@ -171,8 +171,13 @@ class StudentRepository {
           "marks_data": bodyParameter.values.first
         }),
       );
+
+      log("reuslt error  ${result['error']}");
+      return {'error': result['error'], 'message': result['message']};
+
       Map result = jsonDecode(responce.body);
       return {'error ': result['error'], 'message': result['message']};
+
     } catch (e) {
       throw ApiException(e.toString());
     }

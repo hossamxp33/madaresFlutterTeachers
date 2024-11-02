@@ -44,7 +44,7 @@ class _BottomNavItemContainerState extends State<BottomNavItemContainer> {
         widget.onTap(widget.index);
       },
       child: SizedBox(
-        width: widget.boxConstraints.maxWidth * (0.25),
+        width: 50,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,

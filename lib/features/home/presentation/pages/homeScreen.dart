@@ -1,7 +1,7 @@
-
 import 'package:eschool_teacher/core/repositories/settingsRepository.dart';
 import 'package:eschool_teacher/core/repositories/teacherRepository.dart';
 import 'package:eschool_teacher/core/utils/notificationUtils/generalNotificationUtility.dart';
+import 'package:eschool_teacher/features/chat/presentation/pages/chatUsersScreen.dart';
 import 'package:eschool_teacher/features/exam/presentation/manager/timeTableCubit.dart';
 import 'package:eschool_teacher/features/home/presentation/widgets/bottomNavigationItemContainer.dart';
 import 'package:eschool_teacher/features/home/presentation/widgets/forceUpdateDialogContainer.dart';
@@ -68,6 +68,11 @@ class _HomeScreenState extends State<HomeScreen>
       activeImageUrl: UiUtils.getImagePath("schedule_active.svg"),
       disableImageUrl: UiUtils.getImagePath("schedule.svg"),
       title: scheduleKey,
+    ),
+    BottomNavItem(
+      activeImageUrl: UiUtils.getImagePath("chat.svg"),
+      disableImageUrl: UiUtils.getImagePath("chat_icon.svg"),
+      title: chatKey,
     ),
     BottomNavItem(
       activeImageUrl: UiUtils.getImagePath("profile_active.svg"),
@@ -212,6 +217,7 @@ class _HomeScreenState extends State<HomeScreen>
                     children: const [
                       HomeContainer(),
                       TimeTableContainer(),
+                      ChatUsersScreen(),
                       ProfileContainer(),
                       SettingsContainer(),
                     ],

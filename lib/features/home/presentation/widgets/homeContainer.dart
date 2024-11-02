@@ -166,7 +166,7 @@ class _HomeContainerState extends State<HomeContainer> {
                           ],
                         ),
                       ),
-                      _buildChatIcon(),
+                      // _buildChatIcon(),
                     ],
                   ),
                 ),
@@ -637,12 +637,11 @@ class _HomeContainerState extends State<HomeContainer> {
                         //   iconPath: UiUtils.getImagePath("topics.svg"),
                         //   title: UiUtils.getTranslatedLabel(context, topicsKey),
                         // ),
-                        MenuContainerDetails(
-                          route: Routes.holidays,
-                          iconPath: UiUtils.getImagePath("holiday_icon.svg"),
-                          title:
-                              UiUtils.getTranslatedLabel(context, holidaysKey),
-                        ),
+                        // MenuContainerDetails(
+                        //   route: Routes.chatUserPage,
+                        //   iconPath: UiUtils.getImagePath("chat_icon.svg"),
+                        //   title: UiUtils.getTranslatedLabel(context, chatKey),
+                        // ),
                         MenuContainerDetails(
                           route: Routes.exams,
                           iconPath: UiUtils.getImagePath("exam_icon.svg"),

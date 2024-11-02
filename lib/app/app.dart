@@ -6,6 +6,7 @@ import 'package:eschool_teacher/core/repositories/settingsRepository.dart';
 import 'package:eschool_teacher/core/repositories/systemInfoRepository.dart';
 import 'package:eschool_teacher/core/repositories/teacherRepository.dart';
 import 'package:eschool_teacher/core/utils/appLanguages.dart';
+import 'package:eschool_teacher/core/utils/bloc_observer.dart';
 import 'package:eschool_teacher/core/utils/hiveBoxKeys.dart';
 import 'package:eschool_teacher/core/utils/notificationUtils/generalNotificationUtility.dart';
 import 'package:eschool_teacher/core/utils/styles/colors.dart';
@@ -42,7 +43,7 @@ class MyHttpOverrides extends HttpOverrides {
 Future<void> initializeApp() async {
   WidgetsFlutterBinding.ensureInitialized();
   HttpOverrides.global = MyHttpOverrides();
-
+  Bloc.observer = MyBlocObserver();
   //Register the licence of font
   LicenseRegistry.addLicense(() async* {
     final license = await rootBundle.loadString('google_fonts/OFL.txt');
@@ -78,7 +79,6 @@ class GlobalScrollBehavior extends ScrollBehavior {
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
-
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -138,7 +138,6 @@ class _MyAppState extends State<MyApp> {
                     onSecondary: onSecondaryColor,
                     onBackground: onBackgroundColor,
                   ),
-
             ),
             builder: (context, widget) {
               return ScrollConfiguration(

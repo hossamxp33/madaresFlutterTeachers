@@ -57,7 +57,8 @@ class _AttachmentDialogWidgetState extends State<AttachmentDialogWidget> {
       } else {
         //camara picking logic
         final ImagePicker picker = ImagePicker();
-        final result = await picker.pickImage(source: ImageSource.camera);
+        final result = await picker.pickImage(
+            source: ImageSource.camera, imageQuality: 50);
         if (result != null) {
           tempPaths = [result.path];
         }
