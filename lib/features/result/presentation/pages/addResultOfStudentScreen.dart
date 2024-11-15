@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -250,9 +249,8 @@ class _AddResultScreenState extends State<AddResultScreen> {
                   break;
                 }
                 studentsMarksList.add({
-                  'obtained_marks': inputMarks,
-                  'subject_id':
-                      widget.studentResultData.marksData![index].subjectId
+                  "obtained_marks": "$inputMarks",
+                  "student_id": "${widget.studentResultData.marksData![index].subjectId}"
                 });
               }
             }

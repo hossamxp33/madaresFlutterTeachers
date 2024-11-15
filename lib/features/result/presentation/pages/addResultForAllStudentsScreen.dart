@@ -454,7 +454,7 @@ class _AddResultForAllStudentsState extends State<AddResultForAllStudents> {
                 }
                 studentsMarksList.add({
                   'obtained_marks': inputMarks,
-                  'student_id': studentList[index].id
+                  'student_id': "${studentList[index].id}",
                 });
               }
             }
