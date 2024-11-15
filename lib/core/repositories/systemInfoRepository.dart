@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:eschool_teacher/features/holidays/data/models/holiday.dart';
 import 'package:flutter/foundation.dart';
 
@@ -9,7 +11,7 @@ class SystemRepository {
       final result = await Api.get(
         queryParameters: {"type": type},
         url: Api.settings,
-        useAuthToken: false,
+        useAuthToken: true,
       );
 
       return result['data'];

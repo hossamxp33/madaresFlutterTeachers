@@ -131,17 +131,17 @@ class SettingsContainer extends StatelessWidget {
             );
           },
         ),
-        _buildSettingDetailsTile(
-          icon: Icons.notifications, //this is for show only
-          customIcon: const NotificationIconWidget(
-            size: Size(24, 24),
-          ), //this widget will take icon's place
-          title: UiUtils.getTranslatedLabel(context, notificationsKey),
-          onTap: () {
-            Navigator.of(context).pushNamed(Routes.notifications);
-          },
-          context: context,
-        ),
+        // _buildSettingDetailsTile(
+        //   icon: Icons.notifications, //this is for show only
+        //   customIcon: const NotificationIconWidget(
+        //     size: Size(24, 24),
+        //   ), //this widget will take icon's place
+        //   title: UiUtils.getTranslatedLabel(context, notificationsKey),
+        //   onTap: () {
+        //     Navigator.of(context).pushNamed(Routes.notifications);
+        //   },
+        //   context: context,
+        // ),
         _buildSettingDetailsTile(
           icon: Icons.password,
           title: UiUtils.getTranslatedLabel(context, changePasswordKey),
@@ -203,14 +203,14 @@ class SettingsContainer extends StatelessWidget {
           },
           context: context,
         ),
-        _buildSettingDetailsTile(
-          icon: Icons.star,
-          title: UiUtils.getTranslatedLabel(context, rateUsKey),
-          onTap: () {
-            _shareApp(context);
-          },
-          context: context,
-        ),
+        // _buildSettingDetailsTile(
+        //   icon: Icons.star,
+        //   title: UiUtils.getTranslatedLabel(context, rateUsKey),
+        //   onTap: () {
+        //     _shareApp(context);
+        //   },
+        //   context: context,
+        // ),
         _buildSettingDetailsTile(
           icon: Icons.share,
           title: UiUtils.getTranslatedLabel(context, shareKey),

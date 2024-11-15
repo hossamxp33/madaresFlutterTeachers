@@ -626,6 +626,14 @@ class _HomeContainerState extends State<HomeContainer> {
                           title: UiUtils.getTranslatedLabel(
                               context, announcementsKey),
                         ),
+                        // setting
+                        MenuContainerDetails(
+                          route: Routes.notifications,
+                          iconPath: UiUtils.getImagePath(
+                              "notification-2-svgrepo-com.svg"),
+                          title: UiUtils.getTranslatedLabel(
+                              context, notificationsKey),
+                        ),
                         // MenuContainerDetails(
                         //   route: Routes.lessons,
                         //   iconPath: UiUtils.getImagePath("lesson.svg"),

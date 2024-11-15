@@ -122,13 +122,13 @@ class _TimeTableContainerState extends State<TimeTableContainer> {
         builder: (context, boxConstraints) {
           return Row(
             children: [
-              SubjectImageContainer(
-                showShadow: false,
-                height: 60,
-                width: boxConstraints.maxWidth * (0.2),
-                radius: 7.5,
-                subject: timeTableSlot.subject,
-              ),
+              // SubjectImageContainer(
+              //   showShadow: false,
+              //   height: 60,
+              //   width: 50,
+              //   radius: 7.5,
+              //   subject: timeTableSlot.subject,
+              // ),
               SizedBox(
                 width: boxConstraints.maxWidth * (0.05),
               ),
