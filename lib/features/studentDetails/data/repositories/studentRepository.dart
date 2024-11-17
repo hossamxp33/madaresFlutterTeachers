@@ -1,4 +1,4 @@
-import 'dart:developer';
+
 
 import 'dart:convert';
 import 'dart:developer';
@@ -9,6 +9,8 @@ import '../../../exam/data/models/exam.dart';
 import '../../../result/data/models/result.dart';
 import '../../../result/data/models/studentResult.dart';
 import '../models/student.dart';
+import 'package:http/http.dart' as http;
+import 'package:http/http.dart' as http;
 
 class StudentRepository {
   Future<List<Student>> getStudentsByClassSectionAndSubject({
@@ -158,23 +160,27 @@ class StudentRepository {
   Future<Map<String, dynamic>> updateSubjectMarksBySubjectId({
     required int examId,
     required int subjectId,
-    required Map<String, dynamic> bodyParameter,
+    required Map<String, List> bodyParameter,
     required int classSectionId,
   }) async {
     try {
-      Map<String, dynamic> queryParameters = {
-        "exam_id": examId,
-        'subject_id': subjectId,
-        "class_section_id": classSectionId,
-      };
-      final result = await Api.post(
-        body: bodyParameter,
-        url: Api.submitExamMarksBySubjectId,
-        useAuthToken: true,
-        queryParameters: queryParameters,
+      http.Response responce = await http.post(
+        Uri.parse(Api.submitExamMarksBySubjectId),
+        headers: Api.headers(),
+        body: jsonEncode({
+          "exam_id": "$examId",
+          "subject_id": "$subjectId",
+          "class_section_id": "$classSectionId",
+          "marks_data": bodyParameter.values.first
+        }),
       );
+
       log("reuslt error  ${result['error']}");
       return {'error': result['error'], 'message': result['message']};
+
+      Map result = jsonDecode(responce.body);
+      return {'error ': result['error'], 'message': result['message']};
+
     } catch (e) {
       throw ApiException(e.toString());
     }
