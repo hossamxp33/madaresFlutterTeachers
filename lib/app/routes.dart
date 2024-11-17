@@ -38,6 +38,7 @@ import '../features/studentDetails/presentation/pages/studentDetailsScreen.dart'
 import '../features/subject/presentation/pages/subjectScreen.dart';
 import '../features/topics/presentation/pages/topicsScreen.dart';
 
+
 // ignore: avoid_classes_with_only_static_members
 class Routes {
   static const String splash = "splash";
@@ -49,7 +50,6 @@ class Routes {
   static const String assignments = "/assignments";
 
   static const String announcements = "/announcements";
-  static const String setting = "/setting";
 
   static const String topics = "/topics";
 

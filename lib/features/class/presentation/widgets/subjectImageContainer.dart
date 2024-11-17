@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eschool_teacher/features/class/presentation/widgets/subjectFirstLetterContainer.dart';
 import 'package:eschool_teacher/features/subject/data/models/subject.dart';

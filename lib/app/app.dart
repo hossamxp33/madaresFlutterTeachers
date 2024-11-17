@@ -11,6 +11,7 @@ import 'package:eschool_teacher/core/utils/hiveBoxKeys.dart';
 import 'package:eschool_teacher/core/utils/notificationUtils/generalNotificationUtility.dart';
 import 'package:eschool_teacher/core/utils/styles/colors.dart';
 import 'package:eschool_teacher/core/utils/uiUtils.dart';
+import 'package:eschool_teacher/features/notifications/data/models/customNotification.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
@@ -67,6 +68,9 @@ Future<void> initializeApp() async {
   await Hive.initFlutter();
   await Hive.openBox(authBoxKey);
   await Hive.openBox(settingsBoxKey);
+  Hive.registerAdapter(CustomNotificationAdapter()); // Register adapter
+
+  await Hive.openBox<CustomNotification>('notifications');
   runApp(const MyApp());
 }
 

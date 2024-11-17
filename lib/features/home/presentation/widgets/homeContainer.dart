@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:eschool_teacher/app/routes.dart';
 import 'package:eschool_teacher/core/utils/animationConfiguration.dart';
 import 'package:eschool_teacher/core/utils/sharedWidgets/customShimmerContainer.dart';
@@ -9,7 +11,10 @@ import 'package:eschool_teacher/core/utils/uiUtils.dart';
 import 'package:eschool_teacher/features/chat/presentation/manager/chatUsersCubit.dart';
 import 'package:eschool_teacher/features/class/data/models/classSectionDetails.dart';
 import 'package:eschool_teacher/features/class/presentation/manager/myClassesCubit.dart';
+import 'package:eschool_teacher/features/home/presentation/pages/homeScreen.dart';
 import 'package:eschool_teacher/features/login/presentation/manager/authCubit.dart';
+import 'package:eschool_teacher/features/notifications/presentation/manager/notificationCubit.dart';
+import 'package:eschool_teacher/features/notifications/presentation/widgets/notificationIconWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -166,6 +171,7 @@ class _HomeContainerState extends State<HomeContainer> {
                           ],
                         ),
                       ),
+                      const NotificationIconWidget()
                       // _buildChatIcon(),
                     ],
                   ),
@@ -625,14 +631,6 @@ class _HomeContainerState extends State<HomeContainer> {
                               UiUtils.getImagePath("announcment_icon.svg"),
                           title: UiUtils.getTranslatedLabel(
                               context, announcementsKey),
-                        ),
-                        // setting
-                        MenuContainerDetails(
-                          route: Routes.notifications,
-                          iconPath: UiUtils.getImagePath(
-                              "notification-2-svgrepo-com.svg"),
-                          title: UiUtils.getTranslatedLabel(
-                              context, notificationsKey),
                         ),
                         // MenuContainerDetails(
                         //   route: Routes.lessons,

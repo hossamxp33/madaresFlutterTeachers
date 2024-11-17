@@ -1,7 +1,9 @@
-
+import 'package:eschool_teacher/core/repositories/settingsRepository.dart';
 import 'package:eschool_teacher/core/repositories/teacherRepository.dart';
 import 'package:eschool_teacher/features/notifications/data/models/customNotification.dart';
+import 'package:eschool_teacher/features/notifications/data/notification_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive/hive.dart';
 
 abstract class NotificationState {}
 
@@ -69,7 +71,17 @@ class NotificationsCubit extends Cubit<NotificationState> {
       final value = await _teacherRepository.fetchNotifications(
         page: page,
       );
+      final List<CustomNotification> fetchedNotifications =
+          value['notifications'];
 
+      final box = Hive.box<CustomNotification>('notifications');
+      final notificationService = NotificationService(box);
+
+      int newNotificationCount =
+          notificationService.countNewNotifications(fetchedNotifications);
+
+      notificationService.addNotifications(fetchedNotifications);
+      SettingsRepository().setNotificationCount(newNotificationCount);
       emit(
         NotificationFetchSuccess(
           notifications: value['notifications'],
