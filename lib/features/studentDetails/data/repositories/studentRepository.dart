@@ -1,4 +1,5 @@
-
+import 'dart:convert';
+import 'dart:developer';
 
 import '../../../../core/models/guardianDetails.dart';
 import '../../../../core/utils/api.dart';
@@ -172,12 +173,11 @@ class StudentRepository {
         }),
       );
 
-      log("reuslt error  ${result['error']}");
-      return {'error': result['error'], 'message': result['message']};
+      // log("reuslt error  ${result['error']}");
+      // return {'error': result['error'], 'message': result['message']};
 
       Map result = jsonDecode(responce.body);
       return {'error ': result['error'], 'message': result['message']};
-
     } catch (e) {
       throw ApiException(e.toString());
     }

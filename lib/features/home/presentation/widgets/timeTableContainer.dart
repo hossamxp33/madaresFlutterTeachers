@@ -125,7 +125,7 @@ class _TimeTableContainerState extends State<TimeTableContainer> {
               // SubjectImageContainer(
               //   showShadow: false,
               //   height: 60,
-              //   width: 50,
+              //   width: boxConstraints.maxWidth * (0.2),
               //   radius: 7.5,
               //   subject: timeTableSlot.subject,
               // ),
