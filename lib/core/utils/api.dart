@@ -27,7 +27,7 @@ class Api {
     final String jwtToken = Hive.box(authBoxKey).get(jwtTokenKey) ?? "";
     return {
       "Authorization": "Bearer $jwtToken",
-      "Schoolid": FlavorConfig.getSchoolId().toString(),
+      "Schoolid": "125",
       'Content-Type': 'application/json',
     };
   }

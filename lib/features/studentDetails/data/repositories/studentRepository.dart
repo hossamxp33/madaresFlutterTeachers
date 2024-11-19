@@ -177,7 +177,7 @@ class StudentRepository {
       // return {'error': result['error'], 'message': result['message']};
 
       Map result = jsonDecode(responce.body);
-      return {'error ': result['error'], 'message': result['message']};
+      return {'error': result['error'], 'message': result['message']};
     } catch (e) {
       throw ApiException(e.toString());
     }
