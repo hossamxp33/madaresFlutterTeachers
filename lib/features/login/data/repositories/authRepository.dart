@@ -63,6 +63,10 @@ class AuthRepository {
         "device_type": Platform.isAndroid ? "android" : "ios",
       };
 
+
+      print(body);
+      print(Api.login);
+
       final result =
           await Api.post(body: body, url: Api.login, useAuthToken: true);
 

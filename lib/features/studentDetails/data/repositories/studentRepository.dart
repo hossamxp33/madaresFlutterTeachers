@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'dart:convert';
 
 import '../../../../core/models/guardianDetails.dart';
 import '../../../../core/utils/api.dart';
@@ -114,7 +115,12 @@ class StudentRepository {
         useAuthToken: true,
         queryParameters: {"exam_id": examId, "class_id": classId},
       );
-
+print("=====examTimeTable=======");
+      print({"url":Api.examTimeTable, "useAuthToken":true,"queryParameters":{"exam_id": examId, "class_id": classId}},
+);
+print("=========>${(result['data'][0]['timetable'] as List)
+    .map((e) => ExamTimeTable.fromJson(Map.from(e)))
+    .toList()}");
       return (result['data'][0]['timetable'] as List)
           .map((e) => ExamTimeTable.fromJson(Map.from(e)))
           .toList();
@@ -173,11 +179,15 @@ class StudentRepository {
         }),
       );
 
-      // log("reuslt error  ${result['error']}");
-      // return {'error': result['error'], 'message': result['message']};
+print("============responce============");
+print(responce.body);
+
+      print("========================");
 
       Map result = jsonDecode(responce.body);
+      log("reuslt error  ${result['error']}");
       return {'error ': result['error'], 'message': result['message']};
+
     } catch (e) {
       throw ApiException(e.toString());
     }

@@ -133,46 +133,9 @@ class _TimeTableContainerState extends State<TimeTableContainer> {
                 width: boxConstraints.maxWidth * (0.05),
               ),
               SizedBox(
-                width: boxConstraints.maxWidth * (0.75),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Text(
-                          "${UiUtils.formatTime(timeTableSlot.startTime)} - ${UiUtils.formatTime(timeTableSlot.endTime)}",
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            color: Theme.of(context).colorScheme.secondary,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14.0,
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 5,
-                        ),
-                        Expanded(
-                          child: Text(
-                            timeTableSlot.classSectionDetails
-                                .getFullClassSectionName(),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Theme.of(context).colorScheme.onBackground,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 12.0,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text(
+                  width: boxConstraints.maxWidth * (0.75),
+                  child: ListTile(
+                    title: Text(
                       timeTableSlot.subject.showType
                           ? timeTableSlot.subject.subjectNameWithType
                           : timeTableSlot.subject.name,
@@ -183,10 +146,34 @@ class _TimeTableContainerState extends State<TimeTableContainer> {
                         fontWeight: FontWeight.w400,
                         fontSize: 12.0,
                       ),
-                    )
-                  ],
-                ),
-              ),
+                    ),
+
+                    subtitle: Column(
+                      children: [
+                        Text(
+                          timeTableSlot.classSectionDetails
+                              .getFullClassSectionName(),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.onBackground,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12.0,
+                          ),
+                        ),
+                        Text(
+                          "${UiUtils.formatTime(timeTableSlot.startTime)} - ${UiUtils.formatTime(timeTableSlot.endTime)}",
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.secondary,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 12.0,
+                          ),
+                        )
+                      ],
+                    ),
+                  )),
             ],
           );
         },

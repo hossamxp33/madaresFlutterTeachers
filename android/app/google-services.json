@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:93520308007:android:c40be452f35c723a4d6b02",
         "android_client_info": {
-          "package_name": "com.wrteam.eschool"
+          "package_name": "com.codes_roots.eschool"
         }
       },
       "oauth_client": [],
@@ -28,7 +28,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:93520308007:android:e10437609ff041cf4d6b02",
         "android_client_info": {
-          "package_name": "com.wrteam.eschool.first"
+          "package_name": "com.codes_roots.eschool.first"
         }
       },
       "oauth_client": [],
@@ -47,7 +47,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:93520308007:android:4a2a61a6f22a11464d6b02",
         "android_client_info": {
-          "package_name": "com.wrteam.eschool.teacher"
+          "package_name": "com.codes_roots.eschool.teacher"
         }
       },
       "oauth_client": [],
@@ -66,7 +66,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:93520308007:android:a8a535864f17e2124d6b02",
         "android_client_info": {
-          "package_name": "com.wrteam.eschool.teacher.school1"
+          "package_name": "com.codes_roots.eschool.teacher.school1"
         }
       },
       "oauth_client": [],

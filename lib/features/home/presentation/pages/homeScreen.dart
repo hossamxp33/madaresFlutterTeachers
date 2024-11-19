@@ -79,6 +79,7 @@ class _HomeScreenState extends State<HomeScreen>
       disableImageUrl: UiUtils.getImagePath("profile.svg"),
       title: profileKey,
     ),
+
     BottomNavItem(
       activeImageUrl: UiUtils.getImagePath("setting_active.svg"),
       disableImageUrl: UiUtils.getImagePath("setting.svg"),
@@ -219,6 +220,7 @@ class _HomeScreenState extends State<HomeScreen>
                       TimeTableContainer(),
                       ChatUsersScreen(),
                       ProfileContainer(),
+
                       SettingsContainer(),
                     ],
                   ),

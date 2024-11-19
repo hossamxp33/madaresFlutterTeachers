@@ -24,11 +24,19 @@ class ApiException implements Exception {
 // ignore: avoid_classes_with_only_static_members
 class Api {
   static Map<String, String> headers() {
+
     final String jwtToken = Hive.box(authBoxKey).get(jwtTokenKey) ?? "";
+
+    print({
+      "Authorization": "Bearer $jwtToken",
+      "Schoolid": FlavorConfig.getSchoolId().toString(),
+      'Content-Type': 'application/json',
+    });
     return {
       "Authorization": "Bearer $jwtToken",
       "Schoolid": FlavorConfig.getSchoolId().toString(),
       'Content-Type': 'application/json',
+      "Accept":"application/json"
     };
   }
 
@@ -115,7 +123,10 @@ class Api {
       final Dio dio = Dio();
       final FormData formData =
           FormData.fromMap(body, ListFormat.multiCompatible);
-
+      print("======");
+      print(url);
+      print(formData);
+      print("======");
       final response = await dio.post(
         url,
         data: formData,
@@ -160,8 +171,12 @@ class Api {
       //
       final Dio dio = Dio();
       if (kDebugMode) {
-        print("API Called GET: $url with $queryParameters");
+        print("API Called GET: $url ");
+        print("queryParameters: $queryParameters");
+        print("headers: ${headers()}");
       }
+
+
       final response = await dio.get(
         url,
         queryParameters: queryParameters,
