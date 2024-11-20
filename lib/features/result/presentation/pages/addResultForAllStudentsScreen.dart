@@ -401,14 +401,25 @@ class _AddResultForAllStudentsState extends State<AddResultForAllStudents> {
         SubjectMarksBySubjectIdState>(
       listener: (context, state) {
         if (state is SubjectMarksBySubjectIdSubmitSuccess) {
-          UiUtils.showBottomToastOverlay(
-            context: context,
-            errorMessage: UiUtils.getTranslatedLabel(
-              context,
-              marksAddedSuccessfullyKey,
-            ),
-            backgroundColor: Theme.of(context).colorScheme.onPrimary,
-          );
+          if (state.isMarksUpdated) {
+            UiUtils.showBottomToastOverlay(
+              context: context,
+              errorMessage: UiUtils.getTranslatedLabel(
+                context,
+                marksAddedSuccessfullyKey,
+              ),
+              backgroundColor: Theme.of(context).colorScheme.onPrimary,
+            );
+          } else {
+            UiUtils.showBottomToastOverlay(
+              context: context,
+              errorMessage: UiUtils.getErrorMessageFromErrorCode(
+                context,
+                state.successMessage,
+              ),
+              backgroundColor: Theme.of(context).colorScheme.error,
+            );
+          }
 
           for (var element in obtainedMarksTextEditingController) {
             element.clear();

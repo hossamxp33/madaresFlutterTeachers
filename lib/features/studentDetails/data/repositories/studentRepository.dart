@@ -115,12 +115,16 @@ class StudentRepository {
         useAuthToken: true,
         queryParameters: {"exam_id": examId, "class_id": classId},
       );
-print("=====examTimeTable=======");
-      print({"url":Api.examTimeTable, "useAuthToken":true,"queryParameters":{"exam_id": examId, "class_id": classId}},
-);
-print("=========>${(result['data'][0]['timetable'] as List)
-    .map((e) => ExamTimeTable.fromJson(Map.from(e)))
-    .toList()}");
+      print("=====examTimeTable=======");
+      print(
+        {
+          "url": Api.examTimeTable,
+          "useAuthToken": true,
+          "queryParameters": {"exam_id": examId, "class_id": classId}
+        },
+      );
+      print(
+          "=========>${(result['data'][0]['timetable'] as List).map((e) => ExamTimeTable.fromJson(Map.from(e))).toList()}");
       return (result['data'][0]['timetable'] as List)
           .map((e) => ExamTimeTable.fromJson(Map.from(e)))
           .toList();
@@ -179,17 +183,12 @@ print("=========>${(result['data'][0]['timetable'] as List)
         }),
       );
 
-print("============responce============");
-print(responce.body);
-
-      print("========================");
+      // return {'error': result['error'], 'message': result['message']};
 
       Map result = jsonDecode(responce.body);
-  log("reuslt error  ${result['error']}");
+      log("reuslt error  ${result}");
+
       return {'error': result['error'], 'message': result['message']};
-
-    
-
     } catch (e) {
       throw ApiException(e.toString());
     }
