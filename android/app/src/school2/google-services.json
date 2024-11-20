@@ -2,9 +2,75 @@
   "project_info": {
     "project_number": "93520308007",
     "project_id": "madares-68612",
-    "storage_bucket": "madares-68612.appspot.com"
+    "storage_bucket": "madares-68612.firebasestorage.app"
   },
   "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93520308007:android:4f9d25ea52f6f6274d6b02",
+        "android_client_info": {
+          "package_name": "com.coderoot.eschool.second"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhdukxnXrTD4GfG6jYmCn4aS9tk0m7jRE"
+        },
+        {
+          "current_key": "AIzaSyD-4RC5Z_YnXTuDdLbfkeCKM9H3lEruJwY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93520308007:android:59d6f9c290fcc58e4d6b02",
+        "android_client_info": {
+          "package_name": "com.coderoot.eschool.teacher.second"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhdukxnXrTD4GfG6jYmCn4aS9tk0m7jRE"
+        },
+        {
+          "current_key": "AIzaSyD-4RC5Z_YnXTuDdLbfkeCKM9H3lEruJwY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93520308007:android:0366248f289fdb4e4d6b02",
+        "android_client_info": {
+          "package_name": "com.codes_roots.eschool.teacher.second"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhdukxnXrTD4GfG6jYmCn4aS9tk0m7jRE"
+        },
+        {
+          "current_key": "AIzaSyD-4RC5Z_YnXTuDdLbfkeCKM9H3lEruJwY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
     {
       "client_info": {
         "mobilesdk_app_id": "1:93520308007:android:c40be452f35c723a4d6b02",
@@ -14,6 +80,9 @@
       },
       "oauth_client": [],
       "api_key": [
+        {
+          "current_key": "AIzaSyBhdukxnXrTD4GfG6jYmCn4aS9tk0m7jRE"
+        },
         {
           "current_key": "AIzaSyD-4RC5Z_YnXTuDdLbfkeCKM9H3lEruJwY"
         }
@@ -34,6 +103,9 @@
       "oauth_client": [],
       "api_key": [
         {
+          "current_key": "AIzaSyBhdukxnXrTD4GfG6jYmCn4aS9tk0m7jRE"
+        },
+        {
           "current_key": "AIzaSyD-4RC5Z_YnXTuDdLbfkeCKM9H3lEruJwY"
         }
       ],
@@ -52,6 +124,9 @@
       },
       "oauth_client": [],
       "api_key": [
+        {
+          "current_key": "AIzaSyBhdukxnXrTD4GfG6jYmCn4aS9tk0m7jRE"
+        },
         {
           "current_key": "AIzaSyD-4RC5Z_YnXTuDdLbfkeCKM9H3lEruJwY"
         }
@@ -72,6 +147,9 @@
       "oauth_client": [],
       "api_key": [
         {
+          "current_key": "AIzaSyBhdukxnXrTD4GfG6jYmCn4aS9tk0m7jRE"
+        },
+        {
           "current_key": "AIzaSyD-4RC5Z_YnXTuDdLbfkeCKM9H3lEruJwY"
         }
       ],
@@ -91,6 +169,9 @@
       "oauth_client": [],
       "api_key": [
         {
+          "current_key": "AIzaSyBhdukxnXrTD4GfG6jYmCn4aS9tk0m7jRE"
+        },
+        {
           "current_key": "AIzaSyD-4RC5Z_YnXTuDdLbfkeCKM9H3lEruJwY"
         }
       ],
@@ -109,6 +190,9 @@
       },
       "oauth_client": [],
       "api_key": [
+        {
+          "current_key": "AIzaSyBhdukxnXrTD4GfG6jYmCn4aS9tk0m7jRE"
+        },
         {
           "current_key": "AIzaSyD-4RC5Z_YnXTuDdLbfkeCKM9H3lEruJwY"
         }

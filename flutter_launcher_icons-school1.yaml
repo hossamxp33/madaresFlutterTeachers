@@ -2,4 +2,6 @@
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/school1/current_location.png"
+  image_path: "assets/new_school.jpeg"
+
+

@@ -113,10 +113,21 @@ flutter:
     - google_fonts/
     - assets/languages/
     - assets/animations/
-    - path: assets/school1/
-      flavors:
-        - school1 
+    - assets/new_school.jpeg
 
+
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/new_school.jpeg"
+
+  flavors:
+    flavor1:
+      image_path: "assets/new_school.jpeg"
+
+    flavor2:
+      image_path: "assets/new_school.jpeg"
 
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

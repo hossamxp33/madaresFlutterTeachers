@@ -54,7 +54,11 @@ class SubjectMarksBySubjectIdCubit extends Cubit<SubjectMarksBySubjectIdState> {
         bodyParameter: parameter,
         classSectionId: classSectionId,
       );
+      print("===========================");
+print(result);
 
+
+      print("===========================");
       emit(
         SubjectMarksBySubjectIdSubmitSuccess(
           isMarksUpdated: !result['error'],

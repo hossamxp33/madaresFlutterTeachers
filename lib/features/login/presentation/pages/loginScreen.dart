@@ -51,15 +51,11 @@ class _LoginScreenState extends State<LoginScreen>
 
   final TextEditingController _emailTextEditingController =
       TextEditingController(
-          text: showDefaultCredentials
-              ? defaultTeacherEmail
-              : null); //DEFAULT EMAIL
+          text: null); //DEFAULT EMAIL
 
   final TextEditingController _passwordTextEditingController =
       TextEditingController(
-          text: showDefaultCredentials
-              ? defaultTeacherPassword
-              : null); //DEFAULT PASSWORD
+          text:  null); //DEFAULT PASSWORD
 
   @override
   void initState() {

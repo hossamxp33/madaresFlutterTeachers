@@ -499,7 +499,14 @@ class _AddResultForAllStudentsState extends State<AddResultForAllStudents> {
             }
 
             if (hasError) return;
-
+print({"examId":context
+    .read<ExamDetailsCubit>()
+    .getExamDetails(
+  index: currentSelectedExamName.index,
+)
+    .examID!,"subjectId": selectedSubjectDetails!.id,"bodyParameter":studentsMarksList,"classSectionId":allPrimaryClasses[
+currentSelectedPrimaryClassSection.index]
+    .id});
             context
                 .read<SubjectMarksBySubjectIdCubit>()
                 .submitSubjectMarksBySubjectId(
