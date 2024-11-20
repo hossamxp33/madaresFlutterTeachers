@@ -28,8 +28,6 @@ const String chatNotificationChannelKey = "chat_notifications_channel";
 //to enable and disable default credentials in login page
 const bool showDefaultCredentials = false;
 //default credentials of teacher
-const String defaultTeacherEmail = "teacher@gmail.com";
-const String defaultTeacherPassword = "teacher123";
 
 //animations configuration
 //if this is false all item appearance animations will be turned off

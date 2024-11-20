@@ -105,8 +105,10 @@ class _SplashScreenState extends State<SplashScreen> {
                       seconds: 1,
                     ),
                   ),
-                  child: SvgPicture.asset(
-                      FlavorConfig.getAssetPath("appLogo.svg")),
+                  child:Image.asset("assets/new_school.jpeg"),
+
+                  // SvgPicture.asset(
+                  //     FlavorConfig.getAssetPath("appLogo.svg")),
                 ),
               );
             },
