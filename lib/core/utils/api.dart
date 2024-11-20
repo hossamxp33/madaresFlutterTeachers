@@ -34,7 +34,7 @@ class Api {
     });
     return {
       "Authorization": "Bearer $jwtToken",
-      "Schoolid": FlavorConfig.getSchoolId().toString(),
+      "Schoolid": "125",
       'Content-Type': 'application/json',
       "Accept":"application/json"
     };
