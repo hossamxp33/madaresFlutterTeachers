@@ -173,10 +173,11 @@ class StudentRepository {
         }),
       );
 
-      // log("reuslt error  ${result['error']}");
       // return {'error': result['error'], 'message': result['message']};
 
       Map result = jsonDecode(responce.body);
+      log("reuslt error  ${result}");
+
       return {'error': result['error'], 'message': result['message']};
     } catch (e) {
       throw ApiException(e.toString());
