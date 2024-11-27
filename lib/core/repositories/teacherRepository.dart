@@ -1,4 +1,3 @@
-
 import 'package:eschool_teacher/core/utils/api.dart';
 import 'package:eschool_teacher/features/attendance/data/models/attendanceReport.dart';
 import 'package:eschool_teacher/features/class/data/models/classSectionDetails.dart';
@@ -81,6 +80,8 @@ class TeacherRepository {
     required List<Map<String, dynamic>> attendance,
   }) async {
     try {
+      print(
+          "submitAttendance classSectionId: $classSectionId, date: $date, attendance: $attendance");
       await Api.post(
         url: Api.submitAttendance,
         useAuthToken: true,
