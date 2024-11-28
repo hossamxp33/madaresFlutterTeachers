@@ -72,14 +72,13 @@ android {
     productFlavors {
         school1 {
             dimension "default"
-            resValue "string", "app_name", "School 1"
-             applicationIdSuffix ".first"
-
+            resValue "string", "app_name", "مدرسة زهور الحياة للبنات"
+            applicationIdSuffix ".first"
         }
         school2 {
             dimension "default"
-            resValue "string", "app_name", "School 2"
-             applicationIdSuffix ".second"
+            resValue "string", "app_name", "مدرسة زهور الحياة للبنات"
+            applicationIdSuffix ".second"
 
         }
 
