@@ -76,7 +76,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
   }
 
   String _buildAttendanceDate() {
-    return "${_selectedAttendanceDate.day.toString().padLeft(2, '0')}-${_selectedAttendanceDate.month.toString().padLeft(2, '0')}-${_selectedAttendanceDate.year}";
+    return "${_selectedAttendanceDate.day.toString().padLeft(2, '0')} - ${_selectedAttendanceDate.month.toString().padLeft(2, '0')} - ${_selectedAttendanceDate.year}";
   }
 
   Future<void> _changeAttendanceDate() async {
@@ -248,8 +248,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                   ),
                   backgroundColor: Theme.of(context).colorScheme.onPrimary,
                 );
-              } else if (submitAttendanceState
-                  is SubmitClassAttendanceFailure) {
+              } else if (submitAttendanceState is SubmitClassAttendanceFailure) {
                 UiUtils.showBottomToastOverlay(
                   context: context,
                   errorMessage: UiUtils.getErrorMessageFromErrorCode(

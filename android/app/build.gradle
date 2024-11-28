@@ -80,13 +80,11 @@ android {
             dimension "default"
             resValue "string", "app_name", "مدرسة زهور الحياة للبنات"
             applicationIdSuffix ".first"
-
         }
         school2 {
             dimension "default"
             resValue "string", "app_name", "مدرسة زهور الحياة للبنات"
             applicationIdSuffix ".second"
-
         }
 
     }
