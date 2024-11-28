@@ -25,6 +25,7 @@ import 'package:path/path.dart' as p;
 // ignore: depend_on_referenced_packages
 import 'package:intl/intl.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import 'package:file_picker/file_picker.dart';
@@ -38,6 +39,9 @@ import '../../../../core/utils/sharedWidgets/customCupertinoSwitch.dart';
 import '../../../../core/utils/sharedWidgets/customRoundedButton.dart';
 import '../../../../core/utils/styles/colors.dart';
 import '../../../../core/utils/uiUtils.dart';
+
+
+
 
 class AddAssignmentScreen extends StatefulWidget {
   final bool editassignment;
@@ -88,27 +92,27 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
   bool isRecording = false, isPlaying = false;
 
   Future<void> recordVoice() async {
-    var status = await Permission.storage.status;
-    if (!status.isGranted) {
-      await Permission.storage.request();
-    } else {
+    // Request microphone permission
+    var microphoneStatus = await Permission.microphone.request();
+
+    if (microphoneStatus.isGranted) {
       if (isRecording) {
+        // Stop recording
         String? filePath = await audioRecorder.stop();
         if (filePath != null) {
-          print("file path $filePath");
           await prepareRecordFile(filePath);
-
           setState(() {
             isRecording = false;
             recordingPath = filePath;
           });
         }
       } else {
-        if (await audioRecorder.hasPermission()) {
-          final Directory appDocumentsDir =
-              Directory("/storage/emulated/0/Download/");
-          final String filePath = p.join(appDocumentsDir.path,
-              "${currentSelectedClassSection.title}assignment.wav");
+        // Start recording
+        final Directory appDocumentsDir =
+        await getApplicationDocumentsDirectory(); // Use this for better path handling
+        final String filePath = p.join(appDocumentsDir.path,
+            "${currentSelectedClassSection.title}assignment.wav");
+        try {
           await audioRecorder.start(
             const RecordConfig(),
             path: filePath,
@@ -117,11 +121,29 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
             isRecording = true;
             recordingPath = null;
           });
+        } catch (e) {
+          UiUtils.showCustomSnackBar(
+              context: context,
+              errorMessage:
+              "Error starting recording: $e", // Localized error message
+              backgroundColor: Theme.of(context).colorScheme.error);
         }
       }
+    } else if (microphoneStatus.isDenied) {
+      UiUtils.showCustomSnackBar(
+          context: context,
+          errorMessage: UiUtils.getTranslatedLabel(
+              context, "microphonePermissionDenied"), //Localized message
+          backgroundColor: Theme.of(context).colorScheme.error);
+    } else if (microphoneStatus.isPermanentlyDenied) {
+      await openAppSettings();
+    } else {
+      UiUtils.showCustomSnackBar(
+          context: context,
+          errorMessage: "something went wrong", //Localized message
+          backgroundColor: Theme.of(context).colorScheme.error);
     }
   }
-
   Future<void> playRecord() async {
     if (audioPlayer.playing) {
       audioPlayer.stop();
@@ -275,7 +297,7 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
             borderType: BorderType.RRect,
             dashPattern: const [10, 10],
             radius: const Radius.circular(10.0),
-            color: Theme.of(context).colorScheme.onBackground.withOpacity(0.3),
+            color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.3),
             child: LayoutBuilder(
               builder: (context, boxConstraints) {
                 return Padding(
@@ -325,7 +347,7 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
             borderType: BorderType.RRect,
             dashPattern: const [10, 10],
             radius: const Radius.circular(10.0),
-            color: Theme.of(context).colorScheme.onBackground.withOpacity(0.3),
+            color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.3),
             child: LayoutBuilder(
               builder: (context, boxConstraints) {
                 return Padding(
@@ -611,134 +633,134 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
     );
   }
 
-  Widget _buildAddDueDateAndTimeContainer() {
-    return Padding(
-      padding: EdgeInsets.only(bottom: _textFieldBottomPadding),
-      child: LayoutBuilder(
-        builder: (context, boxConstraints) {
-          return Row(
-            children: [
-              InkWell(
-                borderRadius: BorderRadius.circular(10),
-                onTap: () {
-                  openDatePicker();
-                },
-                child: Container(
-                  alignment: AlignmentDirectional.centerStart,
-                  padding: const EdgeInsetsDirectional.only(start: 20.0),
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.background,
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Theme.of(context)
-                          .colorScheme
-                          .onBackground
-                          .withOpacity(0.5),
-                    ),
-                  ),
-                  width: boxConstraints.maxWidth * (0.475),
-                  height: 50,
-                  child: Text(
-                    dueDate == null
-                        ? UiUtils.getTranslatedLabel(context, dueDateKey)
-                        : DateFormat('dd-MM-yyyy').format(dueDate!).toString(),
-                    style: TextStyle(
-                      color: hintTextColor,
-                      fontSize: UiUtils.textFieldFontSize,
-                    ),
-                  ),
-                ),
-              ),
-              const Spacer(),
-              InkWell(
-                onTap: () {
-                  openTimePicker();
-                },
-                borderRadius: BorderRadius.circular(10),
-                child: Container(
-                  alignment: AlignmentDirectional.centerStart,
-                  padding: const EdgeInsetsDirectional.only(start: 20.0),
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.background,
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Theme.of(context)
-                          .colorScheme
-                          .onBackground
-                          .withOpacity(0.5),
-                    ),
-                  ),
-                  width: boxConstraints.maxWidth * (0.475),
-                  height: 50,
-                  child: Text(
-                    dueTime == null
-                        ? UiUtils.getTranslatedLabel(context, dueTimeKey)
-                        : "${dueTime!.hour}:${dueTime!.minute}",
-                    style: TextStyle(
-                      color: hintTextColor,
-                      fontSize: UiUtils.textFieldFontSize,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          );
-        },
-      ),
-    );
-  }
-
-  Widget _buildReSubmissionOfRejectedAssignmentToggleContainer() {
-    return Padding(
-      padding: EdgeInsets.only(bottom: _textFieldBottomPadding),
-      child: LayoutBuilder(
-        builder: (context, boxConstraints) {
-          return Container(
-            height: 70,
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.background,
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(
-                color:
-                    Theme.of(context).colorScheme.onBackground.withOpacity(0.5),
-              ),
-            ),
-            child: Row(
-              children: [
-                Flexible(
-                  child: SizedBox(
-                    width: boxConstraints.maxWidth * (0.85),
-                    child: Text(
-                      UiUtils.getTranslatedLabel(
-                        context,
-                        resubmissionOfRejectedAssignmentKey,
-                      ),
-                      style: TextStyle(
-                        color: hintTextColor,
-                        fontSize: UiUtils.textFieldFontSize,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: boxConstraints.maxWidth * (0.075),
-                ),
-                Container(
-                  alignment: Alignment.centerRight,
-                  width: boxConstraints.maxWidth * (0.1),
-                  child: CustomCupertinoSwitch(
-                    onChanged: changeAllowedReSubmissionOfRejectedAssignment,
-                    value: _allowedReSubmissionOfRejectedAssignment,
-                  ),
-                )
-              ],
-            ),
-          );
-        },
-      ),
-    );
-  }
+  // Widget _buildAddDueDateAndTimeContainer() {
+  //   return Padding(
+  //     padding: EdgeInsets.only(bottom: _textFieldBottomPadding),
+  //     child: LayoutBuilder(
+  //       builder: (context, boxConstraints) {
+  //         return Row(
+  //           children: [
+  //             InkWell(
+  //               borderRadius: BorderRadius.circular(10),
+  //               onTap: () {
+  //                 openDatePicker();
+  //               },
+  //               child: Container(
+  //                 alignment: AlignmentDirectional.centerStart,
+  //                 padding: const EdgeInsetsDirectional.only(start: 20.0),
+  //                 decoration: BoxDecoration(
+  //                   color: Theme.of(context).colorScheme.background,
+  //                   borderRadius: BorderRadius.circular(10),
+  //                   border: Border.all(
+  //                     color: Theme.of(context)
+  //                         .colorScheme
+  //                         .onBackground
+  //                         .withOpacity(0.5),
+  //                   ),
+  //                 ),
+  //                 width: boxConstraints.maxWidth * (0.475),
+  //                 height: 50,
+  //                 child: Text(
+  //                   dueDate == null
+  //                       ? UiUtils.getTranslatedLabel(context, dueDateKey)
+  //                       : DateFormat('dd-MM-yyyy').format(dueDate!).toString(),
+  //                   style: TextStyle(
+  //                     color: hintTextColor,
+  //                     fontSize: UiUtils.textFieldFontSize,
+  //                   ),
+  //                 ),
+  //               ),
+  //             ),
+  //             const Spacer(),
+  //             InkWell(
+  //               onTap: () {
+  //                 openTimePicker();
+  //               },
+  //               borderRadius: BorderRadius.circular(10),
+  //               child: Container(
+  //                 alignment: AlignmentDirectional.centerStart,
+  //                 padding: const EdgeInsetsDirectional.only(start: 20.0),
+  //                 decoration: BoxDecoration(
+  //                   color: Theme.of(context).colorScheme.background,
+  //                   borderRadius: BorderRadius.circular(10),
+  //                   border: Border.all(
+  //                     color: Theme.of(context)
+  //                         .colorScheme
+  //                         .onBackground
+  //                         .withOpacity(0.5),
+  //                   ),
+  //                 ),
+  //                 width: boxConstraints.maxWidth * (0.475),
+  //                 height: 50,
+  //                 child: Text(
+  //                   dueTime == null
+  //                       ? UiUtils.getTranslatedLabel(context, dueTimeKey)
+  //                       : "${dueTime!.hour}:${dueTime!.minute}",
+  //                   style: TextStyle(
+  //                     color: hintTextColor,
+  //                     fontSize: UiUtils.textFieldFontSize,
+  //                   ),
+  //                 ),
+  //               ),
+  //             ),
+  //           ],
+  //         );
+  //       },
+  //     ),
+  //   );
+  // }
+  //
+  // Widget _buildReSubmissionOfRejectedAssignmentToggleContainer() {
+  //   return Padding(
+  //     padding: EdgeInsets.only(bottom: _textFieldBottomPadding),
+  //     child: LayoutBuilder(
+  //       builder: (context, boxConstraints) {
+  //         return Container(
+  //           height: 70,
+  //           padding: const EdgeInsets.symmetric(horizontal: 20),
+  //           decoration: BoxDecoration(
+  //             color: Theme.of(context).colorScheme.background,
+  //             borderRadius: BorderRadius.circular(10),
+  //             border: Border.all(
+  //               color:
+  //                   Theme.of(context).colorScheme.onBackground.withOpacity(0.5),
+  //             ),
+  //           ),
+  //           child: Row(
+  //             children: [
+  //               Flexible(
+  //                 child: SizedBox(
+  //                   width: boxConstraints.maxWidth * (0.85),
+  //                   child: Text(
+  //                     UiUtils.getTranslatedLabel(
+  //                       context,
+  //                       resubmissionOfRejectedAssignmentKey,
+  //                     ),
+  //                     style: TextStyle(
+  //                       color: hintTextColor,
+  //                       fontSize: UiUtils.textFieldFontSize,
+  //                     ),
+  //                   ),
+  //                 ),
+  //               ),
+  //               SizedBox(
+  //                 width: boxConstraints.maxWidth * (0.075),
+  //               ),
+  //               Container(
+  //                 alignment: Alignment.centerRight,
+  //                 width: boxConstraints.maxWidth * (0.1),
+  //                 child: CustomCupertinoSwitch(
+  //                   onChanged: changeAllowedReSubmissionOfRejectedAssignment,
+  //                   value: _allowedReSubmissionOfRejectedAssignment,
+  //                 ),
+  //               )
+  //             ],
+  //           ),
+  //         );
+  //       },
+  //     ),
+  //   );
+  // }
 
   Widget _buildAssignmentDetailsFormContaienr() {
     return SingleChildScrollView(

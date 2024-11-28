@@ -2,7 +2,7 @@
 
 import 'package:eschool_teacher/app/models/appLanguage.dart';
 
-const String defaultLanguageCode = "en";
+const String defaultLanguageCode = "ar";
 
 //Add language code in this list
 //visit this to find languageCode for your respective language
