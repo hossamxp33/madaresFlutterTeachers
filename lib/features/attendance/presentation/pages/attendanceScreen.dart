@@ -48,12 +48,14 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
   late List<Map<int, bool>> _listOfAttendance = [];
 
   late DateTime _selectedAttendanceDate = DateTime.now();
-
   @override
   void initState() {
     super.initState();
     Future.delayed(Duration.zero, () {
       fetchClassAttendanceReports();
+    });
+    widget.students.forEach((e) {
+      _listOfAttendance.add({e.id: true});
     });
   }
 

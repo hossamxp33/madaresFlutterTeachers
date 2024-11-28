@@ -88,31 +88,36 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
   bool isRecording = false, isPlaying = false;
 
   Future<void> recordVoice() async {
-    if (isRecording) {
-      String? filePath = await audioRecorder.stop();
-      if (filePath != null) {
-        print("file path $filePath");
-        await prepareRecordFile(filePath);
-
-        setState(() {
-          isRecording = false;
-          recordingPath = filePath;
-        });
-      }
+    var status = await Permission.storage.status;
+    if (!status.isGranted) {
+      await Permission.storage.request();
     } else {
-      if (await audioRecorder.hasPermission()) {
-        final Directory appDocumentsDir =
-            Directory("/storage/emulated/0/Download/");
-        final String filePath = p.join(appDocumentsDir.path,
-            "${currentSelectedClassSection.title}assignment.wav");
-        await audioRecorder.start(
-          const RecordConfig(),
-          path: filePath,
-        );
-        setState(() {
-          isRecording = true;
-          recordingPath = null;
-        });
+      if (isRecording) {
+        String? filePath = await audioRecorder.stop();
+        if (filePath != null) {
+          print("file path $filePath");
+          await prepareRecordFile(filePath);
+
+          setState(() {
+            isRecording = false;
+            recordingPath = filePath;
+          });
+        }
+      } else {
+        if (await audioRecorder.hasPermission()) {
+          final Directory appDocumentsDir =
+              Directory("/storage/emulated/0/Download/");
+          final String filePath = p.join(appDocumentsDir.path,
+              "${currentSelectedClassSection.title}assignment.wav");
+          await audioRecorder.start(
+            const RecordConfig(),
+            path: filePath,
+          );
+          setState(() {
+            isRecording = true;
+            recordingPath = null;
+          });
+        }
       }
     }
   }
