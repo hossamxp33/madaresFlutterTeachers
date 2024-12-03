@@ -25,6 +25,10 @@ class SubmitClassAttendanceCubit extends Cubit<SubmitClassAttendanceState> {
       {required DateTime dateTime,
       required int classSectionId,
       required List<Map<int, bool>> attendanceReport,}) async {
+
+    print("attendanceReport =>  $attendanceReport");
+
+
     emit(SubmitClassAttendanceInProgress());
     try {
       await _teacherRepository.submitClassAttendance(

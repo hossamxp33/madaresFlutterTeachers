@@ -54,9 +54,12 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
     Future.delayed(Duration.zero, () {
       fetchClassAttendanceReports();
     });
-    widget.students.forEach((e) {
-      _listOfAttendance.add({e.id: true});
-    });
+    print("============");
+    print( widget.students.length);
+    print("============");
+    // widget.students.forEach((e) {
+    //   _listOfAttendance.add({e.id: true});
+    // });
   }
 
   void fetchClassAttendanceReports() {
