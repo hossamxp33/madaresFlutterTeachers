@@ -1,0 +1,8 @@
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  min_sdk_android: 23
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/new_school.jpeg"
+  image_path: "assets/new_school.jpeg"
