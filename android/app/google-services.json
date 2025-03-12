@@ -45,6 +45,44 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:93520308007:android:f248a3871b07d3a44d6b02",
+        "android_client_info": {
+          "package_name": "com.codes_roots.madares_student.th"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhdukxnXrTD4GfG6jYmCn4aS9tk0m7jRE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93520308007:android:4ca512156ac553664d6b02",
+        "android_client_info": {
+          "package_name": "com.madares.teacher.altuwaysh"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhdukxnXrTD4GfG6jYmCn4aS9tk0m7jRE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:93520308007:android:8ee37224128d1e454d6b02",
         "android_client_info": {
           "package_name": "com.madares.teacher.fi"

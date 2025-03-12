@@ -240,7 +240,9 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
         await FilePicker.platform.pickFiles(allowMultiple: true);
 
     if (result != null) {
-      uploadedFiles.add(result.files.first);
+
+
+      uploadedFiles.addAll(result.files);
       setState(() {});
     }
   }
@@ -615,7 +617,6 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
             textInputFormatter: [FilteringTextInputFormatter.digitsOnly],
           ),
 
-
           Padding(
             padding: EdgeInsets.only(bottom: _textFieldBottomPadding),
             child: BottomsheetAddFilesDottedBorderContainer(
@@ -627,7 +628,6 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
               title: UiUtils.getTranslatedLabel(context, referenceMaterialsKey),
             ),
           ),
-
           ...List.generate(uploadedFiles.length, (index) => index)
               .map((fileIndex) => _buildUploadedFileContainer(fileIndex))
               .toList(),

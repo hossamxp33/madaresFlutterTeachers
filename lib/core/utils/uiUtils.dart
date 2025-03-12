@@ -14,11 +14,12 @@ import 'package:madares_app_teacher/core/utils/sharedWidgets/downloadFileBottoms
 import 'package:madares_app_teacher/core/utils/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:open_filex/open_filex.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 // ignore: depend_on_referenced_packages
 import 'package:intl/intl.dart' as intl;
 import 'package:url_launcher/url_launcher.dart';
+
+import 'open_file.dart';
 
 // ignore: avoid_classes_with_only_static_members
 class UiUtils {
@@ -362,7 +363,8 @@ class UiUtils {
           );
         } else {
           try {
-            OpenFilex.open(result['filePath'].toString());
+            openMyFile(result['filePath'].toString(), context);
+
           } catch (e) {
             showBottomToastOverlay(
               context: context,

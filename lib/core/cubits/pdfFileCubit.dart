@@ -4,7 +4,6 @@ import 'package:dio/dio.dart';
 import 'package:madares_app_teacher/core/models/studyMaterial.dart';
 import 'package:madares_app_teacher/core/repositories/studyMaterialRepositoy.dart';
 import 'package:madares_app_teacher/core/utils/errorMessageKeysAndCodes.dart';
-import 'package:external_path/external_path.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 // ignore: depend_on_referenced_packages
@@ -87,9 +86,8 @@ class PdfFileSaveCubit extends Cubit<PdfFileSaveState> {
 
           //download file
           String pdfFilePath = Platform.isAndroid && isPermissionGranted
-              ? (await ExternalPath.getExternalStoragePublicDirectory(
-                  ExternalPath.DIRECTORY_DOWNLOADS,
-                ))
+              ? await getDownloadsDirectory().then(
+                  (value) => value!.path,)
               : (await getApplicationDocumentsDirectory()).path;
 
           pdfFilePath =
