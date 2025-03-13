@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "com.madares.teacher.app-merged_res-79:/drawable-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.madares.teacher.app-school3-82:/drawable-xhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.madares.teacher.app-merged_res-79:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.madares.teacher.app-school3-82:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.madares.teacher.app-merged_res-79:/drawable-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.madares.teacher.app-school3-82:/drawable-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.madares.teacher.app-merged_res-79:/drawable-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.madares.teacher.app-school3-82:/drawable-xxxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.madares.teacher.app-merged_res-79:/drawable-v21_launch_background.xml.flat",
+        "source": "com.madares.teacher.app-main-81:/drawable-v21/launch_background.xml"
+    },
+    {
+        "merged": "com.madares.teacher.app-merged_res-79:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.madares.teacher.app-school3-82:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.madares.teacher.app-merged_res-79:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.madares.teacher.app-school3-82:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.madares.teacher.app-merged_res-79:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.madares.teacher.app-school3-82:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.madares.teacher.app-merged_res-79:/drawable-hdpi_ic_launcher_foreground.png.flat",
+        "source": "com.madares.teacher.app-school3-82:/drawable-hdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.madares.teacher.app-merged_res-79:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.madares.teacher.app-school3-82:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.madares.teacher.app-merged_res-79:/drawable-mdpi_ic_launcher_foreground.png.flat",
+        "source": "com.madares.teacher.app-school3-82:/drawable-mdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.madares.teacher.app-merged_res-79:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.madares.teacher.app-school3-82:/mipmap-xhdpi/ic_launcher.png"
+    }
+]

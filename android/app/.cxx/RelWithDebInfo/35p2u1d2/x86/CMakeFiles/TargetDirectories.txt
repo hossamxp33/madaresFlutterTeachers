@@ -1,0 +1,2 @@
+/Users/mohamedmarei/StudioProjects/madares_app_teacher/android/app/.cxx/RelWithDebInfo/35p2u1d2/x86/CMakeFiles/edit_cache.dir
+/Users/mohamedmarei/StudioProjects/madares_app_teacher/android/app/.cxx/RelWithDebInfo/35p2u1d2/x86/CMakeFiles/rebuild_cache.dir
