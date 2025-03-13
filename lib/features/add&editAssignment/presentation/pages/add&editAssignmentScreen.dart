@@ -628,6 +628,7 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
               title: UiUtils.getTranslatedLabel(context, referenceMaterialsKey),
             ),
           ),
+
           ...List.generate(uploadedFiles.length, (index) => index)
               .map((fileIndex) => _buildUploadedFileContainer(fileIndex))
               .toList(),
