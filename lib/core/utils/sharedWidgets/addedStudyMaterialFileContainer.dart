@@ -1,10 +1,19 @@
 
+<<<<<<< HEAD
 import 'package:eschool_teacher/core/models/pickedStudyMaterial.dart';
 import 'package:eschool_teacher/core/utils/labelKeys.dart';
 import 'package:eschool_teacher/core/utils/sharedWidgets/addStudyMaterialBottomSheet.dart';
 import 'package:eschool_teacher/core/utils/sharedWidgets/deleteButton.dart';
 import 'package:eschool_teacher/core/utils/sharedWidgets/editButton.dart';
 import 'package:eschool_teacher/core/utils/uiUtils.dart';
+=======
+import 'package:madares_app_teacher/core/models/pickedStudyMaterial.dart';
+import 'package:madares_app_teacher/core/utils/labelKeys.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/addStudyMaterialBottomSheet.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/deleteButton.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/editButton.dart';
+import 'package:madares_app_teacher/core/utils/uiUtils.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/material.dart';
 
 class AddedStudyMaterialContainer extends StatelessWidget {

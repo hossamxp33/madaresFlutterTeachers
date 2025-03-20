@@ -1,4 +1,5 @@
 import 'package:dotted_border/dotted_border.dart';
+<<<<<<< HEAD
 import 'package:eschool_teacher/core/cubits/updateStudyMaterialCubit.dart';
 import 'package:eschool_teacher/core/models/pickedStudyMaterial.dart';
 import 'package:eschool_teacher/core/models/studyMaterial.dart';
@@ -10,6 +11,19 @@ import 'package:eschool_teacher/core/utils/sharedWidgets/customCircularProgressI
 import 'package:eschool_teacher/core/utils/sharedWidgets/customRoundedButton.dart';
 import 'package:eschool_teacher/core/utils/sharedWidgets/defaultDropDownLabelContainer.dart';
 import 'package:eschool_teacher/core/utils/uiUtils.dart';
+=======
+import 'package:madares_app_teacher/core/cubits/updateStudyMaterialCubit.dart';
+import 'package:madares_app_teacher/core/models/pickedStudyMaterial.dart';
+import 'package:madares_app_teacher/core/models/studyMaterial.dart';
+import 'package:madares_app_teacher/core/utils/labelKeys.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/bottomSheetTextFiledContainer.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/bottomSheetTopBarMenu.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/bottomsheetAddFilesDottedBorderContainer.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/customCircularProgressIndicator.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/customRoundedButton.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/defaultDropDownLabelContainer.dart';
+import 'package:madares_app_teacher/core/utils/uiUtils.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';

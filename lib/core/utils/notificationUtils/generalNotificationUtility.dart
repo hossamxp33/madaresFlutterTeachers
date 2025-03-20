@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:awesome_notifications/awesome_notifications.dart';
+<<<<<<< HEAD
 import 'package:eschool_teacher/app/routes.dart';
 import 'package:eschool_teacher/core/repositories/settingsRepository.dart';
 import 'package:eschool_teacher/core/utils/constants.dart';
@@ -11,6 +12,16 @@ import 'package:eschool_teacher/core/utils/uiUtils.dart';
 import 'package:eschool_teacher/features/chat/data/models/chatNotificationData.dart';
 import 'package:eschool_teacher/features/chat/data/models/chatUser.dart';
 import 'package:eschool_teacher/features/home/presentation/pages/homeScreen.dart';
+=======
+import 'package:madares_app_teacher/app/routes.dart';
+import 'package:madares_app_teacher/core/repositories/settingsRepository.dart';
+import 'package:madares_app_teacher/core/utils/constants.dart';
+import 'package:madares_app_teacher/core/utils/notificationUtils/chatNotificationsUtils.dart';
+import 'package:madares_app_teacher/core/utils/uiUtils.dart';
+import 'package:madares_app_teacher/features/chat/data/models/chatNotificationData.dart';
+import 'package:madares_app_teacher/features/chat/data/models/chatUser.dart';
+import 'package:madares_app_teacher/features/home/presentation/pages/homeScreen.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';

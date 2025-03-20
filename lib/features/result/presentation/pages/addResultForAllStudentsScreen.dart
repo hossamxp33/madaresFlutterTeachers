@@ -326,7 +326,11 @@ class _AddResultForAllStudentsState extends State<AddResultForAllStudents> {
 
   TextStyle _getResultTitleTextStyle() {
     return TextStyle(
+<<<<<<< HEAD
       color: Theme.of(context).colorScheme.onBackground,
+=======
+      color: Theme.of(context).colorScheme.secondary,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
       fontWeight: FontWeight.w600,
       fontSize: 12.0,
     );
@@ -408,7 +412,11 @@ class _AddResultForAllStudentsState extends State<AddResultForAllStudents> {
                 context,
                 marksAddedSuccessfullyKey,
               ),
+<<<<<<< HEAD
               backgroundColor: Theme.of(context).colorScheme.onPrimary,
+=======
+              backgroundColor: Theme.of(context).colorScheme.primary,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
             );
           } else {
             UiUtils.showBottomToastOverlay(

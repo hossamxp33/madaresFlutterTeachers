@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:eschool_teacher/core/utils/api.dart';
 import 'package:eschool_teacher/features/attendance/data/models/attendanceReport.dart';
 import 'package:eschool_teacher/features/class/data/models/classSectionDetails.dart';
@@ -5,6 +6,15 @@ import 'package:eschool_teacher/features/exam/data/models/timeTableSlot.dart';
 import 'package:eschool_teacher/features/holidays/data/models/holiday.dart';
 import 'package:eschool_teacher/features/notifications/data/models/customNotification.dart';
 import 'package:eschool_teacher/features/subject/data/models/subject.dart';
+=======
+import 'package:madares_app_teacher/core/utils/api.dart';
+import 'package:madares_app_teacher/features/attendance/data/models/attendanceReport.dart';
+import 'package:madares_app_teacher/features/class/data/models/classSectionDetails.dart';
+import 'package:madares_app_teacher/features/exam/data/models/timeTableSlot.dart';
+import 'package:madares_app_teacher/features/holidays/data/models/holiday.dart';
+import 'package:madares_app_teacher/features/notifications/data/models/customNotification.dart';
+import 'package:madares_app_teacher/features/subject/data/models/subject.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/foundation.dart';
 
 class TeacherRepository {

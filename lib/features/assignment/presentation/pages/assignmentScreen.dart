@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:eschool_teacher/features/assignment/data/models/assignment.dart';
 import 'package:eschool_teacher/features/assignment/data/repositories/reviewAssignmentRepository.dart';
 import 'package:eschool_teacher/features/assignment/presentation/manager/editreviewassignmetcubit.dart';
@@ -5,6 +6,15 @@ import 'package:eschool_teacher/features/assignment/presentation/manager/reviewa
 import 'package:eschool_teacher/features/assignment/presentation/widgets/acceptAssignmentBottomsheetContainer.dart';
 import 'package:eschool_teacher/features/assignment/presentation/widgets/rejectAssignmentBottomsheetContainer.dart';
 import 'package:eschool_teacher/features/assignments/data/models/reviewAssignmentssubmition.dart';
+=======
+import 'package:madares_app_teacher/features/assignment/data/models/assignment.dart';
+import 'package:madares_app_teacher/features/assignment/data/repositories/reviewAssignmentRepository.dart';
+import 'package:madares_app_teacher/features/assignment/presentation/manager/editreviewassignmetcubit.dart';
+import 'package:madares_app_teacher/features/assignment/presentation/manager/reviewassignmentcubit.dart';
+import 'package:madares_app_teacher/features/assignment/presentation/widgets/acceptAssignmentBottomsheetContainer.dart';
+import 'package:madares_app_teacher/features/assignment/presentation/widgets/rejectAssignmentBottomsheetContainer.dart';
+import 'package:madares_app_teacher/features/assignments/data/models/reviewAssignmentssubmition.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -470,8 +480,13 @@ class _AssignmentScreenState extends State<AssignmentScreen> {
                               },
                               child: Text(
                                 "${reviewAssignment.file.length} ${UiUtils.getTranslatedLabel(context, attachmentsKey)}",
+<<<<<<< HEAD
                                 style: const TextStyle(
                                     color: assignmentViewButtonColor),
+=======
+                                style:  TextStyle(
+                                    color: Theme.of(context).colorScheme.secondary),
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                               ),
                             ),
                           ],
@@ -499,8 +514,13 @@ class _AssignmentScreenState extends State<AssignmentScreen> {
                               },
                               child: Text(
                                 "${reviewAssignment.file.length} ${UiUtils.getTranslatedLabel(context, attachmentsKey)}",
+<<<<<<< HEAD
                                 style: const TextStyle(
                                   color: assignmentViewButtonColor,
+=======
+                                style:  TextStyle(
+                                  color: Theme.of(context).colorScheme.secondary,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                                 ),
                               ),
                             ),
@@ -574,8 +594,13 @@ class _AssignmentScreenState extends State<AssignmentScreen> {
                               },
                               child: Text(
                                 "${reviewAssignment.file.length} ${UiUtils.getTranslatedLabel(context, attachmentsKey)}",
+<<<<<<< HEAD
                                 style: const TextStyle(
                                     color: assignmentViewButtonColor),
+=======
+                                style:  TextStyle(
+                                    color: Theme.of(context).colorScheme.secondary),
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                               ),
                             ),
                           ],

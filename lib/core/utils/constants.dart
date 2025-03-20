@@ -1,6 +1,10 @@
 //database urls
 //Please add your admin panel url here and make sure you do not add '/' at the end of the url
+<<<<<<< HEAD
 import 'package:eschool_teacher/core/utils/labelKeys.dart';
+=======
+import 'package:madares_app_teacher/core/utils/labelKeys.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
 const String baseUrl =
     "https://madaresapp.codesroots.com"; //https://eschool.wrteam.me // newUrl: https://madaresapp.codesroots.com

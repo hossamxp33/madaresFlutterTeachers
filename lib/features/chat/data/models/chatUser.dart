@@ -1,7 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+<<<<<<< HEAD
 import 'package:eschool_teacher/features/chat/data/models/chatMessage.dart';
+=======
+import 'package:madares_app_teacher/features/chat/data/models/chatMessage.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
 
 class ChatUser {

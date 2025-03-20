@@ -44,6 +44,7 @@ class _CustomSearchTextFieldState extends State<CustomSearchTextField> {
           fillColor: Theme.of(context).scaffoldBackgroundColor,
           filled: true,
           contentPadding: const EdgeInsets.all(5),
+<<<<<<< HEAD
           prefixIcon: const Icon(
             Icons.search,
             color: primaryColor,
@@ -52,6 +53,16 @@ class _CustomSearchTextFieldState extends State<CustomSearchTextField> {
             icon: const Icon(
               Icons.clear,
               color: primaryColor,
+=======
+          prefixIcon:  Icon(
+            Icons.search,
+            color: Theme.of(context).colorScheme.primary,
+          ),
+          suffixIcon: IconButton(
+            icon:  Icon(
+              Icons.clear,
+              color: Theme.of(context).colorScheme.primary,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
             ),
             onPressed: () {
               if (_debounce?.isActive ?? false) _debounce?.cancel();
@@ -65,8 +76,13 @@ class _CustomSearchTextFieldState extends State<CustomSearchTextField> {
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(25.0),
+<<<<<<< HEAD
             borderSide: const BorderSide(
               color: redColor,
+=======
+            borderSide:  BorderSide(
+              color: Theme.of(context).colorScheme.error,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
             ),
           ),
           errorStyle: TextStyle(

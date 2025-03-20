@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import 'package:eschool_teacher/app/routes.dart';
+=======
+import 'package:madares_app_teacher/app/routes.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -238,8 +242,13 @@ class TopicsContainer extends StatelessWidget {
                                   },
                                   child: Text(
                                     "${topic.studyMaterials.length} ${UiUtils.getTranslatedLabel(context, attachmentsKey)}",
+<<<<<<< HEAD
                                     style: const TextStyle(
                                       color: assignmentViewButtonColor,
+=======
+                                    style:  TextStyle(
+                                      color: Theme.of(context).colorScheme.primary,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                                     ),
                                   ),
                                 ),

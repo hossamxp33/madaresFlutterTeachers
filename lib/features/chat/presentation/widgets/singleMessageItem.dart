@@ -1,4 +1,5 @@
 import 'package:any_link_preview/any_link_preview.dart';
+<<<<<<< HEAD
 import 'package:eschool_teacher/app/routes.dart';
 import 'package:eschool_teacher/core/models/studyMaterial.dart';
 import 'package:eschool_teacher/core/utils/labelKeys.dart';
@@ -7,6 +8,16 @@ import 'package:eschool_teacher/core/utils/sharedWidgets/customCircularProgressI
 import 'package:eschool_teacher/core/utils/uiUtils.dart';
 import 'package:eschool_teacher/features/chat/data/models/chatMessage.dart';
 import 'package:eschool_teacher/features/chat/presentation/widgets/messageItemComponents.dart';
+=======
+import 'package:madares_app_teacher/app/routes.dart';
+import 'package:madares_app_teacher/core/models/studyMaterial.dart';
+import 'package:madares_app_teacher/core/utils/labelKeys.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/commonImageWidget.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/customCircularProgressIndicator.dart';
+import 'package:madares_app_teacher/core/utils/uiUtils.dart';
+import 'package:madares_app_teacher/features/chat/data/models/chatMessage.dart';
+import 'package:madares_app_teacher/features/chat/presentation/widgets/messageItemComponents.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -38,8 +49,11 @@ class SingleChatMessageItem extends StatefulWidget {
 class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
   final double _messageItemBorderRadius = 12;
 
+<<<<<<< HEAD
   final Color _sentMessageBackgroundColor = secondaryColor;
   final Color _receivedMessageBackgroundColor = primaryColor;
+=======
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
   final ValueNotifier _linkAddNotifier = ValueNotifier("");
 
@@ -53,6 +67,10 @@ class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
       {required BuildContext context,
       required BoxConstraints constraints,
       required ChatMessage textMessage}) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     return Row(
       mainAxisAlignment: textMessage.senderId != widget.currentUserId
           ? MainAxisAlignment.end
@@ -64,7 +82,11 @@ class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
           TriangleContainer(
             isFlipped: Directionality.of(context) == TextDirection.rtl,
             size: const Size(10, 10),
+<<<<<<< HEAD
             color: _receivedMessageBackgroundColor,
+=======
+            color: Theme.of(context).colorScheme.primary,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
           ),
         Flexible(
           child: Container(
@@ -75,8 +97,13 @@ class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: textMessage.senderId != widget.currentUserId
+<<<<<<< HEAD
                   ? _sentMessageBackgroundColor.withOpacity(0.05)
                   : _receivedMessageBackgroundColor,
+=======
+                  ? Theme.of(context).colorScheme.tertiary.withOpacity(0.05)
+                  : Theme.of(context).colorScheme.primary,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
               borderRadius: BorderRadiusDirectional.only(
                 topEnd: textMessage.senderId != widget.currentUserId
                     ? Radius.zero
@@ -141,7 +168,11 @@ class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
                           style: TextStyle(
                             decoration: TextDecoration.underline,
                             color: textMessage.senderId != widget.currentUserId
+<<<<<<< HEAD
                                 ? primaryColor
+=======
+                                ? Theme.of(context).colorScheme.primary
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                                 : Colors.black,
                           ),
                         );
@@ -189,7 +220,11 @@ class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
           TriangleContainer(
             isFlipped: !(Directionality.of(context) == TextDirection.rtl),
             size: const Size(10, 10),
+<<<<<<< HEAD
             color: _sentMessageBackgroundColor.withOpacity(0.05),
+=======
+            color: Theme.of(context).colorScheme.tertiary.withOpacity(0.05),
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
           ),
       ],
     );
@@ -215,7 +250,11 @@ class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
                 ),
                 style: TextStyle(
                   fontSize: 12,
+<<<<<<< HEAD
                   color: secondaryColor.withOpacity(0.4),
+=======
+                  color: Theme.of(context).colorScheme.secondary.withOpacity(0.4),
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                 ),
               ),
             ),
@@ -252,13 +291,21 @@ class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
                 ? AlignmentDirectional.centerEnd
                 : AlignmentDirectional.centerStart,
             child: widget.isLoading
+<<<<<<< HEAD
                 ? const Padding(
+=======
+                ?  Padding(
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                     padding: EdgeInsets.all(5),
                     child: SizedBox(
                       height: 12,
                       width: 12,
                       child: CustomCircularProgressIndicator(
+<<<<<<< HEAD
                         indicatorColor: primaryColor,
+=======
+                        indicatorColor: Theme.of(context).colorScheme.primary,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                       ),
                     ),
                   )
@@ -270,10 +317,17 @@ class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
+<<<<<<< HEAD
                             const Icon(
                               Icons.refresh,
                               size: 10,
                               color: redColor,
+=======
+                             Icon(
+                              Icons.refresh,
+                              size: 10,
+                              color: Theme.of(context).colorScheme.error,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                             ),
                             const SizedBox(
                               width: 2,
@@ -284,9 +338,15 @@ class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
                                     context, errorSendingMessageRetrykey),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
+<<<<<<< HEAD
                                 style: const TextStyle(
                                   fontSize: 10,
                                   color: redColor,
+=======
+                                style:  TextStyle(
+                                  fontSize: 10,
+                                  color: Theme.of(context).colorScheme.error,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                                 ),
                               ),
                             ),
@@ -419,7 +479,11 @@ class _SingleChatMessageItemState extends State<SingleChatMessageItem> {
                     bottomEnd: Radius.circular(_messageItemBorderRadius),
                     bottomStart: Radius.circular(_messageItemBorderRadius),
                   ),
+<<<<<<< HEAD
                   color: primaryColor,
+=======
+                  color: Theme.of(context).colorScheme.primary,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                 ),
                 clipBehavior: Clip.antiAlias,
                 child: SizedBox(

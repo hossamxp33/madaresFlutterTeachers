@@ -1,6 +1,11 @@
 import 'package:dio/dio.dart';
+<<<<<<< HEAD
 import 'package:eschool_teacher/core/models/studyMaterial.dart';
 import 'package:eschool_teacher/features/assignment/data/models/assignment.dart';
+=======
+import 'package:madares_app_teacher/core/models/studyMaterial.dart';
+import 'package:madares_app_teacher/features/assignment/data/models/assignment.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
@@ -126,7 +131,12 @@ class AssignmentRepository {
     required bool resubmission,
     // required int extraDayForResubmission,
     required List<PlatformFile>? filePaths,
+<<<<<<< HEAD
   }) async {
+=======
+  }) async
+  {
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     var datetime = DateTime.now();
     try {
       List<MultipartFile> files = [];

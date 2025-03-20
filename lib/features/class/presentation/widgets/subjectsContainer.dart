@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 import 'package:eschool_teacher/app/routes.dart';
 import 'package:eschool_teacher/core/utils/animationConfiguration.dart';
 import 'package:eschool_teacher/core/utils/sharedWidgets/errorContainer.dart';
 import 'package:eschool_teacher/features/class/data/models/classSectionDetails.dart';
 import 'package:eschool_teacher/features/class/presentation/widgets/subjectImageContainer.dart';
 import 'package:eschool_teacher/features/subject/data/models/subject.dart';
+=======
+import 'package:madares_app_teacher/app/routes.dart';
+import 'package:madares_app_teacher/core/utils/animationConfiguration.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/errorContainer.dart';
+import 'package:madares_app_teacher/features/class/data/models/classSectionDetails.dart';
+import 'package:madares_app_teacher/features/class/presentation/widgets/subjectImageContainer.dart';
+import 'package:madares_app_teacher/features/subject/data/models/subject.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

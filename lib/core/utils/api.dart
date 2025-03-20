@@ -1,8 +1,13 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+<<<<<<< HEAD
 import 'package:eschool_teacher/core/utils/errorMessageKeysAndCodes.dart';
 import 'package:eschool_teacher/core/utils/flavor_config.dart';
+=======
+import 'package:madares_app_teacher/core/utils/errorMessageKeysAndCodes.dart';
+import 'package:madares_app_teacher/core/utils/flavor_config.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -24,7 +29,10 @@ class ApiException implements Exception {
 // ignore: avoid_classes_with_only_static_members
 class Api {
   static Map<String, String> headers() {
+<<<<<<< HEAD
 
+=======
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     final String jwtToken = Hive.box(authBoxKey).get(jwtTokenKey) ?? "";
 
     print({
@@ -34,9 +42,15 @@ class Api {
     });
     return {
       "Authorization": "Bearer $jwtToken",
+<<<<<<< HEAD
       "Schoolid": "125",
       'Content-Type': 'application/json',
       "Accept":"application/json"
+=======
+      "Schoolid": FlavorConfig.getSchoolId().toString(),
+      'Content-Type': 'application/json',
+      "Accept": "application/json"
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     };
   }
 
@@ -120,7 +134,14 @@ class Api {
     Function(int, int)? onReceiveProgress,
   }) async {
     try {
+<<<<<<< HEAD
       final Dio dio = Dio();
+=======
+      final Dio dio = Dio(BaseOptions(
+        connectTimeout: Duration(seconds: 15), // Default 5 seconds
+        receiveTimeout: Duration(seconds: 15), // Default 3 seconds
+      ));
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
       final FormData formData =
           FormData.fromMap(body, ListFormat.multiCompatible);
       print("======");
@@ -134,8 +155,25 @@ class Api {
         cancelToken: cancelToken,
         onReceiveProgress: onReceiveProgress,
         onSendProgress: onSendProgress,
+<<<<<<< HEAD
         options: useAuthToken ? Options(headers: headers()) : null,
       );
+=======
+        options: Options(
+          headers: useAuthToken ? headers() : {
+            "Schoolid": FlavorConfig.getSchoolId().toString(),
+            'Content-Type': 'application/json',
+            "Accept": "application/json"
+          },
+          followRedirects: false,
+          validateStatus: (status) => status! < 500, // Allows proper handling of 302
+        ),
+      );
+      print("response");
+      print(response);
+      print("response");
+
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
       if (kDebugMode) {
         print("Response: ${response.data}");
       }
@@ -169,14 +207,24 @@ class Api {
   }) async {
     try {
       //
+<<<<<<< HEAD
       final Dio dio = Dio();
+=======
+      final Dio dio = Dio(BaseOptions(
+        connectTimeout: Duration(seconds: 15), // Default 5 seconds
+        receiveTimeout: Duration(seconds: 15), // Default 3 seconds
+      ));
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
       if (kDebugMode) {
         print("API Called GET: $url ");
         print("queryParameters: $queryParameters");
         print("headers: ${headers()}");
       }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
       final response = await dio.get(
         url,
         queryParameters: queryParameters,
@@ -215,7 +263,14 @@ class Api {
     required Function updateDownloadedPercentage,
   }) async {
     try {
+<<<<<<< HEAD
       final Dio dio = Dio();
+=======
+      final Dio dio = Dio(BaseOptions(
+        connectTimeout: Duration(seconds: 15), // Default 5 seconds
+        receiveTimeout: Duration(seconds: 15), // Default 3 seconds
+      ));
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
       await dio.download(
         url,
         savePath,

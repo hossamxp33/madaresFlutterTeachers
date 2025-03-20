@@ -1,7 +1,13 @@
 
+<<<<<<< HEAD
 import 'package:eschool_teacher/features/exam/data/models/exam.dart';
 import 'package:eschool_teacher/features/studentDetails/data/repositories/studentRepository.dart';
 import 'package:eschool_teacher/features/subject/data/models/subject.dart';
+=======
+import 'package:madares_app_teacher/features/exam/data/models/exam.dart';
+import 'package:madares_app_teacher/features/studentDetails/data/repositories/studentRepository.dart';
+import 'package:madares_app_teacher/features/subject/data/models/subject.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 

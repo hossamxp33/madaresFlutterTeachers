@@ -13,8 +13,12 @@ linter:
   # The lint rules applied to this project can be customized in the
   # section below to disable rules from the `package:flutter_lints/flutter.yaml`
   # included above or to enable additional rules. A list of all available lints
+<<<<<<< HEAD
   # and their documentation is published at
   # https://dart-lang.github.io/linter/lints/index.html.
+=======
+  # and their documentation is published at https://dart.dev/lints.
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
   #
   # Instead of disabling a lint rule for the entire project in the
   # section below, it can also be suppressed for a single line of code
@@ -22,6 +26,7 @@ linter:
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
   rules:
+<<<<<<< HEAD
     # - always_declare_return_types
     # - always_require_non_null_named_parameters
     # - annotate_overrides
@@ -160,6 +165,8 @@ linter:
     # - use_test_throws_matchers
     # - valid_regexps
     # - void_checks
+=======
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     # avoid_print: false  # Uncomment to disable the `avoid_print` rule
     # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
 

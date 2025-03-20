@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:eschool_teacher/features/announcements/data/models/announcement.dart';
 import 'package:eschool_teacher/features/announcements/data/repositories/announcementRepository.dart';
 import 'package:eschool_teacher/features/announcements/presentation/manager/createAnnouncementCubit.dart';
@@ -7,6 +8,17 @@ import 'package:eschool_teacher/features/class/presentation/manager/myClassesCub
 import 'package:eschool_teacher/features/class/presentation/widgets/myClassesDropDownMenu.dart';
 import 'package:eschool_teacher/features/subject/data/models/subject.dart';
 import 'package:eschool_teacher/features/subject/presentation/manager/subjectsOfClassSectionCubit.dart';
+=======
+import 'package:madares_app_teacher/features/announcements/data/models/announcement.dart';
+import 'package:madares_app_teacher/features/announcements/data/repositories/announcementRepository.dart';
+import 'package:madares_app_teacher/features/announcements/presentation/manager/createAnnouncementCubit.dart';
+import 'package:madares_app_teacher/features/announcements/presentation/manager/editAnnouncementCubit.dart';
+import 'package:madares_app_teacher/features/class/data/models/classSectionDetails.dart';
+import 'package:madares_app_teacher/features/class/presentation/manager/myClassesCubit.dart';
+import 'package:madares_app_teacher/features/class/presentation/widgets/myClassesDropDownMenu.dart';
+import 'package:madares_app_teacher/features/subject/data/models/subject.dart';
+import 'package:madares_app_teacher/features/subject/presentation/manager/subjectsOfClassSectionCubit.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

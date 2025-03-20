@@ -1,10 +1,19 @@
 
+<<<<<<< HEAD
 import 'package:eschool_teacher/core/utils/labelKeys.dart';
 import 'package:eschool_teacher/core/utils/sharedWidgets/customBackButton.dart';
 import 'package:eschool_teacher/core/utils/sharedWidgets/customUserProfileImageWidget.dart';
 import 'package:eschool_teacher/core/utils/sharedWidgets/screenTopBackgroundContainer.dart';
 import 'package:eschool_teacher/core/utils/uiUtils.dart';
 import 'package:eschool_teacher/features/chat/data/models/chatUser.dart';
+=======
+import 'package:madares_app_teacher/core/utils/labelKeys.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/customBackButton.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/customUserProfileImageWidget.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/screenTopBackgroundContainer.dart';
+import 'package:madares_app_teacher/core/utils/uiUtils.dart';
+import 'package:madares_app_teacher/features/chat/data/models/chatUser.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

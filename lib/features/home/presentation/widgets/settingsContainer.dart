@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import 'package:eschool_teacher/app/manager/appConfigurationCubit.dart';
 import 'package:eschool_teacher/app/routes.dart';
+=======
+import 'package:madares_app_teacher/app/manager/appConfigurationCubit.dart';
+import 'package:madares_app_teacher/app/routes.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';

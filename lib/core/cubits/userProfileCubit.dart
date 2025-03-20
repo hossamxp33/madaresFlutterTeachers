@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
 import 'package:eschool_teacher/core/models/teacher.dart';
 import 'package:eschool_teacher/features/login/data/repositories/authRepository.dart';
+=======
+import 'package:madares_app_teacher/core/models/teacher.dart';
+import 'package:madares_app_teacher/features/login/data/repositories/authRepository.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 abstract class UserProfileState {}

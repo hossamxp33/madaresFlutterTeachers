@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:eschool_teacher/app/routes.dart';
 import 'package:eschool_teacher/core/repositories/teacherRepository.dart';
 import 'package:eschool_teacher/core/utils/labelKeys.dart';
@@ -14,6 +15,24 @@ import 'package:eschool_teacher/features/lessons/presentation/manager/lessonsCub
 import 'package:eschool_teacher/features/lessons/presentation/widgets/lessonsContainer.dart';
 import 'package:eschool_teacher/features/subject/data/models/subject.dart';
 import 'package:eschool_teacher/features/subject/presentation/manager/subjectsOfClassSectionCubit.dart';
+=======
+import 'package:madares_app_teacher/app/routes.dart';
+import 'package:madares_app_teacher/core/repositories/teacherRepository.dart';
+import 'package:madares_app_teacher/core/utils/labelKeys.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/classSubjectsDropDownMenu.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/customAppbar.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/customDropDownMenu.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/customFloatingActionButton.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/customRefreshIndicator.dart';
+import 'package:madares_app_teacher/core/utils/uiUtils.dart';
+import 'package:madares_app_teacher/features/class/presentation/manager/myClassesCubit.dart';
+import 'package:madares_app_teacher/features/class/presentation/widgets/myClassesDropDownMenu.dart';
+import 'package:madares_app_teacher/features/lessons/data/repositories/lessonRepository.dart';
+import 'package:madares_app_teacher/features/lessons/presentation/manager/lessonsCubit.dart';
+import 'package:madares_app_teacher/features/lessons/presentation/widgets/lessonsContainer.dart';
+import 'package:madares_app_teacher/features/subject/data/models/subject.dart';
+import 'package:madares_app_teacher/features/subject/presentation/manager/subjectsOfClassSectionCubit.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

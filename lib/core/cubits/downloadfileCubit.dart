@@ -1,11 +1,19 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+<<<<<<< HEAD
 import 'package:eschool_teacher/core/models/studyMaterial.dart';
 import 'package:eschool_teacher/core/repositories/studyMaterialRepositoy.dart';
 import 'package:eschool_teacher/core/utils/errorMessageKeysAndCodes.dart';
 
 import 'package:external_path/external_path.dart';
+=======
+import 'package:madares_app_teacher/core/models/studyMaterial.dart';
+import 'package:madares_app_teacher/core/repositories/studyMaterialRepositoy.dart';
+import 'package:madares_app_teacher/core/utils/errorMessageKeysAndCodes.dart';
+
+//import 'package:external_path/external_path.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // ignore: depend_on_referenced_packages
@@ -91,9 +99,14 @@ class DownloadFileCubit extends Cubit<DownloadFileState> {
 
         //download file
         String downloadFilePath = Platform.isAndroid && isPermissionGranted
+<<<<<<< HEAD
             ? (await ExternalPath.getExternalStoragePublicDirectory(
                 ExternalPath.DIRECTORY_DOWNLOADS,
               ))
+=======
+            ? await getDownloadsDirectory().then(
+              (value) => value!.path,)
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
             : (await getApplicationDocumentsDirectory()).path;
 
         downloadFilePath =

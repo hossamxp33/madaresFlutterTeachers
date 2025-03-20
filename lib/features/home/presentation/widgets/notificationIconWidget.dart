@@ -1,9 +1,16 @@
 import 'dart:developer';
 
+<<<<<<< HEAD
 import 'package:eschool_teacher/app/routes.dart';
 import 'package:eschool_teacher/core/utils/styles/colors.dart';
 import 'package:eschool_teacher/features/home/presentation/pages/homeScreen.dart';
 import 'package:eschool_teacher/features/notifications/presentation/manager/notificationCubit.dart';
+=======
+import 'package:madares_app_teacher/app/routes.dart';
+import 'package:madares_app_teacher/core/utils/styles/colors.dart';
+import 'package:madares_app_teacher/features/home/presentation/pages/homeScreen.dart';
+import 'package:madares_app_teacher/features/notifications/presentation/manager/notificationCubit.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -32,7 +39,10 @@ class NotificationIconWidget extends StatelessWidget {
                   children: [
                     InkWell(
                       onTap: () {
+<<<<<<< HEAD
                         // context.read<AppLocalizationCubit>().changeLanguage('en');
+=======
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                         Navigator.of(context).pushNamed(Routes.notifications);
                       },
                       child: const Icon(
@@ -44,9 +54,15 @@ class NotificationIconWidget extends StatelessWidget {
                       top: size == null ? 0 : -5,
                       right: 0,
                       child: Container(
+<<<<<<< HEAD
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color: redColor,
+=======
+                        decoration:  BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Theme.of(context).colorScheme.error,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                         ),
                         padding: const EdgeInsets.all(4),
                         child: Text(

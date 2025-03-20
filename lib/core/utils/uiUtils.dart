@@ -1,5 +1,6 @@
 import 'dart:math';
 
+<<<<<<< HEAD
 import 'package:eschool_teacher/app/appLocalization.dart';
 import 'package:eschool_teacher/app/manager/appConfigurationCubit.dart';
 import 'package:eschool_teacher/app/routes.dart';
@@ -15,11 +16,32 @@ import 'package:eschool_teacher/core/utils/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:open_filex/open_filex.dart';
+=======
+import 'package:madares_app_teacher/app/appLocalization.dart';
+import 'package:madares_app_teacher/app/manager/appConfigurationCubit.dart';
+import 'package:madares_app_teacher/app/routes.dart';
+import 'package:madares_app_teacher/core/cubits/downloadfileCubit.dart';
+import 'package:madares_app_teacher/core/models/studyMaterial.dart';
+import 'package:madares_app_teacher/core/repositories/studyMaterialRepositoy.dart';
+import 'package:madares_app_teacher/core/utils/constants.dart';
+import 'package:madares_app_teacher/core/utils/errorMessageKeysAndCodes.dart';
+import 'package:madares_app_teacher/core/utils/labelKeys.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/bottomToastOverlayContainer.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/downloadFileBottomsheetContainer.dart';
+import 'package:madares_app_teacher/core/utils/styles/colors.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:package_info_plus/package_info_plus.dart';
 // ignore: depend_on_referenced_packages
 import 'package:intl/intl.dart' as intl;
 import 'package:url_launcher/url_launcher.dart';
 
+<<<<<<< HEAD
+=======
+import 'open_file.dart';
+
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 // ignore: avoid_classes_with_only_static_members
 class UiUtils {
   //This extra padding will add to MediaQuery.of(context).padding.top in orderto give same top padding in every screen
@@ -116,11 +138,19 @@ class UiUtils {
     required BuildContext context,
     required String errorMessage,
     required Color backgroundColor,
+<<<<<<< HEAD
+=======
+
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
   }) async {
     OverlayState? overlayState = Overlay.of(context);
     OverlayEntry overlayEntry = OverlayEntry(
       builder: (context) => BottomToastOverlayContainer(
+<<<<<<< HEAD
         backgroundColor: backgroundColor,
+=======
+        backgroundColor: backgroundColor == Theme.of(context).colorScheme.onPrimary?Theme.of(context).colorScheme.primary: backgroundColor,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
         errorMessage: errorMessage,
       ),
     );
@@ -361,7 +391,12 @@ class UiUtils {
           );
         } else {
           try {
+<<<<<<< HEAD
             OpenFilex.open(result['filePath'].toString());
+=======
+            openMyFile(result['filePath'].toString(), context);
+
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
           } catch (e) {
             showBottomToastOverlay(
               context: context,

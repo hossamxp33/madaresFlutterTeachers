@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:eschool_teacher/app/routes.dart';
 import 'package:eschool_teacher/core/utils/labelKeys.dart';
 import 'package:eschool_teacher/core/utils/sharedWidgets/attachmentsBottomsheetContainer.dart';
@@ -13,6 +14,23 @@ import 'package:eschool_teacher/features/lessons/data/repositories/lessonReposit
 import 'package:eschool_teacher/features/lessons/presentation/manager/lessonDeleteCubit.dart';
 import 'package:eschool_teacher/features/lessons/presentation/manager/lessonsCubit.dart';
 import 'package:eschool_teacher/features/subject/data/models/subject.dart';
+=======
+import 'package:madares_app_teacher/app/routes.dart';
+import 'package:madares_app_teacher/core/utils/labelKeys.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/attachmentsBottomsheetContainer.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/confirmDeleteDialog.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/customShimmerContainer.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/deleteButton.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/editButton.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/shimmerLoadingContainer.dart';
+import 'package:madares_app_teacher/core/utils/uiUtils.dart';
+import 'package:madares_app_teacher/features/class/data/models/classSectionDetails.dart';
+import 'package:madares_app_teacher/features/lessons/data/models/lesson.dart';
+import 'package:madares_app_teacher/features/lessons/data/repositories/lessonRepository.dart';
+import 'package:madares_app_teacher/features/lessons/presentation/manager/lessonDeleteCubit.dart';
+import 'package:madares_app_teacher/features/lessons/presentation/manager/lessonsCubit.dart';
+import 'package:madares_app_teacher/features/subject/data/models/subject.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -240,8 +258,13 @@ class LessonsContainer extends StatelessWidget {
                                   },
                                   child: Text(
                                     "${lesson.studyMaterials.length} ${UiUtils.getTranslatedLabel(context, attachmentsKey)}",
+<<<<<<< HEAD
                                     style: const TextStyle(
                                       color: assignmentViewButtonColor,
+=======
+                                    style:  TextStyle(
+                                      color: Theme.of(context).colorScheme.primary,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                                     ),
                                   ),
                                 ),
@@ -274,8 +297,13 @@ class LessonsContainer extends StatelessWidget {
                                   },
                                   child: Text(
                                     "${lesson.topicsCount} ${UiUtils.getTranslatedLabel(context, lesson.topicsCount == 1 ? topicKey : topicsKey)}",
+<<<<<<< HEAD
                                     style: const TextStyle(
                                       color: assignmentViewButtonColor,
+=======
+                                    style:  TextStyle(
+                                      color: Theme.of(context).colorScheme.primary,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                                     ),
                                   ),
                                 ),

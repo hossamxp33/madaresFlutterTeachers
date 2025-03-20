@@ -51,7 +51,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBhdukxnXrTD4GfG6jYmCn4aS9tk0m7jRE',
+<<<<<<< HEAD
     appId: '1:93520308007:android:43ec112decf32c954d6b02',
+=======
+    appId: '1:93520308007:android:87bb7129c229bf664d6b02',
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     messagingSenderId: '93520308007',
     projectId: 'madares-68612',
     storageBucket: 'madares-68612.firebasestorage.app',
@@ -59,6 +63,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAy61ycHodnubRCsZ_a785DlYDnznPSYD8',
+<<<<<<< HEAD
     appId: '1:93520308007:ios:f981e290c50a9d0c4d6b02',
     messagingSenderId: '93520308007',
     projectId: 'madares-68612',
@@ -66,3 +71,13 @@ class DefaultFirebaseOptions {
     iosBundleId: 'com.wrteam.eschool.teacher',
   );
 }
+=======
+    appId: '1:93520308007:ios:308e6a825b9a99be4d6b02',
+    messagingSenderId: '93520308007',
+    projectId: 'madares-68612',
+    storageBucket: 'madares-68612.firebasestorage.app',
+    iosBundleId: 'com.madares.teacher',
+  );
+
+}
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc

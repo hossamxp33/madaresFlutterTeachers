@@ -1,5 +1,9 @@
 import 'package:any_link_preview/any_link_preview.dart';
+<<<<<<< HEAD
 import 'package:eschool_teacher/core/utils/sharedWidgets/commonImageWidget.dart';
+=======
+import 'package:madares_app_teacher/core/utils/sharedWidgets/commonImageWidget.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -8,24 +12,40 @@ import '../../../../core/utils/styles/colors.dart';
 
 class TriangleContainer extends StatelessWidget {
   final bool isFlipped;
+<<<<<<< HEAD
   final Color color;
+=======
+  final Color? color;
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
   final Size size;
   const TriangleContainer({
     super.key,
     this.isFlipped = false,
+<<<<<<< HEAD
     this.color = primaryColor,
+=======
+    this.color ,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     this.size = const Size(20, 20),
   });
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     return SizedBox(
       width: size.width,
       height: size.height,
       child: ClipPath(
         clipper: TriangleClipper(isFlipped),
         child: Container(
+<<<<<<< HEAD
           color: color,
+=======
+          color: color??Theme.of(context).colorScheme.primary,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
         ),
       ),
     );
@@ -84,7 +104,11 @@ class LinkPreviw extends StatelessWidget {
               clipBehavior: Clip.antiAlias,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
+<<<<<<< HEAD
                   color: pageBackgroundColor),
+=======
+                   ),
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
               padding: const EdgeInsets.all(8),
               margin: const EdgeInsets.only(bottom: 5),
               child: Column(

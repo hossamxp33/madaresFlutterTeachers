@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD
 import 'package:eschool_teacher/features/subject/data/models/subject.dart';
+=======
+import 'package:madares_app_teacher/features/subject/data/models/subject.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
 class Exam {
   int? examID;

@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import 'package:eschool_teacher/core/models/studyMaterial.dart';
 import 'package:eschool_teacher/features/assignment/data/repositories/assignmentRepository.dart';
+=======
+import 'package:madares_app_teacher/core/models/studyMaterial.dart';
+import 'package:madares_app_teacher/features/assignment/data/repositories/assignmentRepository.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,7 +41,12 @@ class CreateAssignmentCubit extends Cubit<CreateAssignmentState> {
     // required bool resubmission,
     // required String extraDayForResubmission,
     List<PlatformFile>? file,
+<<<<<<< HEAD
   }) async {
+=======
+  }) async
+  {
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     emit(CreateAssignmentInProcess());
     try {
       await _assignmentRepository

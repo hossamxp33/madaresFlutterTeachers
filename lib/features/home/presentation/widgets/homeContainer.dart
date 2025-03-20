@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+<<<<<<< HEAD
 import 'package:eschool_teacher/app/routes.dart';
 import 'package:eschool_teacher/core/utils/animationConfiguration.dart';
 import 'package:eschool_teacher/core/utils/sharedWidgets/customShimmerContainer.dart';
@@ -15,6 +16,21 @@ import 'package:eschool_teacher/features/home/presentation/pages/homeScreen.dart
 import 'package:eschool_teacher/features/login/presentation/manager/authCubit.dart';
 import 'package:eschool_teacher/features/notifications/presentation/manager/notificationCubit.dart';
 import 'package:eschool_teacher/features/notifications/presentation/widgets/notificationIconWidget.dart';
+=======
+import 'package:madares_app_teacher/app/routes.dart';
+import 'package:madares_app_teacher/core/utils/animationConfiguration.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/customShimmerContainer.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/errorContainer.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/internetListenerWidget.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/noDataContainer.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/shimmerLoadingContainer.dart';
+import 'package:madares_app_teacher/core/utils/uiUtils.dart';
+import 'package:madares_app_teacher/features/chat/presentation/manager/chatUsersCubit.dart';
+import 'package:madares_app_teacher/features/class/data/models/classSectionDetails.dart';
+import 'package:madares_app_teacher/features/class/presentation/manager/myClassesCubit.dart';
+import 'package:madares_app_teacher/features/login/presentation/manager/authCubit.dart';
+import 'package:madares_app_teacher/features/notifications/presentation/widgets/notificationIconWidget.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,7 +39,10 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../core/utils/labelKeys.dart';
 import '../../../../core/utils/sharedWidgets/customUserProfileImageWidget.dart';
 import '../../../../core/utils/sharedWidgets/screenTopBackgroundContainer.dart';
+<<<<<<< HEAD
 import '../../../../core/utils/styles/colors.dart';
+=======
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
 class HomeContainer extends StatefulWidget {
   const HomeContainer({Key? key}) : super(key: key);
@@ -199,7 +218,12 @@ class _HomeContainerState extends State<HomeContainer> {
     required ClassSectionDetails classSectionDetails,
     required int index,
     required bool isClassTeacher,
+<<<<<<< HEAD
   }) {
+=======
+  })
+  {
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     return Animate(
       effects: customItemZoomAppearanceEffects(),
       child: Padding(
@@ -551,9 +575,15 @@ class _HomeContainerState extends State<HomeContainer> {
                       Align(
                         alignment: AlignmentDirectional.topEnd,
                         child: Container(
+<<<<<<< HEAD
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             color: redColor,
+=======
+                          decoration:  BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Theme.of(context).colorScheme.error,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                           ),
                           padding: const EdgeInsets.all(4),
                           child: Text(
@@ -625,6 +655,7 @@ class _HomeContainerState extends State<HomeContainer> {
                           title: UiUtils.getTranslatedLabel(
                               context, assignmentsKey),
                         ),
+<<<<<<< HEAD
                         MenuContainerDetails(
                           route: Routes.announcements,
                           iconPath:
@@ -632,6 +663,15 @@ class _HomeContainerState extends State<HomeContainer> {
                           title: UiUtils.getTranslatedLabel(
                               context, announcementsKey),
                         ),
+=======
+                        // MenuContainerDetails(
+                        //   route: Routes.announcements,
+                        //   iconPath:
+                        //       UiUtils.getImagePath("announcment_icon.svg"),
+                        //   title: UiUtils.getTranslatedLabel(
+                        //       context, announcementsKey),
+                        // ),
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                         // MenuContainerDetails(
                         //   route: Routes.lessons,
                         //   iconPath: UiUtils.getImagePath("lesson.svg"),
@@ -767,6 +807,10 @@ class _HomeContainerState extends State<HomeContainer> {
       ),
     );
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 }
 
 //class to maintain details required by each menu items

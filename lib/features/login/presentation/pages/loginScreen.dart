@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import 'package:eschool_teacher/app/routes.dart';
+=======
+import 'package:madares_app_teacher/app/routes.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -103,7 +107,11 @@ class _LoginScreenState extends State<LoginScreen>
         child: SlideTransition(
             position: _patterntAnimation.drive(Tween<Offset>(
                 begin: const Offset(0.0, -1.0), end: Offset.zero)),
+<<<<<<< HEAD
             child: Image.asset(UiUtils.getImagePath("upper_pattern.png"))),
+=======
+            child: Image.asset(UiUtils.getImagePath("upper_pattern.png",),color: Theme.of(context).colorScheme.primary)),
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
       ),
     );
   }
@@ -116,7 +124,11 @@ class _LoginScreenState extends State<LoginScreen>
         child: SlideTransition(
             position: _patterntAnimation.drive(
                 Tween<Offset>(begin: const Offset(0.0, 1.0), end: Offset.zero)),
+<<<<<<< HEAD
             child: Image.asset(UiUtils.getImagePath("lower_pattern.png"))),
+=======
+            child: Image.asset(UiUtils.getImagePath("lower_pattern.png"),color: Theme.of(context).colorScheme.primary)),
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
       ),
     );
   }

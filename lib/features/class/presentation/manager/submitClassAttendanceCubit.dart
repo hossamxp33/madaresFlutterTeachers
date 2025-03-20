@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import 'package:eschool_teacher/core/repositories/teacherRepository.dart';
+=======
+import 'package:madares_app_teacher/core/repositories/teacherRepository.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 abstract class SubmitClassAttendanceState {}

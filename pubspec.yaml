@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 name: eschool_teacher
 description: A new Flutter project.
 
@@ -20,6 +21,17 @@ version: 1.0.0+1
 
 environment:
   sdk: ">=3.0.2 <4.0.0"
+=======
+name: madares_app_teacher
+description: "A new Flutter project."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+
+version: 2.7.2+7
+
+environment:
+  sdk: ">=3.2.3 <4.0.0"
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -30,8 +42,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+<<<<<<< HEAD
   flutter_localizations:
     sdk: flutter    
+=======
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -48,19 +63,32 @@ dependencies:
   table_calendar: ^3.1.2
   firebase_core: ^3.2.0
   firebase_messaging: ^15.0.3
+<<<<<<< HEAD
   awesome_notifications: ^0.9.3+1
   cached_network_image: ^3.3.1
   shimmer: ^3.0.0
   connectivity_plus:  ^5.0.2
+=======
+  cached_network_image: ^3.3.1
+  shimmer: ^3.0.0
+  connectivity_plus: ^6.1.1
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
   internet_connection_checker: ^1.0.0+1
   permission_handler: ^11.3.1
   url_launcher: ^6.3.0
   flutter_html:
   timeago: ^3.7.0
+<<<<<<< HEAD
   open_filex: ^4.4.0
   package_info_plus: ^8.0.0
   file_picker: ^8.0.6
   external_path: ^1.0.3
+=======
+
+  package_info_plus: ^8.0.0
+  file_picker: ^9.0.0
+  open_file_manager: ^2.0.1
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
   flutter_animate: ^4.5.0
   shared_preferences: ^2.2.3
   flutter_pdfview: ^1.3.2
@@ -68,6 +96,7 @@ dependencies:
   image_picker: ^1.1.2
   any_link_preview: ^3.0.2
   flutter_keyboard_visibility: ^6.0.0
+<<<<<<< HEAD
   intl: ^0.19.0
   record: ^5.1.2
   just_audio: ^0.9.39
@@ -77,10 +106,30 @@ dependencies:
 dev_dependencies:
   change_app_package_name: ^1.3.0
   hive_generator: ^1.1.0
+=======
+  flex_color_scheme: ^8.0.2
+  record: ^5.1.2
+  just_audio: ^0.9.39
+  path:
+  path_provider:
+
+  flutter_launcher_icons:
+  flutter_localization:
+  awesome_notifications: ^0.10.1
+
+
+dependency_overrides:
+  http: 1.3.0
+  intl: 0.20.2
+
+dev_dependencies:
+  hive_generator: ^2.0.1
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
   build_runner: ^2.1.0
   flutter_test:
     sdk: flutter
 
+<<<<<<< HEAD
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -95,25 +144,39 @@ dev_dependencies:
 #   image_path: "assets/images/appLogo.png"
 #   remove_alpha_ios: true
 
+=======
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.3
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
+<<<<<<< HEAD
 # The following section is specific to Flutter.
+=======
+# The following section is specific to Flutter packages.
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 flutter:
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+<<<<<<< HEAD
 
   # To add assets to your application, add an assets section, like this:
   assets:
+=======
+  assets:
+    - assets/
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     - assets/images/
     - google_fonts/
     - assets/languages/
     - assets/animations/
     - assets/new_school.jpeg
+<<<<<<< HEAD
 
 
 
@@ -157,3 +220,26 @@ flutter_icons:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+=======
+    - assets/palms_school.jpeg
+    - assets/altuwaysh.jpeg
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  min_sdk_android: 23
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/altuwaysh.jpeg"
+  image_path: "assets/altuwaysh.jpeg"
+
+  flavors:
+    school1:
+      image_path: "assets/palms_school.jpeg"
+    school2:
+      image_path: "assets/new_school.jpeg"
+    school3:
+      image_path: "assets/altuwaysh.jpeg"
+
+
+
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc

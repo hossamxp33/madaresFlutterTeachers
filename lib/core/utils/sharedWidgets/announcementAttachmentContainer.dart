@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 import 'package:eschool_teacher/core/cubits/deleteStudyMaterialCubit.dart';
 import 'package:eschool_teacher/core/models/studyMaterial.dart';
 import 'package:eschool_teacher/core/repositories/studyMaterialRepositoy.dart';
@@ -6,6 +7,15 @@ import 'package:eschool_teacher/core/utils/labelKeys.dart';
 import 'package:eschool_teacher/core/utils/sharedWidgets/confirmDeleteDialog.dart';
 import 'package:eschool_teacher/core/utils/sharedWidgets/deleteButton.dart';
 import 'package:eschool_teacher/core/utils/uiUtils.dart';
+=======
+import 'package:madares_app_teacher/core/cubits/deleteStudyMaterialCubit.dart';
+import 'package:madares_app_teacher/core/models/studyMaterial.dart';
+import 'package:madares_app_teacher/core/repositories/studyMaterialRepositoy.dart';
+import 'package:madares_app_teacher/core/utils/labelKeys.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/confirmDeleteDialog.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/deleteButton.dart';
+import 'package:madares_app_teacher/core/utils/uiUtils.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -34,8 +44,13 @@ class AnnouncementAttachmentContainer extends StatelessWidget {
       },
       child: Text(
         studyMaterial.fileName,
+<<<<<<< HEAD
         style: const TextStyle(
           color: assignmentViewButtonColor,
+=======
+        style:  TextStyle(
+          color: Theme.of(context).colorScheme.primary,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
           fontWeight: FontWeight.w500,
           height: 1.25,
           fontSize: 13.5,

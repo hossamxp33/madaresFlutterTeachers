@@ -194,7 +194,11 @@ class _AddResultScreenState extends State<AddResultScreen> {
               context,
               marksAddedSuccessfullyKey,
             ),
+<<<<<<< HEAD
             backgroundColor: Theme.of(context).colorScheme.onPrimary,
+=======
+            backgroundColor: Theme.of(context).colorScheme.primary,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
           );
 
           Navigator.of(context).pop("true");

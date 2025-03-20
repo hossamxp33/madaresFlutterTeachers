@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import 'package:eschool_teacher/app/routes.dart';
+=======
+import 'package:madares_app_teacher/app/routes.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/styles/colors.dart';
@@ -34,9 +38,15 @@ class NotificationIconWidget extends StatelessWidget {
                 top: size == null ? 0 : -5,
                 right: 0,
                 child: Container(
+<<<<<<< HEAD
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: redColor,
+=======
+                  decoration:  BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Theme.of(context).colorScheme.error,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                   ),
                   padding: const EdgeInsets.all(4),
                   child: Text(

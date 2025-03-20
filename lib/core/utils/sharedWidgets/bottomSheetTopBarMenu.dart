@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
 import 'package:eschool_teacher/core/utils/sharedWidgets/customCloseButton.dart';
 import 'package:eschool_teacher/core/utils/uiUtils.dart';
+=======
+import 'package:madares_app_teacher/core/utils/sharedWidgets/customCloseButton.dart';
+import 'package:madares_app_teacher/core/utils/uiUtils.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/material.dart';
 
 class BottomSheetTopBarMenu extends StatelessWidget {

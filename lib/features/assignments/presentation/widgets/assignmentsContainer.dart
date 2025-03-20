@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:eschool_teacher/app/routes.dart';
 import 'package:eschool_teacher/core/utils/animationConfiguration.dart';
 import 'package:eschool_teacher/core/utils/sharedWidgets/noDataContainer.dart';
@@ -8,6 +9,18 @@ import 'package:eschool_teacher/features/assignment/presentation/manager/deletea
 import 'package:eschool_teacher/features/assignments/presentation/widgets/assignmentDetailsBottomsheetContainer.dart';
 import 'package:eschool_teacher/features/class/data/models/classSectionDetails.dart';
 import 'package:eschool_teacher/features/subject/data/models/subject.dart';
+=======
+import 'package:madares_app_teacher/app/routes.dart';
+import 'package:madares_app_teacher/core/utils/animationConfiguration.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/noDataContainer.dart';
+import 'package:madares_app_teacher/features/assignment/data/models/assignment.dart';
+import 'package:madares_app_teacher/features/assignment/data/repositories/assignmentRepository.dart';
+import 'package:madares_app_teacher/features/assignment/presentation/manager/assignmentCubit.dart';
+import 'package:madares_app_teacher/features/assignment/presentation/manager/deleteassignmentcubit.dart';
+import 'package:madares_app_teacher/features/assignments/presentation/widgets/assignmentDetailsBottomsheetContainer.dart';
+import 'package:madares_app_teacher/features/class/data/models/classSectionDetails.dart';
+import 'package:madares_app_teacher/features/subject/data/models/subject.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 // ignore: depend_on_referenced_packages

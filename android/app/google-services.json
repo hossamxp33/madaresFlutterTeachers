@@ -1,0 +1,143 @@
+{
+  "project_info": {
+    "project_number": "93520308007",
+    "project_id": "madares-68612",
+    "storage_bucket": "madares-68612.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93520308007:android:7ecd42569136b8d94d6b02",
+        "android_client_info": {
+          "package_name": "com.codes_roots.madares_student.first"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhdukxnXrTD4GfG6jYmCn4aS9tk0m7jRE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93520308007:android:77878b02e23c57b34d6b02",
+        "android_client_info": {
+          "package_name": "com.codes_roots.madares_student.second"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhdukxnXrTD4GfG6jYmCn4aS9tk0m7jRE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93520308007:android:f248a3871b07d3a44d6b02",
+        "android_client_info": {
+          "package_name": "com.codes_roots.madares_student.th"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhdukxnXrTD4GfG6jYmCn4aS9tk0m7jRE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93520308007:android:4ca512156ac553664d6b02",
+        "android_client_info": {
+          "package_name": "com.madares.teacher.altuwaysh"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhdukxnXrTD4GfG6jYmCn4aS9tk0m7jRE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93520308007:android:8ee37224128d1e454d6b02",
+        "android_client_info": {
+          "package_name": "com.madares.teacher.fi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhdukxnXrTD4GfG6jYmCn4aS9tk0m7jRE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93520308007:android:2dda9c7ed1a9c3ea4d6b02",
+        "android_client_info": {
+          "package_name": "com.madares.teacher.se"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhdukxnXrTD4GfG6jYmCn4aS9tk0m7jRE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93520308007:android:87bb7129c229bf664d6b02",
+        "android_client_info": {
+          "package_name": "com.madares.teacher.th"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhdukxnXrTD4GfG6jYmCn4aS9tk0m7jRE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

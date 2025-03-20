@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'dart:io';
 
 import 'package:dotted_border/dotted_border.dart';
@@ -23,21 +24,53 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:path/path.dart' as p;
 
 // ignore: depend_on_referenced_packages
+=======
+
+import 'dart:io';
+import 'package:dotted_border/dotted_border.dart';
+import 'package:madares_app_teacher/core/models/studyMaterial.dart';
+import 'package:madares_app_teacher/core/repositories/teacherRepository.dart';
+import 'package:madares_app_teacher/core/utils/labelKeys.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/classSubjectsDropDownMenu.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/customAppbar.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/customDropDownMenu.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/defaultDropDownLabelContainer.dart';
+import 'package:madares_app_teacher/features/assignment/data/models/assignment.dart';
+import 'package:madares_app_teacher/features/assignment/data/repositories/assignmentRepository.dart';
+import 'package:madares_app_teacher/features/assignment/presentation/manager/createAssignmentCubit.dart';
+import 'package:madares_app_teacher/features/assignment/presentation/manager/editassignment.dart';
+import 'package:madares_app_teacher/features/class/presentation/manager/myClassesCubit.dart';
+import 'package:madares_app_teacher/features/class/presentation/widgets/myClassesDropDownMenu.dart';
+import 'package:madares_app_teacher/features/subject/presentation/manager/subjectsOfClassSectionCubit.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:path/path.dart' as p;
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:intl/intl.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
+<<<<<<< HEAD
 
 import 'package:file_picker/file_picker.dart';
 
+=======
+import 'package:file_picker/file_picker.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/material.dart';
 import 'package:record/record.dart';
 import '../../../../core/utils/sharedWidgets/bottomSheetTextFiledContainer.dart';
 import '../../../../core/utils/sharedWidgets/bottomsheetAddFilesDottedBorderContainer.dart';
 import '../../../../core/utils/sharedWidgets/customCircularProgressIndicator.dart';
+<<<<<<< HEAD
 import '../../../../core/utils/sharedWidgets/customCupertinoSwitch.dart';
 import '../../../../core/utils/sharedWidgets/customRoundedButton.dart';
 import '../../../../core/utils/styles/colors.dart';
+=======
+import '../../../../core/utils/sharedWidgets/customRoundedButton.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import '../../../../core/utils/uiUtils.dart';
 
 
@@ -247,7 +280,13 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
         await FilePicker.platform.pickFiles(allowMultiple: true);
 
     if (result != null) {
+<<<<<<< HEAD
       uploadedFiles.add(result.files.first);
+=======
+
+
+      uploadedFiles.addAll(result.files);
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
       setState(() {});
     }
   }
@@ -338,7 +377,11 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
     );
   }
 
+<<<<<<< HEAD
   Widget assignmentassignmentattatchments(int fileIndex) {
+=======
+  Future<Widget> AssignmentAttatchments(int fileIndex) async {
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     return LayoutBuilder(
       builder: (context, boxConstraints) {
         return Padding(
@@ -347,7 +390,11 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
             borderType: BorderType.RRect,
             dashPattern: const [10, 10],
             radius: const Radius.circular(10.0),
+<<<<<<< HEAD
             color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.3),
+=======
+            color: Theme.of(context).colorScheme.onPrimary,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
             child: LayoutBuilder(
               builder: (context, boxConstraints) {
                 return Padding(
@@ -372,7 +419,10 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
                               is CreateAssignmentInProcess) {
                             return;
                           }
+<<<<<<< HEAD
 
+=======
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                           assignmentattatchments.removeAt(fileIndex);
                           setState(() {});
                         },
@@ -459,16 +509,21 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
           UiUtils.getTranslatedLabel(context, noSubjectSelectedKey));
       return;
     }
+<<<<<<< HEAD
     // if (_assignmentNameTextEditingController.text.trim().isEmpty) {
     //   showErrorMessage(
     //     UiUtils.getTranslatedLabel(context, pleaseEnterAssignmentnameKey),
     //   );
     //   return;
     // }
+=======
+
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     if (_assignmentPointsTextEditingController.text.length >= 10) {
       showErrorMessage(UiUtils.getTranslatedLabel(context, pointsLengthKey));
       return;
     }
+<<<<<<< HEAD
     // if (dueDate == null) {
     //   showErrorMessage(
     //     UiUtils.getTranslatedLabel(context, pleaseSelectDateKey),
@@ -491,6 +546,9 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
     //   );
     //   return;
     // }
+=======
+
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     if (kDebugMode) {
       print("uploadedFiles create $uploadedFiles");
     }
@@ -523,6 +581,7 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
 
   void editAssignment() {
     FocusManager.instance.primaryFocus?.unfocus();
+<<<<<<< HEAD
     // if (_assignmentNameTextEditingController.text.trim().isEmpty) {
     //   showErrorMessage(
     //     UiUtils.getTranslatedLabel(context, pleaseEnterAssignmentnameKey),
@@ -533,10 +592,14 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
     //     UiUtils.getTranslatedLabel(context, pleaseSelectDateKey),
     //   );
     // }
+=======
+
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     if (_assignmentPointsTextEditingController.text.length >= 10) {
       showErrorMessage(UiUtils.getTranslatedLabel(context, pointsLengthKey));
       return;
     }
+<<<<<<< HEAD
     // if (dueTime == null) {
     //   showErrorMessage(
     //     UiUtils.getTranslatedLabel(context, pleaseSelectDateKey),
@@ -552,6 +615,9 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
     //   );
     // return;
     //  }
+=======
+
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     if (kDebugMode) {
       print("uploadedFiles upload $uploadedFiles");
     }
@@ -633,6 +699,7 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
     );
   }
 
+<<<<<<< HEAD
   // Widget _buildAddDueDateAndTimeContainer() {
   //   return Padding(
   //     padding: EdgeInsets.only(bottom: _textFieldBottomPadding),
@@ -761,6 +828,8 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
   //     ),
   //   );
   // }
+=======
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
   Widget _buildAssignmentDetailsFormContaienr() {
     return SingleChildScrollView(
@@ -776,12 +845,15 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
         children: [
           //
           _buildAssignmentClassDropdownButtons(),
+<<<<<<< HEAD
           // BottomSheetTextFieldContainer(
           //   margin: EdgeInsetsDirectional.only(bottom: _textFieldBottomPadding),
           //   hintText: UiUtils.getTranslatedLabel(context, assignmentNameKey),
           //   maxLines: 1,
           //   textEditingController: _assignmentNameTextEditingController,
           // ),
+=======
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
           BottomSheetTextFieldContainer(
             margin: EdgeInsetsDirectional.only(bottom: _textFieldBottomPadding),
@@ -806,6 +878,7 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
             textInputFormatter: [FilteringTextInputFormatter.digitsOnly],
           ),
 
+<<<<<<< HEAD
           //_buildLateSubmissionToggleContainer(),
 
           // _buildReSubmissionOfRejectedAssignmentToggleContainer(),
@@ -844,6 +917,8 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
           //       )
           //     : const SizedBox(),
 
+=======
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
           Padding(
             padding: EdgeInsets.only(bottom: _textFieldBottomPadding),
             child: BottomsheetAddFilesDottedBorderContainer(
@@ -903,7 +978,11 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
                           editsucessfullyassignmentkey,
                         ),
                         backgroundColor:
+<<<<<<< HEAD
                             Theme.of(context).colorScheme.onPrimary,
+=======
+                            Theme.of(context).colorScheme.primary,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                       );
                       Navigator.of(context).pop(true);
                     }
@@ -915,7 +994,11 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
                           state.errorMessage,
                         ),
                         backgroundColor:
+<<<<<<< HEAD
                             Theme.of(context).colorScheme.onPrimary,
+=======
+                            Theme.of(context).colorScheme.error,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                       );
                     }
                   },
@@ -1042,6 +1125,7 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
     );
   }
 }
+<<<<<<< HEAD
 // import 'package:flutter_sound/public/flutter_sound_recorder.dart';
 
 // final FlutterSoundRecorder _recorder = FlutterSoundRecorder();
@@ -1076,3 +1160,5 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
 
 // permission_handler: ^11.3.1
 // flutter_sound: ^9.10.4
+=======
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc

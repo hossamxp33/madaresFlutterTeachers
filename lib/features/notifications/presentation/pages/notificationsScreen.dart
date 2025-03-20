@@ -173,7 +173,11 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       ReadMoreText(
                         notification.message,
                         trimLines: 2,
+<<<<<<< HEAD
                         colorClickableText: primaryColor,
+=======
+                        colorClickableText: Theme.of(context).colorScheme.primary,
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                         trimMode: TrimMode.Line,
                         trimCollapsedText:
                             UiUtils.getTranslatedLabel(context, showMoreKey),

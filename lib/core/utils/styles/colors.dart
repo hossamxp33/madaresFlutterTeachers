@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+<<<<<<< HEAD
 const Color primaryColor = Color(0xff22577A);
 const Color secondaryColor = Color(0xff212121);
 const Color pageBackgroundColor = Color(0xffFFFFFF);
@@ -10,6 +11,9 @@ const Color errorColor = Color(0xffff6769);
 const Color onBackgroundColor = Color(0xff484848);
 const Color onPrimaryColor = Color(0xff3bcc97);
 const Color onSecondaryColor = Color(0xff57cc99);
+=======
+//
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
 //classes colors
 const List<Color> myClassesColors = [
@@ -19,8 +23,12 @@ const List<Color> myClassesColors = [
   Color(0xff3bcc97),
 ];
 
+<<<<<<< HEAD
 const Color assignmentViewButtonColor = Color(0xff65a3fe);
 const Color assignmentDownloadButtonColor = Color(0xfffdb46c);
+=======
+
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
 const Color hintTextColor = Color(0xff7c7c7c);
 
@@ -30,6 +38,10 @@ final Color shimmerhighlightColor = Colors.grey.shade100;
 final Color shimmerContentColor = Colors.white.withOpacity(0.85);
 
 //notification count red color
+<<<<<<< HEAD
 const Color redColor = Colors.red;
 
 const Color greenColor = Colors.green;
+=======
+
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc

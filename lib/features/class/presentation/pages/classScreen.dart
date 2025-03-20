@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:eschool_teacher/app/routes.dart';
 import 'package:eschool_teacher/core/repositories/teacherRepository.dart';
 import 'package:eschool_teacher/core/utils/sharedWidgets/appBarTitleContainer.dart';
@@ -14,6 +15,24 @@ import 'package:eschool_teacher/features/class/presentation/widgets/subjectsCont
 import 'package:eschool_teacher/features/studentDetails/data/repositories/studentRepository.dart';
 import 'package:eschool_teacher/features/studentDetails/presentation/manager/studentsByClassSectionCubit.dart';
 import 'package:eschool_teacher/features/subject/presentation/manager/subjectsOfClassSectionCubit.dart';
+=======
+import 'package:madares_app_teacher/app/routes.dart';
+import 'package:madares_app_teacher/core/repositories/teacherRepository.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/appBarTitleContainer.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/customAppbar.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/customBackButton.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/customTabBarContainer.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/screenTopBackgroundContainer.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/searchButton.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/tabBarBackgroundContainer.dart';
+import 'package:madares_app_teacher/core/utils/uiUtils.dart';
+import 'package:madares_app_teacher/features/class/data/models/classSectionDetails.dart';
+import 'package:madares_app_teacher/features/class/presentation/widgets/studentsContainer.dart';
+import 'package:madares_app_teacher/features/class/presentation/widgets/subjectsContainer.dart';
+import 'package:madares_app_teacher/features/studentDetails/data/repositories/studentRepository.dart';
+import 'package:madares_app_teacher/features/studentDetails/presentation/manager/studentsByClassSectionCubit.dart';
+import 'package:madares_app_teacher/features/subject/presentation/manager/subjectsOfClassSectionCubit.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

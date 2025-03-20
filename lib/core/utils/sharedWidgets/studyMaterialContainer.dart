@@ -1,10 +1,19 @@
 import 'package:cached_network_image/cached_network_image.dart';
+<<<<<<< HEAD
 import 'package:eschool_teacher/core/cubits/deleteStudyMaterialCubit.dart';
 import 'package:eschool_teacher/core/cubits/updateStudyMaterialCubit.dart';
 import 'package:eschool_teacher/core/models/studyMaterial.dart';
 import 'package:eschool_teacher/core/utils/sharedWidgets/confirmDeleteDialog.dart';
 import 'package:eschool_teacher/core/utils/sharedWidgets/deleteButton.dart';
 import 'package:eschool_teacher/core/utils/sharedWidgets/editStudyMaterialBottomSheet.dart';
+=======
+import 'package:madares_app_teacher/core/cubits/deleteStudyMaterialCubit.dart';
+import 'package:madares_app_teacher/core/cubits/updateStudyMaterialCubit.dart';
+import 'package:madares_app_teacher/core/models/studyMaterial.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/confirmDeleteDialog.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/deleteButton.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/editStudyMaterialBottomSheet.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -37,8 +46,11 @@ class StudyMaterialContainer extends StatelessWidget {
       fontSize: 13.5,
     );
 
+<<<<<<< HEAD
     const subTitleTextStyle =
         TextStyle(color: assignmentViewButtonColor, fontSize: 13);
+=======
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
     return BlocProvider(
       create: (context) => DeleteStudyMaterialCubit(StudyMaterialRepository()),
@@ -176,7 +188,11 @@ class StudyMaterialContainer extends StatelessWidget {
                                       },
                                       child: Text(
                                         "${studyMaterial.fileName}.${studyMaterial.fileExtension}",
+<<<<<<< HEAD
                                         style: subTitleTextStyle,
+=======
+                                        style:  TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 13),
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                                       ),
                                     ),
                                   ],
@@ -207,7 +223,11 @@ class StudyMaterialContainer extends StatelessWidget {
                                       },
                                       child: Text(
                                         studyMaterial.fileUrl,
+<<<<<<< HEAD
                                         style: subTitleTextStyle,
+=======
+                                        style:  TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 13),
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                                       ),
                                     ),
                                   ],

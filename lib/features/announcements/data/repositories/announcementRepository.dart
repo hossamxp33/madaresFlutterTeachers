@@ -1,6 +1,11 @@
 import 'package:dio/dio.dart';
+<<<<<<< HEAD
 import 'package:eschool_teacher/core/utils/api.dart';
 import 'package:eschool_teacher/features/announcements/data/models/announcement.dart';
+=======
+import 'package:madares_app_teacher/core/utils/api.dart';
+import 'package:madares_app_teacher/features/announcements/data/models/announcement.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:file_picker/file_picker.dart';
 
 class AnnouncementRepository {

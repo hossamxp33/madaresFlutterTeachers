@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 import 'package:eschool_teacher/app/manager/appConfigurationCubit.dart';
 import 'package:eschool_teacher/core/repositories/systemInfoRepository.dart';
 import 'package:eschool_teacher/core/utils/animationConfiguration.dart';
@@ -13,6 +14,22 @@ import 'package:eschool_teacher/core/utils/uiUtils.dart';
 import 'package:eschool_teacher/features/holidays/data/models/holiday.dart';
 import 'package:eschool_teacher/features/holidays/presentation/manager/holidaysCubit.dart';
 import 'package:eschool_teacher/features/holidays/presentation/widgets/changeCalendarMonthButton.dart';
+=======
+import 'package:madares_app_teacher/app/manager/appConfigurationCubit.dart';
+import 'package:madares_app_teacher/core/repositories/systemInfoRepository.dart';
+import 'package:madares_app_teacher/core/utils/animationConfiguration.dart';
+import 'package:madares_app_teacher/core/utils/constants.dart';
+import 'package:madares_app_teacher/core/utils/labelKeys.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/customBackButton.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/customShimmerContainer.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/errorContainer.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/screenTopBackgroundContainer.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/shimmerLoadingContainer.dart';
+import 'package:madares_app_teacher/core/utils/uiUtils.dart';
+import 'package:madares_app_teacher/features/holidays/data/models/holiday.dart';
+import 'package:madares_app_teacher/features/holidays/presentation/manager/holidaysCubit.dart';
+import 'package:madares_app_teacher/features/holidays/presentation/widgets/changeCalendarMonthButton.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:eschool_teacher/app/routes.dart';
 import 'package:eschool_teacher/core/utils/animationConfiguration.dart';
 import 'package:eschool_teacher/core/utils/constants.dart';
@@ -11,6 +12,21 @@ import 'package:eschool_teacher/core/utils/uiUtils.dart';
 import 'package:eschool_teacher/features/exam/data/models/exam.dart';
 import 'package:eschool_teacher/features/exam/presentation/manager/examCubit.dart';
 import 'package:eschool_teacher/features/exam/presentation/widgets/examFilterContainer.dart';
+=======
+import 'package:madares_app_teacher/app/routes.dart';
+import 'package:madares_app_teacher/core/utils/animationConfiguration.dart';
+import 'package:madares_app_teacher/core/utils/constants.dart';
+import 'package:madares_app_teacher/core/utils/labelKeys.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/customRefreshIndicator.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/customShimmerContainer.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/listItemForExamAndResult.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/noDataContainer.dart';
+import 'package:madares_app_teacher/core/utils/sharedWidgets/shimmerLoadingContainer.dart';
+import 'package:madares_app_teacher/core/utils/uiUtils.dart';
+import 'package:madares_app_teacher/features/exam/data/models/exam.dart';
+import 'package:madares_app_teacher/features/exam/presentation/manager/examCubit.dart';
+import 'package:madares_app_teacher/features/exam/presentation/widgets/examFilterContainer.dart';
+>>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
