@@ -89,11 +89,7 @@ class _ImageFileScreenState extends State<ImageFileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-<<<<<<< HEAD
-        backgroundColor: primaryColor,
-=======
         backgroundColor: Theme.of(context).colorScheme.primary,
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
         onPressed: () {
           setState(() {
             isFullScreen = !isFullScreen;
@@ -165,15 +161,9 @@ class _ImageFileScreenState extends State<ImageFileScreen> {
                                       ),
                                       Text(
                                         "${((progress.downloaded / (progress.totalSize ?? 100)) * 100).toStringAsFixed(2)} %",
-<<<<<<< HEAD
-                                        style: const TextStyle(
-                                          fontSize: 16,
-                                          color: primaryColor,
-=======
                                         style:  TextStyle(
                                           fontSize: 16,
                                           color: Theme.of(context).colorScheme.primary,
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),

@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import 'package:eschool_teacher/features/chat/data/models/chatUser.dart';
-import 'package:eschool_teacher/features/chat/data/repositories/chatRepository.dart';
-=======
 import 'package:madares_app_teacher/features/chat/data/models/chatUser.dart';
 import 'package:madares_app_teacher/features/chat/data/repositories/chatRepository.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 /*

@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import 'package:eschool_teacher/core/models/medium.dart';
-import 'package:eschool_teacher/core/models/stream.dart';
-=======
 import 'package:madares_app_teacher/core/models/medium.dart';
 import 'package:madares_app_teacher/core/models/stream.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import '../../../../core/models/shift.dart';
 
 class ClassDetails {

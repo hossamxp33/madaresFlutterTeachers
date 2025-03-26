@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-import 'package:eschool_teacher/app/routes.dart';
-import 'package:eschool_teacher/core/utils/styles/colors.dart';
-import 'package:eschool_teacher/core/utils/uiUtils.dart';
-import 'package:eschool_teacher/features/chat/data/models/chatUser.dart';
-=======
 import 'package:madares_app_teacher/app/routes.dart';
 import 'package:madares_app_teacher/core/utils/styles/colors.dart';
 import 'package:madares_app_teacher/core/utils/uiUtils.dart';
 import 'package:madares_app_teacher/features/chat/data/models/chatUser.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:intl/intl.dart';
@@ -23,15 +16,7 @@ class ChatUserItemWidget extends StatelessWidget {
       {super.key, required this.chatUser, this.showCount = true});
 
   final double _chatUserContainerHeight = 80;
-<<<<<<< HEAD
-  final Color _containerActiveColor = pageBackgroundColor;
-  final Color _containerInactiveColor =
-      secondaryColor; //note: opacity is used in UI with this color
-  final Color _unreadCountBackgroundColor =
-      greenColor; //note: opacity is used in UI with this color
-=======
 //note: opacity is used in UI with this color
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
   _profileImageBuilder({required String imageUrl}) {
     return Container(
@@ -60,13 +45,9 @@ class ChatUserItemWidget extends StatelessWidget {
     }
   }
 
-<<<<<<< HEAD
-  _buildUnreadCounter({required int count}) {
-=======
   _buildUnreadCounter({required int count,required BuildContext context} ) {
     final Color _unreadCountBackgroundColor =
         Theme.of(context).colorScheme.primary;
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
@@ -86,13 +67,10 @@ class ChatUserItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-=======
     final Color _containerActiveColor = Theme.of(context).colorScheme.primaryContainer;
     final Color _containerInactiveColor =
         Theme.of(context).colorScheme.secondary; //note: opacity is used in UI with this color
 
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     return Padding(
       padding: EdgeInsets.symmetric(
         vertical: 10,
@@ -198,11 +176,7 @@ class ChatUserItemWidget extends StatelessWidget {
                           ),
                           if (chatUser.hasUnreadMessages && showCount)
                             _buildUnreadCounter(
-<<<<<<< HEAD
-                                count: chatUser.unreadNotificationsCount),
-=======
                                 count: chatUser.unreadNotificationsCount,context: context),
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                         ],
                       ),
                     ),

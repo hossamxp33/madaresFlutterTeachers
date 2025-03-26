@@ -1,17 +1,9 @@
 
-<<<<<<< HEAD
-import 'package:eschool_teacher/core/utils/sharedWidgets/customAppbar.dart';
-import 'package:eschool_teacher/core/utils/uiUtils.dart';
-import 'package:eschool_teacher/features/exam/presentation/manager/examCubit.dart';
-import 'package:eschool_teacher/features/exam/presentation/widgets/examListContainer.dart';
-import 'package:eschool_teacher/features/studentDetails/data/repositories/studentRepository.dart';
-=======
 import 'package:madares_app_teacher/core/utils/sharedWidgets/customAppbar.dart';
 import 'package:madares_app_teacher/core/utils/uiUtils.dart';
 import 'package:madares_app_teacher/features/exam/presentation/manager/examCubit.dart';
 import 'package:madares_app_teacher/features/exam/presentation/widgets/examListContainer.dart';
 import 'package:madares_app_teacher/features/studentDetails/data/repositories/studentRepository.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

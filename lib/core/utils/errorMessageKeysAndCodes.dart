@@ -1,9 +1,5 @@
 
-<<<<<<< HEAD
-import 'package:eschool_teacher/core/utils/labelKeys.dart';
-=======
 import 'package:madares_app_teacher/core/utils/labelKeys.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
 class ErrorMessageKeysAndCode {
   static const String defaultErrorMessageKey = "defaultErrorMessage";

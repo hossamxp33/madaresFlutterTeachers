@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-import 'package:eschool_teacher/core/utils/uiUtils.dart';
-import 'package:flutter/material.dart';
-// ignore: depend_on_referenced_packages
-import 'package:intl/intl.dart';
-import 'package:eschool_teacher/app/routes.dart';
-=======
 import 'package:madares_app_teacher/core/utils/uiUtils.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:intl/intl.dart';
 import 'package:madares_app_teacher/app/routes.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
 import '../../../../core/utils/labelKeys.dart';
 import '../../../../core/utils/sharedWidgets/announcementAttachmentContainer.dart';

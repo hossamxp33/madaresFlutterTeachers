@@ -59,11 +59,7 @@ class _PdfFileScreenState extends State<PdfFileScreen> {
         builder: (context, state) {
           if (state is PdfFileSaveSuccess) {
             return FloatingActionButton(
-<<<<<<< HEAD
-              backgroundColor: primaryColor,
-=======
               backgroundColor: Theme.of(context).colorScheme.primary,
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
               onPressed: () {
                 setState(() {
                   isFullScreen = !isFullScreen;
@@ -114,15 +110,9 @@ class _PdfFileScreenState extends State<PdfFileScreen> {
                         ),
                         Text(
                           "${state.uploadedPercentage.toStringAsFixed(2)} %",
-<<<<<<< HEAD
-                          style: const TextStyle(
-                            fontSize: 16,
-                            color: primaryColor,
-=======
                           style:  TextStyle(
                             fontSize: 16,
                             color: Theme.of(context).colorScheme.primary,
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                             fontWeight: FontWeight.bold,
                           ),
                         ),

@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-import 'package:eschool_teacher/app/manager/appConfigurationCubit.dart';
-import 'package:eschool_teacher/app/routes.dart';
-import 'package:eschool_teacher/core/repositories/teacherRepository.dart';
-import 'package:eschool_teacher/core/utils/labelKeys.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/customBackButton.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/customCircularProgressIndicator.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/customRoundedButton.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/errorContainer.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/screenTopBackgroundContainer.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/searchButton.dart';
-import 'package:eschool_teacher/core/utils/uiUtils.dart';
-import 'package:eschool_teacher/features/attendance/presentation/manager/classAttendanceCubit.dart';
-import 'package:eschool_teacher/features/attendance/presentation/widgets/studentAttendanceTileContainer.dart';
-import 'package:eschool_teacher/features/class/presentation/manager/submitClassAttendanceCubit.dart';
-import 'package:eschool_teacher/features/studentDetails/data/models/student.dart';
-=======
 import 'package:madares_app_teacher/app/manager/appConfigurationCubit.dart';
 import 'package:madares_app_teacher/app/routes.dart';
 import 'package:madares_app_teacher/core/repositories/teacherRepository.dart';
@@ -30,7 +13,6 @@ import 'package:madares_app_teacher/features/attendance/presentation/manager/cla
 import 'package:madares_app_teacher/features/attendance/presentation/widgets/studentAttendanceTileContainer.dart';
 import 'package:madares_app_teacher/features/class/presentation/manager/submitClassAttendanceCubit.dart';
 import 'package:madares_app_teacher/features/studentDetails/data/models/student.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -269,11 +251,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
                     context,
                     attendanceSubmittedSuccessfullyKey,
                   ),
-<<<<<<< HEAD
-                  backgroundColor: Theme.of(context).colorScheme.onPrimary,
-=======
                   backgroundColor: Theme.of(context).colorScheme.primary,
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                 );
               } else if (submitAttendanceState is SubmitClassAttendanceFailure) {
                 UiUtils.showBottomToastOverlay(

@@ -1,13 +1,7 @@
 
-<<<<<<< HEAD
-import 'package:eschool_teacher/core/utils/appLanguages.dart';
-import 'package:eschool_teacher/core/utils/hiveBoxKeys.dart';
-import 'package:eschool_teacher/features/chat/data/models/chatNotificationData.dart';
-=======
 import 'package:madares_app_teacher/core/utils/appLanguages.dart';
 import 'package:madares_app_teacher/core/utils/hiveBoxKeys.dart';
 import 'package:madares_app_teacher/features/chat/data/models/chatNotificationData.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

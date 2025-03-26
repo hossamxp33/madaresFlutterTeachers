@@ -1,18 +1,9 @@
-<<<<<<< HEAD
-import 'package:eschool_teacher/features/notifications/presentation/pages/notificationsScreen.dart';
-import 'package:eschool_teacher/features/splash/presentation/pages/splashScreen.dart';
-import 'package:eschool_teacher/features/termsAndCondition/presentation/pages/termsAndConditionScreen.dart';
-import 'package:eschool_teacher/features/topcisByLesson/presentation/pages/topcisByLessonScreen.dart';
-import 'package:eschool_teacher/fileViews/imageFileScreen.dart';
-import 'package:eschool_teacher/fileViews/pdfFileScreen.dart';
-=======
 import 'package:madares_app_teacher/features/notifications/presentation/pages/notificationsScreen.dart';
 import 'package:madares_app_teacher/features/splash/presentation/pages/splashScreen.dart';
 import 'package:madares_app_teacher/features/termsAndCondition/presentation/pages/termsAndConditionScreen.dart';
 import 'package:madares_app_teacher/features/topcisByLesson/presentation/pages/topcisByLessonScreen.dart';
 import 'package:madares_app_teacher/fileViews/imageFileScreen.dart';
 import 'package:madares_app_teacher/fileViews/pdfFileScreen.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

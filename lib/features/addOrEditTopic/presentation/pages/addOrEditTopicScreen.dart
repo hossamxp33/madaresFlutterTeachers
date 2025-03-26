@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import 'package:eschool_teacher/core/utils/sharedWidgets/customCircularProgressIndicator.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/customRoundedButton.dart';
-=======
 import 'package:madares_app_teacher/core/utils/sharedWidgets/customCircularProgressIndicator.dart';
 import 'package:madares_app_teacher/core/utils/sharedWidgets/customRoundedButton.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

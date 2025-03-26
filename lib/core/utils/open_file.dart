@@ -8,11 +8,10 @@ Future<void> openMyFile(String filePath, BuildContext context) async {
     await openFileManager(
       iosConfig: IosConfig(
         // Path is case-sensitive here.
-        folderPath:filePath,
+        subFolderPath:filePath,
       ),
       androidConfig: AndroidConfig(
-
-        folderPath: filePath,
+        folderType: FolderType.download,
       ),
     );
 

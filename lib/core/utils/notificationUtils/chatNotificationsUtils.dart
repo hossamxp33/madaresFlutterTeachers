@@ -2,16 +2,9 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
-import 'package:awesome_notifications/awesome_notifications.dart';
-<<<<<<< HEAD
-import 'package:eschool_teacher/core/repositories/settingsRepository.dart';
-import 'package:eschool_teacher/core/utils/constants.dart';
-import 'package:eschool_teacher/features/chat/data/models/chatNotificationData.dart';
-=======
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:madares_app_teacher/core/repositories/settingsRepository.dart';
-import 'package:madares_app_teacher/core/utils/constants.dart';
 import 'package:madares_app_teacher/features/chat/data/models/chatNotificationData.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
 import 'package:firebase_messaging/firebase_messaging.dart';
 
@@ -21,90 +14,85 @@ class ChatNotificationsUtils {
   static late StreamController<ChatNotificationData>
       notificationStreamController;
 
+  static final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin =
+      FlutterLocalNotificationsPlugin();
+
+  /// Initializes the notification system
   static initialize() {
-    //remove old data when initilizing to remove terminated state data
+    // Clear old notifications on app launch
     SettingsRepository().setBackgroundChatNotificationData(data: []);
     notificationStreamController = StreamController.broadcast();
   }
 
+  /// Disposes the notification stream
   static dispose() {
     notificationStreamController.close();
   }
 
-  //foreground chat notification handler
+  /// Handles foreground chat notifications
   static addChatStreamAndShowNotification({required RemoteMessage message}) {
     final chatNotification =
         ChatNotificationData.fromRemoteMessage(remoteMessage: message);
     notificationStreamController.add(chatNotification);
+
     if (currentChattingUserId != chatNotification.fromUser.userId &&
         Platform.isAndroid) {
       createChatNotification(chatData: chatNotification, message: message);
     }
   }
 
+  /// Adds a chat notification to the stream
   static addChatStreamValue({required ChatNotificationData chatData}) {
     notificationStreamController.add(chatData);
   }
 
-  static createChatNotification(
-      {required ChatNotificationData chatData,
-      required RemoteMessage message}) async {
-    String title = "";
-    String body = "";
-    String type = "";
-    String? image;
+  /// Creates and displays a local notification for chat messages
+  static Future<void> createChatNotification({
+    required ChatNotificationData chatData,
+    required RemoteMessage message,
+  }) async {
+    String title = message.notification?.title ?? message.data["title"] ?? "";
+    String body = message.notification?.body ?? message.data["body"] ?? "";
+    String? image = message.data['image'];
 
-    if (message.notification != null) {
-      title = message.notification?.title ?? "";
-      body = message.notification?.body ?? "";
-    } else {
-      title = message.data["title"] ?? "";
-      body = message.data["body"] ?? "";
-    }
-    type = message.data['type'] ?? "";
-    image = message.data['image'];
+    AndroidNotificationDetails androidDetails;
 
     if (image == null) {
-      await AwesomeNotifications().createNotification(
-        content: NotificationContent(
-            id: Random().nextInt(5000),
-            groupKey: chatData.receivedMessage.senderId.toString(),
-            autoDismissible: true,
-            title: "New Messages",
-            body: body,
-            locked: false,
-            wakeUpScreen: true,
-            largeIcon: chatData.fromUser.profileUrl,
-            payload: {
-              "type": type,
-              "sender_info": message.data['sender_info'],
-            },
-            channelKey: chatNotificationChannelKey,
-            summary: title,
-            notificationLayout: NotificationLayout.Messaging,
-            category: NotificationCategory.Message),
+      androidDetails = AndroidNotificationDetails(
+        'chat_channel', // Channel ID
+        'Chat Notifications', // Channel Name
+        importance: Importance.high,
+        priority: Priority.high,
+        playSound: true,
+        largeIcon: chatData.fromUser.profileUrl != null
+            ? FilePathAndroidBitmap(chatData.fromUser.profileUrl!)
+            : null,
       );
     } else {
-      await AwesomeNotifications().createNotification(
-        content: NotificationContent(
-            id: Random().nextInt(5000),
-            groupKey: chatData.receivedMessage.senderId.toString(),
-            autoDismissible: true,
-            title: "New Messages",
-            body: body,
-            locked: false,
-            wakeUpScreen: true,
-            bigPicture: image,
-            payload: {
-              "type": type,
-              "sender_info": message.data['sender_info'],
-            },
-            largeIcon: chatData.fromUser.profileUrl,
-            channelKey: chatNotificationChannelKey,
-            summary: title,
-            notificationLayout: NotificationLayout.Messaging,
-            category: NotificationCategory.Message),
+      final bigPictureStyle = BigPictureStyleInformation(
+        FilePathAndroidBitmap(image),
+        contentTitle: title,
+        summaryText: body,
+      );
+
+      androidDetails = AndroidNotificationDetails(
+        'chat_channel',
+        'Chat Notifications',
+        importance: Importance.high,
+        priority: Priority.high,
+        playSound: true,
+        styleInformation: bigPictureStyle,
       );
     }
+
+    NotificationDetails details = NotificationDetails(android: androidDetails);
+
+    await _flutterLocalNotificationsPlugin.show(
+      Random().nextInt(5000), // Unique notification ID
+      title.isNotEmpty ? title : "New Messages", // Fallback title
+      body,
+      details,
+      payload: message.data['sender_info'],
+    );
   }
 }

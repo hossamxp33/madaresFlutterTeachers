@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import 'package:eschool_teacher/features/assignment/data/models/assignment.dart';
-import 'package:eschool_teacher/features/assignment/data/repositories/assignmentRepository.dart';
-=======
 import 'package:madares_app_teacher/features/assignment/data/models/assignment.dart';
 import 'package:madares_app_teacher/features/assignment/data/repositories/assignmentRepository.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import 'package:eschool_teacher/core/repositories/settingsRepository.dart';
-import 'package:eschool_teacher/core/repositories/teacherRepository.dart';
-import 'package:eschool_teacher/core/utils/notificationUtils/generalNotificationUtility.dart';
-import 'package:eschool_teacher/features/chat/presentation/pages/chatUsersScreen.dart';
-import 'package:eschool_teacher/features/exam/presentation/manager/timeTableCubit.dart';
-import 'package:eschool_teacher/features/home/presentation/widgets/bottomNavigationItemContainer.dart';
-import 'package:eschool_teacher/features/home/presentation/widgets/forceUpdateDialogContainer.dart';
-import 'package:eschool_teacher/features/home/presentation/widgets/profileContainer.dart';
-import 'package:eschool_teacher/features/home/presentation/widgets/settingsContainer.dart';
-import 'package:eschool_teacher/features/home/presentation/widgets/timeTableContainer.dart';
-=======
 import 'package:madares_app_teacher/core/repositories/settingsRepository.dart';
 import 'package:madares_app_teacher/core/repositories/teacherRepository.dart';
 import 'package:madares_app_teacher/core/utils/notificationUtils/generalNotificationUtility.dart';
@@ -20,7 +8,6 @@ import 'package:madares_app_teacher/features/home/presentation/widgets/forceUpda
 import 'package:madares_app_teacher/features/home/presentation/widgets/profileContainer.dart';
 import 'package:madares_app_teacher/features/home/presentation/widgets/settingsContainer.dart';
 import 'package:madares_app_teacher/features/home/presentation/widgets/timeTableContainer.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,10 +16,7 @@ import '../../../../app/manager/appConfigurationCubit.dart';
 import '../../../../core/utils/labelKeys.dart';
 import '../../../../core/utils/uiUtils.dart';
 import '../../../chat/presentation/manager/chatUsersCubit.dart';
-<<<<<<< HEAD
-=======
 import '../../../chat/presentation/pages/message_number.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import '../widgets/appUnderMaintenanceContainer.dart';
 import '../widgets/homeContainer.dart';
 
@@ -96,10 +80,6 @@ class _HomeScreenState extends State<HomeScreen>
       disableImageUrl: UiUtils.getImagePath("profile.svg"),
       title: profileKey,
     ),
-<<<<<<< HEAD
-
-=======
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     BottomNavItem(
       activeImageUrl: UiUtils.getImagePath("setting_active.svg"),
       disableImageUrl: UiUtils.getImagePath("setting.svg"),
@@ -201,17 +181,6 @@ class _HomeScreenState extends State<HomeScreen>
                 children: _bottomNavItems.map((bottomNavItem) {
                   int index = _bottomNavItems
                       .indexWhere((e) => e.title == bottomNavItem.title);
-<<<<<<< HEAD
-                  return BottomNavItemContainer(
-                    onTap: _changeBottomNavItem,
-                    boxConstraints: boxConstraints,
-                    currentIndex: _currentSelectedBottomNavIndex,
-                    bottomNavItem: _bottomNavItems[index],
-                    animationController:
-                        _bottomNavItemTitlesAnimationController[index],
-                    index: index,
-                  );
-=======
                   return index == 2
                       ? Stack(children: [
                           BottomNavItemContainer(
@@ -238,7 +207,6 @@ class _HomeScreenState extends State<HomeScreen>
                               _bottomNavItemTitlesAnimationController[index],
                           index: index,
                         );
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                 }).toList(),
               );
             },
@@ -269,10 +237,6 @@ class _HomeScreenState extends State<HomeScreen>
                       TimeTableContainer(),
                       ChatUsersScreen(),
                       ProfileContainer(),
-<<<<<<< HEAD
-
-=======
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                       SettingsContainer(),
                     ],
                   ),

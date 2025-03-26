@@ -1,15 +1,8 @@
 
-<<<<<<< HEAD
-import 'package:eschool_teacher/core/utils/sharedWidgets/customShimmerContainer.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/shimmerLoadingContainer.dart';
-import 'package:eschool_teacher/features/class/data/models/classSectionDetails.dart';
-import 'package:eschool_teacher/features/studentDetails/presentation/manager/studentsByClassSectionCubit.dart';
-=======
 import 'package:madares_app_teacher/core/utils/sharedWidgets/customShimmerContainer.dart';
 import 'package:madares_app_teacher/core/utils/sharedWidgets/shimmerLoadingContainer.dart';
 import 'package:madares_app_teacher/features/class/data/models/classSectionDetails.dart';
 import 'package:madares_app_teacher/features/studentDetails/presentation/manager/studentsByClassSectionCubit.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

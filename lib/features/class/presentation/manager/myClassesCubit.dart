@@ -1,11 +1,6 @@
 
-<<<<<<< HEAD
-import 'package:eschool_teacher/core/repositories/teacherRepository.dart';
-import 'package:eschool_teacher/features/class/data/models/classSectionDetails.dart';
-=======
 import 'package:madares_app_teacher/core/repositories/teacherRepository.dart';
 import 'package:madares_app_teacher/features/class/data/models/classSectionDetails.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 abstract class MyClassesState {}

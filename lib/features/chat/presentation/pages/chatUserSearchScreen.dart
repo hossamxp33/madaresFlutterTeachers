@@ -1,22 +1,4 @@
 
-<<<<<<< HEAD
-import 'package:eschool_teacher/core/utils/animationConfiguration.dart';
-import 'package:eschool_teacher/core/utils/labelKeys.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/customBackButton.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/customShimmerContainer.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/customTabBarContainer.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/errorContainer.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/loadMoreErrorWidget.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/noDataContainer.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/screenTopBackgroundContainer.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/searchTextField.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/shimmerLoadingContainer.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/tabBarBackgroundContainer.dart';
-import 'package:eschool_teacher/core/utils/uiUtils.dart';
-import 'package:eschool_teacher/features/chat/data/repositories/chatRepository.dart';
-import 'package:eschool_teacher/features/chat/presentation/manager/chatUserSearchCubit.dart';
-import 'package:eschool_teacher/features/chat/presentation/widgets/charUserItem.dart';
-=======
 import 'package:madares_app_teacher/core/utils/animationConfiguration.dart';
 import 'package:madares_app_teacher/core/utils/labelKeys.dart';
 import 'package:madares_app_teacher/core/utils/sharedWidgets/customBackButton.dart';
@@ -33,7 +15,6 @@ import 'package:madares_app_teacher/core/utils/uiUtils.dart';
 import 'package:madares_app_teacher/features/chat/data/repositories/chatRepository.dart';
 import 'package:madares_app_teacher/features/chat/presentation/manager/chatUserSearchCubit.dart';
 import 'package:madares_app_teacher/features/chat/presentation/widgets/charUserItem.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';

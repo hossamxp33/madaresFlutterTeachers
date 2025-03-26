@@ -1,9 +1,5 @@
 
-<<<<<<< HEAD
-import 'package:eschool_teacher/features/announcements/data/repositories/announcementRepository.dart';
-=======
 import 'package:madares_app_teacher/features/announcements/data/repositories/announcementRepository.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

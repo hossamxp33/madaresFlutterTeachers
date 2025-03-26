@@ -1,18 +1,4 @@
 
-<<<<<<< HEAD
-import 'package:eschool_teacher/core/utils/animationConfiguration.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/customShimmerContainer.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/errorContainer.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/noDataContainer.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/screenTopBackgroundContainer.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/shimmerLoadingContainer.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/svgButton.dart';
-import 'package:eschool_teacher/core/utils/uiUtils.dart';
-import 'package:eschool_teacher/features/class/presentation/widgets/subjectImageContainer.dart';
-import 'package:eschool_teacher/features/exam/data/models/exam.dart';
-import 'package:eschool_teacher/features/exam/presentation/manager/examTimeTableCubit.dart';
-import 'package:eschool_teacher/features/studentDetails/data/repositories/studentRepository.dart';
-=======
 import 'package:madares_app_teacher/core/utils/animationConfiguration.dart';
 import 'package:madares_app_teacher/core/utils/sharedWidgets/customShimmerContainer.dart';
 import 'package:madares_app_teacher/core/utils/sharedWidgets/errorContainer.dart';
@@ -25,7 +11,6 @@ import 'package:madares_app_teacher/features/class/presentation/widgets/subjectI
 import 'package:madares_app_teacher/features/exam/data/models/exam.dart';
 import 'package:madares_app_teacher/features/exam/presentation/manager/examTimeTableCubit.dart';
 import 'package:madares_app_teacher/features/studentDetails/data/repositories/studentRepository.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';

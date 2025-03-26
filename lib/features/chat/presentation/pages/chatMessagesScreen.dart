@@ -1,27 +1,5 @@
 import 'dart:math';
 
-<<<<<<< HEAD
-import 'package:eschool_teacher/app/routes.dart';
-import 'package:eschool_teacher/core/utils/labelKeys.dart';
-import 'package:eschool_teacher/core/utils/notificationUtils/chatNotificationsUtils.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/customBackButton.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/customShimmerContainer.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/customUserProfileImageWidget.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/errorContainer.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/screenTopBackgroundContainer.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/shimmerLoadingContainer.dart';
-import 'package:eschool_teacher/core/utils/styles/colors.dart';
-import 'package:eschool_teacher/core/utils/uiUtils.dart';
-import 'package:eschool_teacher/features/chat/data/models/chatMessage.dart';
-import 'package:eschool_teacher/features/chat/data/models/chatUser.dart';
-import 'package:eschool_teacher/features/chat/data/repositories/chatRepository.dart';
-import 'package:eschool_teacher/features/chat/presentation/manager/chatMessagesCubit.dart';
-import 'package:eschool_teacher/features/chat/presentation/manager/chatUsersCubit.dart';
-import 'package:eschool_teacher/features/chat/presentation/widgets/attachmentDialog.dart';
-import 'package:eschool_teacher/features/chat/presentation/widgets/messageSendingWidget.dart';
-import 'package:eschool_teacher/features/chat/presentation/widgets/singleMessageItem.dart';
-import 'package:eschool_teacher/features/login/presentation/manager/authCubit.dart';
-=======
 import 'package:madares_app_teacher/app/routes.dart';
 import 'package:madares_app_teacher/core/utils/labelKeys.dart';
 import 'package:madares_app_teacher/core/utils/notificationUtils/chatNotificationsUtils.dart';
@@ -42,7 +20,6 @@ import 'package:madares_app_teacher/features/chat/presentation/widgets/attachmen
 import 'package:madares_app_teacher/features/chat/presentation/widgets/messageSendingWidget.dart';
 import 'package:madares_app_teacher/features/chat/presentation/widgets/singleMessageItem.dart';
 import 'package:madares_app_teacher/features/login/presentation/manager/authCubit.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -266,11 +243,7 @@ class _ChatMessagesScreenState extends State<ChatMessagesScreen> {
                   ? DateFormat("dd MMMM").format(date)
                   : DateFormat("dd MMM yyyy").format(date),
       style: TextStyle(
-<<<<<<< HEAD
-        color: secondaryColor.withOpacity(0.6),
-=======
         color: Theme.of(context).colorScheme.secondary.withOpacity(0.6),
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
         fontSize: 12,
       ),
     );
@@ -281,28 +254,16 @@ class _ChatMessagesScreenState extends State<ChatMessagesScreen> {
       padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-<<<<<<< HEAD
-        color: secondaryColor.withOpacity(0.05),
-=======
         color: Theme.of(context).colorScheme.secondary.withOpacity(0.05),
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-<<<<<<< HEAD
-          const SizedBox(
-            width: 12,
-            height: 12,
-            child: CustomCircularProgressIndicator(
-              indicatorColor: primaryColor,
-=======
            SizedBox(
             width: 12,
             height: 12,
             child: CustomCircularProgressIndicator(
               indicatorColor: Theme.of(context).colorScheme.primary,
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
             ),
           ),
           const SizedBox(
@@ -330,26 +291,15 @@ class _ChatMessagesScreenState extends State<ChatMessagesScreen> {
         padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-<<<<<<< HEAD
-          color: secondaryColor.withOpacity(0.05),
-=======
           color: Theme.of(context).colorScheme.secondary.withOpacity(0.05),
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-<<<<<<< HEAD
-            const Icon(
-              Icons.refresh,
-              size: 16,
-              color: primaryColor,
-=======
              Icon(
               Icons.refresh,
               size: 16,
               color: Theme.of(context).colorScheme.primary,
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
             ),
             const SizedBox(
               width: 10,
@@ -598,11 +548,7 @@ class _ChatMessagesScreenState extends State<ChatMessagesScreen> {
                                 ),
                                 ChatMessageSendingWidget(
                                   backgroundColor:
-<<<<<<< HEAD
-                                      primaryColor.withOpacity(0.25),
-=======
                                   Theme.of(context).colorScheme.primary.withOpacity(0.25),
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                                   onMessageSend: () {
                                     if (_chatMessageSendTextController.text
                                         .trim()

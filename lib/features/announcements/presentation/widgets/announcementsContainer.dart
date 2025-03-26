@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-import 'package:eschool_teacher/app/routes.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/customShimmerContainer.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/shimmerLoadingContainer.dart';
-import 'package:eschool_teacher/features/announcements/presentation/manager/deleteAnnouncementCubit.dart';
-=======
 import 'package:madares_app_teacher/app/routes.dart';
 import 'package:madares_app_teacher/core/utils/sharedWidgets/customShimmerContainer.dart';
 import 'package:madares_app_teacher/core/utils/sharedWidgets/shimmerLoadingContainer.dart';
 import 'package:madares_app_teacher/features/announcements/presentation/manager/deleteAnnouncementCubit.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -244,13 +237,8 @@ class AnnouncementsContainer extends StatelessWidget {
                                     },
                                     child: Text(
                                       "${announcement.files.length} ${UiUtils.getTranslatedLabel(context, attachmentsKey)}",
-<<<<<<< HEAD
-                                      style: const TextStyle(
-                                        color: assignmentViewButtonColor,
-=======
                                       style:  TextStyle(
                                         color: Theme.of(context).colorScheme.secondary,
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                                       ),
                                     ),
                                   ),

@@ -1,9 +1,5 @@
 import 'package:dio/dio.dart';
-<<<<<<< HEAD
-import 'package:eschool_teacher/core/utils/api.dart';
-=======
 import 'package:madares_app_teacher/core/utils/api.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
 import 'package:flutter/foundation.dart';
 
@@ -15,12 +11,8 @@ class ChatRepository {
   Future<Map<String, dynamic>> fetchChatUsers(
       {required int offset,
       required bool isParent,
-<<<<<<< HEAD
-      String? searchString}) async {
-=======
       String? searchString}) async
   {
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     try {
       final response = await Api.get(
         url: Api.getChatUsers,
@@ -32,10 +24,7 @@ class ChatRepository {
           if (searchString != null) "search": searchString
         },
       );
-<<<<<<< HEAD
-=======
       print("ChatRepositoryRequest======>fetchChatUsers");
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
       List<ChatUser> chatUsers = [];
 
@@ -57,12 +46,8 @@ class ChatRepository {
   }
 
   Future<Map<String, dynamic>> fetchChatMessages(
-<<<<<<< HEAD
-      {required int offset, required String chatUserId}) async {
-=======
       {required int offset, required String chatUserId}) async
   {
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     try {
       final response = await Api.post(
         url: Api.getChatMessages,
@@ -73,10 +58,7 @@ class ChatRepository {
           "limit": offsetLimitPaginationAPIDefaultItemFetchLimit
         },
       );
-<<<<<<< HEAD
-=======
       print("ChatRepositoryRequest======>fetchChatMessages");
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
       List<ChatMessage> chatMessage = [];
 
@@ -99,12 +81,8 @@ class ChatRepository {
   Future<ChatMessage> sendChatMessage(
       {required String message,
       List<String> filePaths = const [],
-<<<<<<< HEAD
-      required int receiverId}) async {
-=======
       required int receiverId}) async
   {
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     try {
       List<MultipartFile> files = [];
       for (var filePath in filePaths) {
@@ -119,11 +97,8 @@ class ChatRepository {
         url: Api.sendChatMessage,
         useAuthToken: true,
       );
-<<<<<<< HEAD
-=======
       print("ChatRepositoryRequest======>sendChatMessage");
 
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
       return ChatMessage.fromJsonAPI(result['data']);
     } catch (e) {
       throw ApiException(e.toString());
@@ -132,12 +107,8 @@ class ChatRepository {
 
   Future<void> readAllMessages({
     required String userId,
-<<<<<<< HEAD
-  }) async {
-=======
   }) async
   {
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     try {
       //this will call API to make all messages read, noting in failure
       await Api.post(

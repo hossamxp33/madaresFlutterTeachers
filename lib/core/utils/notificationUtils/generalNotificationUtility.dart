@@ -1,18 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
-
-import 'package:awesome_notifications/awesome_notifications.dart';
-<<<<<<< HEAD
-import 'package:eschool_teacher/app/routes.dart';
-import 'package:eschool_teacher/core/repositories/settingsRepository.dart';
-import 'package:eschool_teacher/core/utils/constants.dart';
-import 'package:eschool_teacher/core/utils/notificationUtils/chatNotificationsUtils.dart';
-import 'package:eschool_teacher/core/utils/uiUtils.dart';
-import 'package:eschool_teacher/features/chat/data/models/chatNotificationData.dart';
-import 'package:eschool_teacher/features/chat/data/models/chatUser.dart';
-import 'package:eschool_teacher/features/home/presentation/pages/homeScreen.dart';
-=======
+import 'package:http/http.dart' as http;
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:madares_app_teacher/app/routes.dart';
 import 'package:madares_app_teacher/core/repositories/settingsRepository.dart';
 import 'package:madares_app_teacher/core/utils/constants.dart';
@@ -20,269 +10,175 @@ import 'package:madares_app_teacher/core/utils/notificationUtils/chatNotificatio
 import 'package:madares_app_teacher/core/utils/uiUtils.dart';
 import 'package:madares_app_teacher/features/chat/data/models/chatNotificationData.dart';
 import 'package:madares_app_teacher/features/chat/data/models/chatUser.dart';
-import 'package:madares_app_teacher/features/home/presentation/pages/homeScreen.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'dart:async';
 
-// ignore: avoid_classes_with_only_static_members
 class NotificationUtility {
-  static String customNotificationType = "custom";
-  static String noticeboardNotificationType = "noticeboard";
-  static String classNoticeboardNotificationType = "class";
-  static String classSectionNoticeboardNotificationType = "class_section";
-  static String assignmentlNotificationType = "assignment";
-  static String assignmentSubmissionNotificationType = "assignment_submission";
-  static String onlineFeePaymentNotificationType = "Online";
-  static String attendenceNotificationType = "attendance";
-  static String chatNotificaitonType = "chat";
-  static List<String> notificaitonTypesToNotIncrementCount = [
-    noticeboardNotificationType,
-    classNoticeboardNotificationType,
-    classSectionNoticeboardNotificationType,
-    chatNotificaitonType,
-  ];
+  static const String chatNotificationType = "chat";
+  static final List<String> notificationTypesToNotIncrementCount = [chatNotificationType];
+
+  static final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin =
+      FlutterLocalNotificationsPlugin();
 
   static StreamSubscription<RemoteMessage>? openAppStreamSubscription;
   static StreamSubscription<RemoteMessage>? onMessageOpenAppStreamSubscription;
 
-  static Future<void> setUpNotificationService(
-    BuildContext buildContext,
-  ) async {
+  static Future<void> init() async {
+    await Firebase.initializeApp();
     ChatNotificationsUtils.initialize();
-    NotificationSettings notificationSettings =
-        await FirebaseMessaging.instance.getNotificationSettings();
+    await _requestPermissions();
+    await _initializeLocalNotifications();
+  }
 
-    //ask for permission
-    if (notificationSettings.authorizationStatus ==
-            AuthorizationStatus.notDetermined ||
-        notificationSettings.authorizationStatus ==
-            AuthorizationStatus.denied) {
-      notificationSettings =
-          await FirebaseMessaging.instance.requestPermission();
-    }
-    if (buildContext.mounted) {
-      initNotificationListener(buildContext);
+  static Future<void> _requestPermissions() async {
+    NotificationSettings settings = await FirebaseMessaging.instance.getNotificationSettings();
+    if (settings.authorizationStatus == AuthorizationStatus.notDetermined ||
+        settings.authorizationStatus == AuthorizationStatus.denied) {
+      await FirebaseMessaging.instance.requestPermission();
     }
   }
 
-  static void initNotificationListener(BuildContext buildContext) {
+  static Future<void> setUpNotificationService(BuildContext context) async {
+    ChatNotificationsUtils.initialize();
+    await _requestPermissions();
+    if (context.mounted) initNotificationListener(context);
+    await _initializeLocalNotifications();
+  }
+
+  static Future<void> _initializeLocalNotifications() async {
+    const AndroidInitializationSettings androidSettings =
+        AndroidInitializationSettings('@mipmap/ic_launcher');
+    final InitializationSettings settings = InitializationSettings(android: androidSettings);
+
+    await _flutterLocalNotificationsPlugin.initialize(
+      settings,
+      onDidReceiveNotificationResponse: (NotificationResponse response) {
+        _handleNotificationTap(response.payload ?? "");
+      },
+    );
+  }
+
+  static void initNotificationListener(BuildContext context) {
     FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
       alert: true,
       badge: true,
       sound: true,
     );
-    AwesomeNotifications().setListeners(
-      onActionReceivedMethod: NotificationUtility.onActionReceivedMethod,
-      onNotificationCreatedMethod:
-          NotificationUtility.onNotificationCreatedMethod,
-      onNotificationDisplayedMethod:
-          NotificationUtility.onNotificationDisplayedMethod,
-      onDismissActionReceivedMethod:
-          NotificationUtility.onDismissActionReceivedMethod,
-    );
-    openAppStreamSubscription =
-        FirebaseMessaging.onMessage.listen(foregroundMessageListener);
+    openAppStreamSubscription = FirebaseMessaging.onMessage.listen(foregroundMessageListener);
     FirebaseMessaging.onBackgroundMessage(onBackgroundMessage);
     onMessageOpenAppStreamSubscription =
-        FirebaseMessaging.onMessageOpenedApp.listen((remoteMessage) {
-      onMessageOpenedAppListener(remoteMessage, buildContext);
-    });
+        FirebaseMessaging.onMessageOpenedApp.listen((msg) => onMessageOpenedAppListener(msg, context));
   }
 
   @pragma('vm:entry-point')
-  static Future<void> onBackgroundMessage(RemoteMessage remoteMessage) async {
-    if (!notificaitonTypesToNotIncrementCount
-        .contains(remoteMessage.data["type"])) {
-      await Firebase.initializeApp();
-
-      int oldCount = await SettingsRepository().getNotificationCount();
-      await SettingsRepository().setNotificationCount(oldCount + 1);
+  static Future<void> onBackgroundMessage(RemoteMessage message) async {
+    await Firebase.initializeApp();
+    if (!notificationTypesToNotIncrementCount.contains(message.data["type"])) {
+      int count = await SettingsRepository().getNotificationCount();
+      await SettingsRepository().setNotificationCount(count + 1);
     }
-    if (remoteMessage.data["type"] == chatNotificaitonType) {
-      //background chat message storing
-      final List<ChatNotificationData> oldList =
-          await SettingsRepository().getBackgroundChatNotificationData();
-      final messageChatData =
-          ChatNotificationData.fromRemoteMessage(remoteMessage: remoteMessage);
-      oldList.add(messageChatData);
+    
+    if (message.data["type"] == chatNotificationType) {
+      final chatData = ChatNotificationData.fromRemoteMessage(remoteMessage: message);
+      final List<ChatNotificationData> oldList = await SettingsRepository().getBackgroundChatNotificationData();
+      oldList.add(chatData);
       SettingsRepository().setBackgroundChatNotificationData(data: oldList);
-      if (Platform.isAndroid) {
-        ChatNotificationsUtils.createChatNotification(
-            chatData: messageChatData, message: remoteMessage);
-      }
+      if (Platform.isAndroid) ChatNotificationsUtils.createChatNotification(chatData: chatData, message: message);
     } else {
-      if (Platform.isAndroid) {
-        createLocalNotification(dimissable: true, message: remoteMessage);
-      }
+      if (Platform.isAndroid) await createLocalNotification(message: message);
     }
   }
 
-  static Future<void> foregroundMessageListener(
-    RemoteMessage remoteMessage,
-  ) async {
-    await FirebaseMessaging.instance.getToken();
-    if (!notificaitonTypesToNotIncrementCount
-        .contains(remoteMessage.data["type"])) {
-      int oldCount = await SettingsRepository().getNotificationCount();
-      notificationCountValueNotifier.value = oldCount + 1;
-      await SettingsRepository().setNotificationCount(oldCount + 1);
+  static Future<void> foregroundMessageListener(RemoteMessage message) async {
+    if (!notificationTypesToNotIncrementCount.contains(message.data["type"])) {
+      int count = await SettingsRepository().getNotificationCount();
+      await SettingsRepository().setNotificationCount(count + 1);
     }
-    if (remoteMessage.data["type"] == chatNotificaitonType) {
-      ChatNotificationsUtils.addChatStreamAndShowNotification(
-          message: remoteMessage);
+    
+    if (message.data["type"] == chatNotificationType) {
+      ChatNotificationsUtils.addChatStreamAndShowNotification(message: message);
     } else {
-      if (Platform.isAndroid) {
-        createLocalNotification(dimissable: true, message: remoteMessage);
-      }
+      if (Platform.isAndroid) await createLocalNotification(message: message);
     }
   }
 
-  static void onMessageOpenedAppListener(
-    RemoteMessage remoteMessage,
-    BuildContext buildContext,
-  ) {
-    _onTapNotificationScreenNavigateCallback(
-      remoteMessage.data['type'] ?? "",
-      remoteMessage.data,
-    );
+  static void onMessageOpenedAppListener(RemoteMessage message, BuildContext context) {
+    _handleNotificationTap(message.data['type'] ?? "");
   }
 
-  static void _onTapNotificationScreenNavigateCallback(
-    String notificationType,
-    Map<String, dynamic> data,
-  ) {
-    if (notificationType == customNotificationType) {
-      UiUtils.rootNavigatorKey.currentState?.pushNamed(Routes.notifications);
-    } else if (notificationType == assignmentSubmissionNotificationType) {
-      UiUtils.rootNavigatorKey.currentState?.pushNamed(Routes.assignments);
-    } else if (notificationType == chatNotificaitonType) {
-      //get off the route if already on it
+  static void _handleNotificationTap(String notificationType) {
+    if (notificationType == chatNotificationType) {
       if (Routes.currentRoute == Routes.chatMessages) {
         UiUtils.rootNavigatorKey.currentState?.pop();
       }
-      UiUtils.rootNavigatorKey.currentState?.pushNamed(Routes.chatMessages,
-          arguments: {
-            "chatUser": ChatUser.fromJsonAPI(jsonDecode(data['sender_info']))
-          });
-    }
-  }
-
-  static Future<void> initializeAwesomeNotification() async {
-    await AwesomeNotifications().initialize(null, [
-      NotificationChannel(
-        channelKey: notificationChannelKey,
-        channelName: 'Basic notifications',
-        channelDescription:
-            'Notification channel for announcements and other notifications.',
-        vibrationPattern: highVibrationPattern,
-        importance: NotificationImportance.High,
-      ),
-      NotificationChannel(
-          channelKey: chatNotificationChannelKey,
-          channelName: "Chat notifications",
-          channelDescription: "Notification related to chat",
-          vibrationPattern: highVibrationPattern,
-          importance: NotificationImportance.High)
-    ]);
-  }
-
-  static Future<bool> isLocalNotificationAllowed() async {
-    const notificationPermission = Permission.notification;
-    final status = await notificationPermission.status;
-    return status.isGranted;
-  }
-
-  /// Use this method to detect when a new notification or a schedule is created
-  static Future<void> onNotificationCreatedMethod(
-    ReceivedNotification receivedNotification,
-  ) async {
-    // Your code goes here
-  }
-
-  /// Use this method to detect every time that a new notification is displayed
-  static Future<void> onNotificationDisplayedMethod(
-    ReceivedNotification receivedNotification,
-  ) async {
-    // Your code goes here
-  }
-
-  /// Use this method to detect if the user dismissed a notification
-  static Future<void> onDismissActionReceivedMethod(
-    ReceivedAction receivedAction,
-  ) async {
-    // Your code goes here
-  }
-
-  /// Use this method to detect when the user taps on a notification or action button
-  static Future<void> onActionReceivedMethod(
-    ReceivedAction receivedAction,
-  ) async {
-    if (Platform.isAndroid) {
-      _onTapNotificationScreenNavigateCallback(
-        (receivedAction.payload ?? {})['type'] ?? "",
-        Map.from(receivedAction.payload ?? {}),
+      UiUtils.rootNavigatorKey.currentState?.pushNamed(
+        Routes.chatMessages,
+        arguments: {
+          "chatUser": ChatUser.fromJsonAPI(jsonDecode(notificationType))
+        },
       );
     }
   }
 
-  static Future<void> createLocalNotification({
-    required bool dimissable,
-    required RemoteMessage message,
-  }) async {
-    String title = "";
-    String body = "";
-    String type = "";
-    String? image;
+  static Future<void> createLocalNotification({required RemoteMessage message}) async {
+    String title = message.notification?.title ?? message.data["title"] ?? "";
+    String body = message.notification?.body ?? message.data["body"] ?? "";
+    String? imageUrl = message.data['image'];
 
-    if (message.notification != null) {
-      title = message.notification?.title ?? "";
-      body = message.notification?.body ?? "";
+    AndroidNotificationDetails androidDetails = AndroidNotificationDetails(
+      'default_channel',
+      'General Notifications',
+      importance: Importance.high,
+      priority: Priority.high,
+      playSound: true,
+    );
+
+    if (imageUrl != null && imageUrl.isNotEmpty) {
+      try {
+        final ByteArrayAndroidBitmap bigPicture = await _downloadImage(imageUrl);
+        final BigPictureStyleInformation bigPictureStyle = BigPictureStyleInformation(
+          bigPicture,
+          contentTitle: title,
+          summaryText: body,
+        );
+
+        androidDetails = AndroidNotificationDetails(
+          'default_channel',
+          'General Notifications',
+          importance: Importance.high,
+          priority: Priority.high,
+          playSound: true,
+          styleInformation: bigPictureStyle,
+        );
+      } catch (e) {
+        print("Failed to load image for notification: $e");
+      }
+    }
+
+    final NotificationDetails details = NotificationDetails(android: androidDetails);
+
+    await _flutterLocalNotificationsPlugin.show(
+      Random().nextInt(5000),
+      title,
+      body,
+      details,
+      payload: message.data['type'],
+    );
+  }
+
+  static Future<ByteArrayAndroidBitmap> _downloadImage(String url) async {
+    final http.Response response = await http.get(Uri.parse(url));
+    if (response.statusCode == 200) {
+      return ByteArrayAndroidBitmap(response.bodyBytes);
     } else {
-      title = message.data["title"] ?? "";
-      body = message.data["body"] ?? "";
-    }
-    type = message.data['type'] ?? "";
-    image = message.data['image'];
-
-    if (image == null) {
-      await AwesomeNotifications().createNotification(
-        content: NotificationContent(
-          id: Random().nextInt(5000),
-          autoDismissible: dimissable,
-          title: title,
-          body: body,
-          locked: !dimissable,
-          wakeUpScreen: true,
-          payload: {"type": type},
-          channelKey: notificationChannelKey,
-          notificationLayout: NotificationLayout.BigText,
-        ),
-      );
-    } else {
-      await AwesomeNotifications().createNotification(
-        content: NotificationContent(
-          id: Random().nextInt(5000),
-          autoDismissible: dimissable,
-          title: title,
-          body: body,
-          locked: !dimissable,
-          wakeUpScreen: true,
-          bigPicture: image,
-          payload: {"type": type},
-          channelKey: notificationChannelKey,
-          notificationLayout: NotificationLayout.BigPicture,
-        ),
-      );
+      throw Exception("Failed to download image: ${response.statusCode}");
     }
   }
 
-  //remove when logging out to prevent multi-listeners
-  static removeListener() {
+  static void removeListener() {
     try {
       openAppStreamSubscription?.cancel();
       onMessageOpenAppStreamSubscription?.cancel();

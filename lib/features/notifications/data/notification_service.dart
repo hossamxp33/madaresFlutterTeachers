@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import 'package:eschool_teacher/features/notifications/data/models/customNotification.dart';
-=======
 import 'package:madares_app_teacher/features/notifications/data/models/customNotification.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:hive/hive.dart';
 
 class NotificationService {

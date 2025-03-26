@@ -1,13 +1,4 @@
 import 'dart:io';
-<<<<<<< HEAD
-import 'package:eschool_teacher/core/utils/constants.dart';
-import 'package:eschool_teacher/core/utils/errorMessageKeysAndCodes.dart';
-import 'package:eschool_teacher/core/utils/labelKeys.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/customCircularProgressIndicator.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/customRoundedButton.dart';
-import 'package:eschool_teacher/core/utils/styles/colors.dart';
-import 'package:eschool_teacher/core/utils/uiUtils.dart';
-=======
 import 'package:madares_app_teacher/core/utils/constants.dart';
 import 'package:madares_app_teacher/core/utils/errorMessageKeysAndCodes.dart';
 import 'package:madares_app_teacher/core/utils/labelKeys.dart';
@@ -15,7 +6,6 @@ import 'package:madares_app_teacher/core/utils/sharedWidgets/customCircularProgr
 import 'package:madares_app_teacher/core/utils/sharedWidgets/customRoundedButton.dart';
 import 'package:madares_app_teacher/core/utils/styles/colors.dart';
 import 'package:madares_app_teacher/core/utils/uiUtils.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -109,11 +99,7 @@ class _AttachmentDialogWidgetState extends State<AttachmentDialogWidget> {
                 context,
                 ErrorMessageKeysAndCode.getErrorMessageKeyFromCode(
                     ErrorMessageKeysAndCode.permissionNotGivenCode)),
-<<<<<<< HEAD
-            backgroundColor: errorColor);
-=======
             backgroundColor: Theme.of(context).colorScheme.error);
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
       }
     } catch (_) {
       if (context.mounted) {
@@ -123,11 +109,7 @@ class _AttachmentDialogWidgetState extends State<AttachmentDialogWidget> {
                 context,
                 ErrorMessageKeysAndCode.getErrorMessageKeyFromCode(
                     ErrorMessageKeysAndCode.defaultErrorMessageCode)),
-<<<<<<< HEAD
-            backgroundColor: errorColor);
-=======
             backgroundColor: Theme.of(context).colorScheme.error);
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
       }
     }
     loading = false;
@@ -144,30 +126,18 @@ class _AttachmentDialogWidgetState extends State<AttachmentDialogWidget> {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-<<<<<<< HEAD
-        color: secondaryColor.withOpacity(0.05),
-=======
         color: Theme.of(context).colorScheme.secondary.withOpacity(0.05),
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
       ),
       padding: const EdgeInsets.all(10),
       child: loading
           ? Container(
               height: 100,
               alignment: Alignment.center,
-<<<<<<< HEAD
-              child: const SizedBox(
-                height: 30,
-                width: 30,
-                child: CustomCircularProgressIndicator(
-                  indicatorColor: primaryColor,
-=======
               child:  SizedBox(
                 height: 30,
                 width: 30,
                 child: CustomCircularProgressIndicator(
                   indicatorColor: Theme.of(context).colorScheme.primary,
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                 ),
               ),
             )
@@ -217,11 +187,7 @@ class _AttachmentDialogWidgetState extends State<AttachmentDialogWidget> {
                                     width: 60,
                                     height: 60,
                                     decoration: BoxDecoration(
-<<<<<<< HEAD
-                                      color: primaryColor,
-=======
                                       color: Theme.of(context).colorScheme.primary,
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                                       borderRadius: BorderRadius.circular(12),
                                     ),
                                     padding: const EdgeInsets.all(15),
@@ -239,11 +205,7 @@ class _AttachmentDialogWidgetState extends State<AttachmentDialogWidget> {
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-<<<<<<< HEAD
-                                  color: secondaryColor.withOpacity(0.7),
-=======
                                   color: Theme.of(context).colorScheme.secondary.withOpacity(0.7),
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                                 ),
                                 textAlign: TextAlign.center,
                               ),
@@ -270,17 +232,10 @@ class _AttachmentDialogWidgetState extends State<AttachmentDialogWidget> {
                               "${UiUtils.getTranslatedLabel(context, selectionType == AttachmentFileSelectionType.camara ? camaraImagesKey : selectionType == AttachmentFileSelectionType.document ? selectedFilesKey : pickedImages)} (${selectedFilePaths.length})",
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
-<<<<<<< HEAD
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: primaryColor,
-=======
                               style:  TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
                                 color: Theme.of(context).colorScheme.primary,
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                               ),
                               textAlign: TextAlign.start,
                             ),
@@ -292,15 +247,9 @@ class _AttachmentDialogWidgetState extends State<AttachmentDialogWidget> {
                             onTap: () {
                               onFilesPicked();
                             },
-<<<<<<< HEAD
-                            child: const Icon(
-                              Icons.add,
-                              color: primaryColor,
-=======
                             child:  Icon(
                               Icons.add,
                               color: Theme.of(context).colorScheme.primary,
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                             ),
                           ),
                           const SizedBox(
@@ -328,11 +277,7 @@ class _AttachmentDialogWidgetState extends State<AttachmentDialogWidget> {
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(12),
-<<<<<<< HEAD
-                                            color: primaryColor,
-=======
                                             color: Theme.of(context).colorScheme.primary,
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                                           ),
                                           padding: const EdgeInsets.all(5),
                                           height: 100,
@@ -386,15 +331,9 @@ class _AttachmentDialogWidgetState extends State<AttachmentDialogWidget> {
                                                     .removeAt(index);
                                                 setState(() {});
                                               },
-<<<<<<< HEAD
-                                              child: const Icon(
-                                                Icons.close_rounded,
-                                                color: redColor,
-=======
                                               child:  Icon(
                                                 Icons.close_rounded,
                                                 color: Theme.of(context).colorScheme.error,
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                                                 size: 18,
                                               ),
                                             ),
@@ -418,11 +357,7 @@ class _AttachmentDialogWidgetState extends State<AttachmentDialogWidget> {
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(12),
-<<<<<<< HEAD
-                                            color: primaryColor,
-=======
                                             color: Theme.of(context).colorScheme.primary,
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                                           ),
                                           height: 100,
                                           width: 130,
@@ -447,15 +382,9 @@ class _AttachmentDialogWidgetState extends State<AttachmentDialogWidget> {
                                                     .removeAt(index);
                                                 setState(() {});
                                               },
-<<<<<<< HEAD
-                                              child: const Icon(
-                                                Icons.close_rounded,
-                                                color: redColor,
-=======
                                               child:  Icon(
                                                 Icons.close_rounded,
                                                 color: Theme.of(context).colorScheme.error,
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
                                                 size: 18,
                                               ),
                                             ),

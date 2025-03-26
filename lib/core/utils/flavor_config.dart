@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-class FlavorConfig {
-  static const String flavor = String.fromEnvironment('FLUTTER_APP_FLAVOR');
-
-  static String getAssetPath(String assetName) {
-    switch (flavor) {
-      case 'school1':
-        return 'assets/school1/$assetName';
-      default:
-        return 'assets/images/$assetName';
-=======
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -71,18 +60,11 @@ class FlavorConfig {
         return FlexThemeData.dark(scheme: FlexScheme.cyanM3).copyWith(
           textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
         );
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     }
   }
 
   static int getSchoolId() {
     switch (flavor) {
-<<<<<<< HEAD
-      case 'school1':
-        return 125;
-      default:
-        return 125;
-=======
       case 'school2':
         return 125;
       case 'school1':
@@ -104,7 +86,6 @@ class FlavorConfig {
         return "مدرسه الطويسه";
       default:
         return "مدرسة النخيل الاهليه";
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     }
   }
 }

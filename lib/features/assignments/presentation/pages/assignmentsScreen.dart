@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import 'package:eschool_teacher/app/routes.dart';
-import 'package:eschool_teacher/core/repositories/teacherRepository.dart';
-import 'package:eschool_teacher/core/utils/sharedWidgets/customDropDownMenu.dart';
-import 'package:eschool_teacher/features/assignment/data/repositories/assignmentRepository.dart';
-import 'package:eschool_teacher/features/assignment/presentation/manager/assignmentCubit.dart';
-import 'package:eschool_teacher/features/assignments/presentation/widgets/assignmentsContainer.dart';
-import 'package:eschool_teacher/features/class/presentation/manager/myClassesCubit.dart';
-import 'package:eschool_teacher/features/class/presentation/widgets/myClassesDropDownMenu.dart';
-import 'package:eschool_teacher/features/subject/presentation/manager/subjectsOfClassSectionCubit.dart';
-=======
 import 'package:madares_app_teacher/app/routes.dart';
 import 'package:madares_app_teacher/core/repositories/teacherRepository.dart';
 import 'package:madares_app_teacher/core/utils/sharedWidgets/customDropDownMenu.dart';
@@ -18,7 +7,6 @@ import 'package:madares_app_teacher/features/assignments/presentation/widgets/as
 import 'package:madares_app_teacher/features/class/presentation/manager/myClassesCubit.dart';
 import 'package:madares_app_teacher/features/class/presentation/widgets/myClassesDropDownMenu.dart';
 import 'package:madares_app_teacher/features/subject/presentation/manager/subjectsOfClassSectionCubit.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import 'package:eschool_teacher/features/lessons/data/repositories/lessonRepository.dart';
-=======
 import 'package:madares_app_teacher/features/lessons/data/repositories/lessonRepository.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 abstract class LessonDeleteState {}

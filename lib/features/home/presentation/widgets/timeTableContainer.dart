@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import 'package:eschool_teacher/features/class/presentation/widgets/subjectImageContainer.dart';
-=======
 import 'package:madares_app_teacher/features/class/presentation/widgets/subjectImageContainer.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

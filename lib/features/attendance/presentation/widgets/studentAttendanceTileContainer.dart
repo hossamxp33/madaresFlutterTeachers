@@ -1,11 +1,6 @@
 
-<<<<<<< HEAD
-import 'package:eschool_teacher/core/utils/sharedWidgets/customUserProfileImageWidget.dart';
-import 'package:eschool_teacher/features/studentDetails/data/models/student.dart';
-=======
 import 'package:madares_app_teacher/core/utils/sharedWidgets/customUserProfileImageWidget.dart';
 import 'package:madares_app_teacher/features/studentDetails/data/models/student.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
 import 'package:flutter/material.dart';
 

@@ -1,12 +1,7 @@
 
 
-<<<<<<< HEAD
-import 'package:eschool_teacher/core/models/sectionDetails.dart';
-import 'package:eschool_teacher/features/class/data/models/classDetails.dart';
-=======
 import 'package:madares_app_teacher/core/models/sectionDetails.dart';
 import 'package:madares_app_teacher/features/class/data/models/classDetails.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 
 class ClassSectionDetails {
   final int id;

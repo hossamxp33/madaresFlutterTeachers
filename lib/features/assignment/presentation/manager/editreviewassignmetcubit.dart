@@ -1,10 +1,6 @@
 // ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
-<<<<<<< HEAD
-import 'package:eschool_teacher/features/assignment/data/repositories/reviewAssignmentRepository.dart';
-=======
 import 'package:madares_app_teacher/features/assignment/data/repositories/reviewAssignmentRepository.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/foundation.dart';
 // ignore: depend_on_referenced_packages
 

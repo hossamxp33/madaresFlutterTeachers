@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-import 'package:eschool_teacher/core/utils/sharedWidgets/customCircularProgressIndicator.dart';
-import 'package:eschool_teacher/features/assignment/data/models/assignment.dart';
-import 'package:eschool_teacher/features/assignment/presentation/manager/editreviewassignmetcubit.dart';
-import 'package:eschool_teacher/features/assignments/data/models/reviewAssignmentssubmition.dart';
-=======
 import 'package:madares_app_teacher/core/utils/sharedWidgets/customCircularProgressIndicator.dart';
 import 'package:madares_app_teacher/features/assignment/data/models/assignment.dart';
 import 'package:madares_app_teacher/features/assignment/presentation/manager/editreviewassignmetcubit.dart';
 import 'package:madares_app_teacher/features/assignments/data/models/reviewAssignmentssubmition.dart';
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

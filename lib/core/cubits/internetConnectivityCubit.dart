@@ -24,20 +24,12 @@ class InternetConnectivityCubit extends Cubit<InternetConnectivityState> {
   Future<void> _setUpInternetConnectionChecker() async {
     try {
       _streamSubscription =Connectivity().onConnectivityChanged.listen(
-<<<<<<< HEAD
-        _internetConnectionListenerCallback,
-=======
         _internetConnectionListenerCallback as void Function(List<ConnectivityResult> event)?,
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
         onError: (error) {
           // Handle subscription error
           print('Error setting up internet connection checker: $error');
         },
-<<<<<<< HEAD
-      );
-=======
       ) as StreamSubscription<ConnectivityResult>?;
->>>>>>> f8116bb26ff7cdb9462a79241b86162b4f4e9bdc
     } catch (error) {
       // Handle general error
       print('Error setting up internet connection checker: $error');
