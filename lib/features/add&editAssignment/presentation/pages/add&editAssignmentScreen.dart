@@ -34,6 +34,7 @@ import '../../../../core/utils/sharedWidgets/customRoundedButton.dart';
 import '../../../../core/utils/uiUtils.dart';
 
 
+import 'package:path/path.dart' as path;
 
 
 class AddAssignmentScreen extends StatefulWidget {
@@ -283,7 +284,15 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
     }
   }
 
+  // import 'dart:io';
+  // import 'package:path/path.dart' as path;
+
   Widget _buildUploadedFileContainer(int fileIndex) {
+    final file = uploadedFiles[fileIndex];
+    final fileName = file.name;
+    final filePath = file.path;
+    final isImage = ['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.webp'].contains(path.extension(fileName).toLowerCase());
+
     return LayoutBuilder(
       builder: (context, boxConstraints) {
         return Padding(
@@ -293,39 +302,51 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
             dashPattern: const [10, 10],
             radius: const Radius.circular(10.0),
             color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.3),
-            child: LayoutBuilder(
-              builder: (context, boxConstraints) {
-                return Padding(
-                  padding: const EdgeInsetsDirectional.only(start: 20),
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: boxConstraints.maxWidth * (0.75),
-                        child: Text(
-                          uploadedFiles[fileIndex].name,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            color: Theme.of(context).colorScheme.secondary,
-                          ),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.only(start: 20),
+              child: Row(
+                children: [
+                  if (isImage && File(filePath!).existsSync()) ...[
+                    Container(
+                      width: 50,
+                      height: 50,
+                      margin: const EdgeInsetsDirectional.only(end: 12),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        image: DecorationImage(
+                          image: FileImage(File(filePath)),
+                          fit: BoxFit.cover,
                         ),
                       ),
-                      const Spacer(),
-                      IconButton(
-                        onPressed: () {
-                          if (context.read<CreateAssignmentCubit>().state
-                              is CreateAssignmentInProcess) {
-                            return;
-                          }
-                          uploadedFiles.removeAt(fileIndex);
-                          setState(() {});
-                        },
-                        icon: const Icon(Icons.close),
+                    ),
+                  ],
+                  SizedBox(
+                    width: isImage
+                        ? boxConstraints.maxWidth * 0.55
+                        : boxConstraints.maxWidth * 0.75,
+                    child: Text(
+                      fileName,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.secondary,
                       ),
-                    ],
+                    ),
                   ),
-                );
-              },
+                  const Spacer(),
+                  IconButton(
+                    onPressed: () {
+                      if (context.read<CreateAssignmentCubit>().state
+                      is CreateAssignmentInProcess) {
+                        return;
+                      }
+                      uploadedFiles.removeAt(fileIndex);
+                      setState(() {});
+                    },
+                    icon: const Icon(Icons.close),
+                  ),
+                ],
+              ),
             ),
           ),
         );

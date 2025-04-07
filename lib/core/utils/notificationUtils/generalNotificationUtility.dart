@@ -18,6 +18,15 @@ import 'dart:async';
 
 class NotificationUtility {
   static const String chatNotificationType = "chat";
+  static String customNotificationType = "custom";
+  static String noticeboardNotificationType = "noticeboard";
+  static String classNoticeboardNotificationType = "class";
+  static String classSectionNoticeboardNotificationType = "class_section";
+  static String assignmentlNotificationType = "assignment";
+  static String assignmentSubmissionNotificationType = "assignment_submission";
+  static String onlineFeePaymentNotificationType = "Online";
+  static String attendenceNotificationType = "attendance";
+  static String chatNotificaitonType = "chat";
   static final List<String> notificationTypesToNotIncrementCount = [chatNotificationType];
 
   static final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin =
@@ -109,15 +118,32 @@ class NotificationUtility {
     _handleNotificationTap(message.data['type'] ?? "");
   }
 
+  // static void _handleNotificationTap(String notificationType) {
+  //   if (notificationType == chatNotificationType) {
+  //     if (Routes.currentRoute == Routes.chatMessages) {
+  //       UiUtils.rootNavigatorKey.currentState?.pop();
+  //     }
+  //     UiUtils.rootNavigatorKey.currentState?.pushNamed(
+  //       Routes.chatMessages,
+  //       arguments: {
+  //         "chatUser": ChatUser.fromJsonAPI(jsonDecode(notificationType))
+  //       },
+  //     );
+  //   }
+  // }
   static void _handleNotificationTap(String notificationType) {
-    if (notificationType == chatNotificationType) {
+    if (notificationType == customNotificationType) {
+      UiUtils.rootNavigatorKey.currentState?.pushNamed(Routes.notifications);
+    } else if (notificationType == assignmentSubmissionNotificationType) {
+      UiUtils.rootNavigatorKey.currentState?.pushNamed(Routes.assignments);
+    } else if (notificationType == chatNotificationType) {
       if (Routes.currentRoute == Routes.chatMessages) {
         UiUtils.rootNavigatorKey.currentState?.pop();
       }
       UiUtils.rootNavigatorKey.currentState?.pushNamed(
         Routes.chatMessages,
         arguments: {
-          "chatUser": ChatUser.fromJsonAPI(jsonDecode(notificationType))
+         "chatUser": ChatUser.fromJsonAPI(jsonDecode(notificationType))
         },
       );
     }

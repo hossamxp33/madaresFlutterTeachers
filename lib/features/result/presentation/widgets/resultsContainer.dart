@@ -147,11 +147,11 @@ class _ResultsContainerState extends State<ResultsContainer> {
                               UiUtils.appBarSmallerHeightPercentage,
                         ),
                       ),
-                      itemCount:
-                          state.studentCompletedExamWithResultList.length,
+                      itemCount: state.studentCompletedExamWithResultList.length,
                       itemBuilder: (context, index) {
+                        // StudentResult resultData = state.studentCompletedExamWithResultList[index];
                         StudentResult resultData =
-                            state.studentCompletedExamWithResultList[index];
+                        state.studentCompletedExamWithResultList.reversed.toList()[index];
                         return Animate(
                           effects: listItemAppearanceEffects(
                               itemIndex: index,
