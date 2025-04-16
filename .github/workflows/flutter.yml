@@ -2,44 +2,48 @@ name: Flutter CI/CD
 
 on:
   push:
-    branches:
-      - main
-
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
-  flutter_test:
-    name: Run flutter test and analyze
+  flutter_build:
+    name: Build APK & AAB (School3)
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v1
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v3
         with:
-          java-version: "12.x"
-      - uses: subosito/flutter-action@v1
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
         with:
-          channel: "stable"
-      - run: flutter pub get
-      
-      - name: Build Release School3 APK
+          flutter-version: '3.27.4' # Use your installed Flutter version
+          channel: 'stable'
+
+      - name: Install Dependencies
+        run: flutter pub get
+
+      - name: Build APK (School3)
         run: flutter build apk --release --flavor school3 --target lib/main.dart
 
-
-      - name: Build School3 appbundle
+      - name: Build AAB (School3)
         run: flutter build appbundle --flavor school3 --target lib/main.dart
 
-
-      - name: Upload School3 APK
+      - name: Upload APK
         uses: actions/upload-artifact@v3
         with:
           name: school3-release-apk
           path: build/app/outputs/flutter-apk/app-school3-release.apk
 
-      
-      - name: Upload School3 AAB
+      - name: Upload AAB
         uses: actions/upload-artifact@v3
         with:
-          name: school3-release-apk
+          name: school3-release-aab
           path: build/app/outputs/bundle/school3Release/app-school3-release.aab
