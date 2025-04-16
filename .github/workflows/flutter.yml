@@ -10,7 +10,7 @@ on:
       - main
 
 jobs:
-  build:
+  flutter_job:
     runs-on: macos-latest
 
     steps:
