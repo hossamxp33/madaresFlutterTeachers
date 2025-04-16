@@ -1,48 +1,35 @@
-name: Flutter CI/CD
-env:
-  FLUTTER_VERSION: "3.2.3"
+# Note: In a yml each level is padded by 2 spaces
+name: Flutter
 
 on:
+  # Runs this action when you push on master
   push:
-    branches:
-      - main
-
+    branches: [ "main" ]
+  # Runs this when a PR against master is created
   pull_request:
-    branches:
-      - main
+    branches: [ "main" ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  flutter_job:
 
-    steps:
-      - name: Checkout My Code
-      - uses: actions/checkout@v2
-      - name: Install Flutter
-        uses: britannio/action-install-flutter@v1
+    # The machine, we can also use windows-latest or ubuntu-latest
+    # We are choosing macos-latest because we will be also building for iOS
+    runs-on: macos-latest
+
+  steps:
+
+      # Clones the project on the machine
+      - uses: actions/checkout@v4
+
+      # Installs flutter and related dependency on this machine
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
         with:
-          version: $FLUTTER_VERSION
-      - name: Get Packages
-        run: flutter pub get
-
-
-      - name: Build Release School3 APK
-        run: flutter build apk --release --flavor school3 --target lib/main.dart
-
-
-      - name: Build School3 appbundle
-        run: flutter build appbundle --flavor school3 --target lib/main.dart
-
-
-      - name: Upload School3 APK
-        uses: actions/upload-artifact@v3
-        with:
-          name: school3-release-apk
-          path: build/app/outputs/flutter-apk/app-school3-release.apk
-
+          channel: 'stable'
+          # flutter-version: '3.16.8'
+          # ^ If you want to use a specific version of flutter
       
-      - name: Upload School3 AAB
-        uses: actions/upload-artifact@v3
-        with:
-          name: school3-release-apk
-          path: build/app/outputs/bundle/school3Release/app-school3-release.aab
+      # Fetches proj dependencies from pub
+      - name: Install dependencies
+        run: flutter pub get
+          # ^ If you want to use a specific version of flutter
