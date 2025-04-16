@@ -38,13 +38,13 @@ jobs:
         run: flutter build appbundle --flavor school3 --target lib/main.dart
 
       - name: Upload APK Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@9a08c3e1598dc46d17e9d8311e3c91f96c48f1ac
         with:
           name: school3-release-apk
           path: build/app/outputs/flutter-apk/app-school3-release.apk
 
       - name: Upload AAB Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@9a08c3e1598dc46d17e9d8311e3c91f96c48f1ac
         with:
           name: school3-release-aab
           path: build/app/outputs/bundle/school3Release/app-school3-release.aab
