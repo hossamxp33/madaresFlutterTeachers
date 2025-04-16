@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
       - name: Checkout My Code
@@ -32,16 +32,23 @@ jobs:
         run: flutter pub get
 
 
-      - name: Build Release school3 APK
+      - name: Build Release School3 APK
         run: flutter build apk --release --flavor school3 --target lib/main.dart
 
 
-      - name: Build school3 appbundle
+      - name: Build School3 appbundle
         run: flutter build appbundle --flavor school3 --target lib/main.dart
 
 
-      - name: Upload APK
+      - name: Upload School3 APK
         uses: actions/upload-artifact@v3
         with:
-          name: release-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          name: school3-release-apk
+          path: build/app/outputs/flutter-apk/app-school3-release.apk
+
+      
+      - name: Upload School3 AAB
+        uses: actions/upload-artifact@v3
+        with:
+          name: school3-release-apk
+          path: build/app/outputs/bundle/school3Release/app-school3-release.aab
