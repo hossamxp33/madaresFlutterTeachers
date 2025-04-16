@@ -4,51 +4,47 @@ on:
   push:
     branches:
       - main
-
+      
   pull_request:
     branches:
       - main
 
 jobs:
-  flutter_job:
+  build:
     runs-on: macos-latest
 
     steps:
-      - name: Checkout My Code
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-      # - name: Setup Java 17
-      #   uses: actions/setup-java@v3
-      #   with:
-      #     distribution: 'temurin' # Use the Eclipse Temurin distribution
-      #     java-version: '17'
+      - name: Set up Java 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
 
-      - name: Install Flutter Version 3.24.5
+      - name: Set up Flutter 3.24.5
         uses: subosito/flutter-action@v2
         with:
-          channel: 'stable'
+          flutter-version: '3.24.5'
 
       - name: Install Dependencies
         run: flutter pub get
 
-
-      - name: Build Release School3 APK
+      - name: Build Release APK (school3)
         run: flutter build apk --release --flavor school3 --target lib/main.dart
 
-
-      - name: Build School3 appbundle
+      - name: Build Release AAB (school3)
         run: flutter build appbundle --flavor school3 --target lib/main.dart
 
-
-      - name: Upload School3 APK
+      - name: Upload APK Artifact
         uses: actions/upload-artifact@v3
         with:
           name: school3-release-apk
           path: build/app/outputs/flutter-apk/app-school3-release.apk
 
-      
-      - name: Upload School3 AAB
+      - name: Upload AAB Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: school3-release-apk
+          name: school3-release-aab
           path: build/app/outputs/bundle/school3Release/app-school3-release.aab
