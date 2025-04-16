@@ -15,18 +15,18 @@ jobs:
 
     steps:
       - name: Checkout My Code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Setup Java 17
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin' # Use the Eclipse Temurin distribution
-          java-version: '17'
+      # - name: Setup Java 17
+      #   uses: actions/setup-java@v3
+      #   with:
+      #     distribution: 'temurin' # Use the Eclipse Temurin distribution
+      #     java-version: '17'
 
       - name: Install Flutter Version 3.24.5
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.5' # Use the required Flutter version
+          channel: 'stable'
 
       - name: Install Dependencies
         run: flutter pub get
