@@ -510,17 +510,10 @@ currentSelectedPrimaryClassSection.index]
             context
                 .read<SubjectMarksBySubjectIdCubit>()
                 .submitSubjectMarksBySubjectId(
-                  examId: context
-                      .read<ExamDetailsCubit>()
-                      .getExamDetails(
-                        index: currentSelectedExamName.index,
-                      )
-                      .examID!,
+                  examId: context.read<ExamDetailsCubit>().getExamDetails(index: currentSelectedExamName.index,).examID!,
                   subjectId: selectedSubjectDetails!.id,
                   bodyParameter: studentsMarksList,
-                  classSectionId: allPrimaryClasses[
-                          currentSelectedPrimaryClassSection.index]
-                      .id,
+                  classSectionId: allPrimaryClasses[currentSelectedPrimaryClassSection.index].id,
                 );
           },
           height: UiUtils.bottomSheetButtonHeight,

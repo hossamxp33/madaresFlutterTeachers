@@ -1,6 +1,6 @@
-
 import 'dart:io';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:madares_app_teacher/core/models/studyMaterial.dart';
 import 'package:madares_app_teacher/core/repositories/teacherRepository.dart';
 import 'package:madares_app_teacher/core/utils/labelKeys.dart';
@@ -35,7 +35,6 @@ import '../../../../core/utils/uiUtils.dart';
 
 
 import 'package:path/path.dart' as path;
-
 
 class AddAssignmentScreen extends StatefulWidget {
   final bool editassignment;
@@ -152,7 +151,39 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
       });
     }
   }
+  Future<bool> _requestStoragePermission(BuildContext context, {String? mediaType}) async {
+    Permission permission;
 
+    if (Platform.isAndroid) {
+      if (mediaType == 'image') {
+        permission = Permission.photos; // or Permission.mediaImages if available
+      } else if (mediaType == 'video') {
+        permission = Permission.videos; // or Permission.mediaVideo if available
+      } else {
+        permission = Permission.storage;
+      }
+    } else {
+      // iOS doesn't use granular permission like Android
+      permission = Permission.photos;
+    }
+
+    final status = await permission.request();
+
+    if (status.isGranted) {
+      return true;
+    } else if (status.isPermanentlyDenied) {
+      if (context.mounted) {
+        UiUtils.showBottomToastOverlay(
+          context: context,
+          errorMessage: UiUtils.getTranslatedLabel(context, allowStoragePermissionToContinueKey),
+          backgroundColor: Theme.of(context).colorScheme.error,
+        );
+      }
+      return false;
+    }
+
+    return false;
+  }
   late CustomDropDownItem currentSelectedClassSection = CustomDropDownItem(
       index: 0,
       title: widget.editassignment
@@ -242,34 +273,141 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
 
     if (result != null) {
 
-
       uploadedFiles.addAll(result.files);
       setState(() {});
     }
   }
+  //
+  // Future<void> _addFiles() async {
+  //   //upload files
+  //   final permission = await Permission.storage.request();
+  //   if (permission.isGranted) {
+  //     await _pickFiles();
+  //   } else {
+  //     try {
+  //       await _pickFiles();
+  //     } on Exception {
+  //       if (context.mounted) {
+  //         UiUtils.showBottomToastOverlay(
+  //             context: context,
+  //             errorMessage: UiUtils.getTranslatedLabel(
+  //                 context, allowStoragePermissionToContinueKey),
+  //             backgroundColor: Theme.of(context).colorScheme.error);
+  //         await Future.delayed(const Duration(seconds: 2));
+  //       }
+  //       openAppSettings();
+  //     }
+  //   }
+  // }
+  Future<void> _addFiles(BuildContext context) async {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (_) {
+        return SafeArea(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                leading: const Icon(Icons.image),
+                title: const Text('صورة'),
+                onTap: () {
+                  Navigator.pop(context);
+                  _pickImage(context);
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.videocam),
+                title: const Text('فيديو'),
+                onTap: () {
+                  Navigator.pop(context);
+                  _pickVideo(context);
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.insert_drive_file),
+                title: const Text('الملفات'),
+                onTap: () {
+                  Navigator.pop(context);
+                  _pickFiles();
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
 
-  Future<void> _addFiles() async {
-    //upload files
-    final permission = await Permission.storage.request();
-    if (permission.isGranted) {
-      await _pickFiles();
-    } else {
-      try {
-        await _pickFiles();
-      } on Exception {
-        if (context.mounted) {
-          UiUtils.showBottomToastOverlay(
-              context: context,
-              errorMessage: UiUtils.getTranslatedLabel(
-                  context, allowStoragePermissionToContinueKey),
-              backgroundColor: Theme.of(context).colorScheme.error);
-          await Future.delayed(const Duration(seconds: 2));
-        }
-        openAppSettings();
+
+  // Future<void> _pickFiles(BuildContext context) async {
+  //   if (await _requestStoragePermission(context)) {
+  //     final result = await FilePicker.platform.pickFiles(allowMultiple: false);
+  //     if (result != null && result.files.isNotEmpty) {
+  //       // handle picked file
+  //       debugPrint("Picked file: ${result.files.single.name}");
+  //     }
+  //   }
+  // }
+
+  Future<void> _pickImage(BuildContext context) async {
+    if (await _requestStoragePermission(context, mediaType: 'image')) {
+      final picked = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (picked != null) {
+        final file = File(picked.path);
+        final bytes = await file.readAsBytes();
+
+        uploadedFiles.add(
+          PlatformFile(
+            name: picked.name,
+            size: bytes.length,
+            path: picked.path,
+            bytes: bytes,
+          ),
+        );
+
+        setState(() {});
+        debugPrint("Picked image: ${picked.path}");
       }
     }
   }
 
+  Future<void> _pickVideo(BuildContext context) async {
+    if (await _requestStoragePermission(context, mediaType: 'video')) {
+      final picked = await ImagePicker().pickVideo(source: ImageSource.gallery);
+      if (picked != null) {
+        final file = File(picked.path);
+        final bytes = await file.readAsBytes();
+
+        uploadedFiles.add(
+          PlatformFile(
+            name: picked.name,
+            size: bytes.length,
+            path: picked.path,
+            bytes: bytes,
+          ),
+        );
+
+        setState(() {});
+        debugPrint("Picked video: ${picked.path}");
+      }
+    }
+  }
+
+  // void _handlePermissionDenied(BuildContext context) {
+  //   if (context.mounted) {
+  //     UiUtils.showBottomToastOverlay(
+  //       context: context,
+  //       errorMessage: UiUtils.getTranslatedLabel(context, allowStoragePermissionToContinueKey),
+  //       backgroundColor: Theme.of(context).colorScheme.error,
+  //     );
+  //     Future.delayed(const Duration(seconds: 2), () {
+  //       openAppSettings();
+  //     });
+  //   }
+  // }
   Future<void> prepareRecordFile(filePath) async {
     if (filePath != null) {
       recordFile = File(filePath!);
@@ -287,11 +425,78 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
   // import 'dart:io';
   // import 'package:path/path.dart' as path;
 
+  // Widget _buildUploadedFileContainer(int fileIndex) {
+  //   final file = uploadedFiles[fileIndex];
+  //   final fileName = file.name;
+  //   final filePath = file.path;
+  //   final isImage = ['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.webp'].contains(path.extension(fileName).toLowerCase());
+  //   return LayoutBuilder(
+  //     builder: (context, boxConstraints) {
+  //       return Padding(
+  //         padding: const EdgeInsetsDirectional.only(bottom: 15),
+  //         child: DottedBorder(
+  //           borderType: BorderType.RRect,
+  //           dashPattern: const [10, 10],
+  //           radius: const Radius.circular(10.0),
+  //           color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.3),
+  //           child: Padding(
+  //             padding: const EdgeInsetsDirectional.only(start: 20),
+  //             child: Row(
+  //               children: [
+  //                 if (isImage && File(filePath!).existsSync()) ...[
+  //                   Container(
+  //                     width: 50,
+  //                     height: 50,
+  //                     margin: const EdgeInsetsDirectional.only(end: 12),
+  //                     decoration: BoxDecoration(
+  //                       borderRadius: BorderRadius.circular(8),
+  //                       image: DecorationImage(
+  //                         image: FileImage(File(filePath)),
+  //                         fit: BoxFit.cover,
+  //                       ),
+  //                     ),
+  //                   ),
+  //                 ],
+  //                 SizedBox(
+  //                   width: isImage
+  //                       ? boxConstraints.maxWidth * 0.55
+  //                       : boxConstraints.maxWidth * 0.75,
+  //                   child: Text(
+  //                     fileName,
+  //                     maxLines: 2,
+  //                     overflow: TextOverflow.ellipsis,
+  //                     style: TextStyle(
+  //                       color: Theme.of(context).colorScheme.secondary,
+  //                     ),
+  //                   ),
+  //                 ),
+  //                 const Spacer(),
+  //                 IconButton(
+  //                   onPressed: () {
+  //                     if (context.read<CreateAssignmentCubit>().state
+  //                     is CreateAssignmentInProcess) {
+  //                       return;
+  //                     }
+  //                     uploadedFiles.removeAt(fileIndex);
+  //                     setState(() {});
+  //                   },
+  //                   icon: const Icon(Icons.close),
+  //                 ),
+  //               ],
+  //             ),
+  //           ),
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
   Widget _buildUploadedFileContainer(int fileIndex) {
     final file = uploadedFiles[fileIndex];
     final fileName = file.name;
     final filePath = file.path;
-    final isImage = ['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.webp'].contains(path.extension(fileName).toLowerCase());
+    final extension = path.extension(fileName).toLowerCase();
+    final isImage = ['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.webp'].contains(extension);
+    final isVideo = ['.mp4', '.mov', '.avi', '.mkv', '.webm'].contains(extension);
 
     return LayoutBuilder(
       builder: (context, boxConstraints) {
@@ -305,25 +510,23 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
             child: Padding(
               padding: const EdgeInsetsDirectional.only(start: 20),
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  if (isImage && File(filePath!).existsSync()) ...[
-                    Container(
-                      width: 50,
-                      height: 50,
-                      margin: const EdgeInsetsDirectional.only(end: 12),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        image: DecorationImage(
-                          image: FileImage(File(filePath)),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                  ],
-                  SizedBox(
-                    width: isImage
-                        ? boxConstraints.maxWidth * 0.55
-                        : boxConstraints.maxWidth * 0.75,
+                  FutureBuilder<Widget>(
+                    future: _getPreviewWidget(filePath!, isImage, isVideo),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
+                        return Container(
+                          width: 50,
+                          height: 50,
+                          margin: const EdgeInsetsDirectional.only(end: 12),
+                          child: snapshot.data,
+                        );
+                      }
+                      return const SizedBox(width: 50, height: 50); // Placeholder
+                    },
+                  ),
+                  Expanded(
                     child: Text(
                       fileName,
                       maxLines: 2,
@@ -333,7 +536,21 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
                       ),
                     ),
                   ),
-                  const Spacer(),
+                  // SizedBox(
+                  //   width: (isImage || isVideo)
+                  //       ? boxConstraints.maxWidth * 0.55
+                  //       : boxConstraints.maxWidth * 0.75,
+                  //   child: Text(
+                  //     fileName,
+                  //     maxLines: 2,
+                  //     overflow: TextOverflow.ellipsis,
+                  //     style: TextStyle(
+                  //       color: Theme.of(context).colorScheme.secondary,
+                  //     ),
+                  //   ),
+                  // ),
+                  SizedBox(width: 10,),
+                  // const Spacer(),
                   IconButton(
                     onPressed: () {
                       if (context.read<CreateAssignmentCubit>().state
@@ -354,6 +571,32 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
     );
   }
 
+  Future<Widget> _getPreviewWidget(String filePath, bool isImage, bool isVideo) async {
+    if (isImage && File(filePath).existsSync()) {
+      return ClipRRect(
+        borderRadius: BorderRadius.circular(8),
+        child: Image.file(File(filePath), fit: BoxFit.cover),
+      );
+    } else if (isVideo && File(filePath).existsSync()) {
+      return Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          color: Colors.black26,
+        ),
+        child: const Center(
+          child: Icon(Icons.play_circle_fill, color: Colors.white, size: 30),
+        ),
+      );
+    }
+
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        color: Colors.grey.shade200,
+      ),
+      child: const Icon(Icons.insert_drive_file, size: 30, color: Colors.grey),
+    );
+  }
   Future<Widget> AssignmentAttatchments(int fileIndex) async {
     return LayoutBuilder(
       builder: (context, boxConstraints) {
@@ -644,7 +887,7 @@ class _AddAssignmentScreenState extends State<AddAssignmentScreen> {
               icon: Icons.add,
               record: false,
               onTap: () async {
-                _addFiles();
+                _addFiles(context);
               },
               title: UiUtils.getTranslatedLabel(context, referenceMaterialsKey),
             ),

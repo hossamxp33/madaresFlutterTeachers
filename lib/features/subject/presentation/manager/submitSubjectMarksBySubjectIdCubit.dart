@@ -47,16 +47,9 @@ class SubjectMarksBySubjectIdCubit extends Cubit<SubjectMarksBySubjectIdState> {
     try {
       var parameter = {"marks_data": bodyParameter};
       emit(SubjectMarksBySubjectIdSubmitInProgress());
-      Map<String, dynamic> result =
-          await studentRepository.updateSubjectMarksBySubjectId(
-        subjectId: subjectId,
-        examId: examId,
-        bodyParameter: parameter,
-        classSectionId: classSectionId,
-      );
+      Map<String, dynamic> result = await studentRepository.updateSubjectMarksBySubjectId(subjectId: subjectId, examId: examId, bodyParameter: parameter, classSectionId: classSectionId,);
       print("===========================");
 print(result);
-
 
       print("===========================");
       emit(
