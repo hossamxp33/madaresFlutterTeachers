@@ -46,9 +46,7 @@ class AssignmentsContainer extends StatelessWidget {
 
   Widget asignmentListtile(Assignment assignment) {
     return BlocProvider<DeleteAssignmentCubit>(
-      create: (context) => DeleteAssignmentCubit(
-        AssignmentRepository(),
-      ),
+      create: (context) => DeleteAssignmentCubit(AssignmentRepository(),),
       child: Builder(
         builder: (context) {
           return BlocConsumer<DeleteAssignmentCubit, DeleteAssignmentState>(
@@ -84,10 +82,7 @@ class AssignmentsContainer extends StatelessWidget {
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                            color: Theme.of(context)
-                                .colorScheme
-                                .secondary
-                                .withOpacity(0.05),
+                            color: Theme.of(context).colorScheme.secondary.withOpacity(0.05),
                             offset: const Offset(2.5, 2.5),
                             blurRadius: 10,
                           )
@@ -177,7 +172,21 @@ class AssignmentsContainer extends StatelessWidget {
                               fontWeight: FontWeight.w400,
                               fontSize: 11.0,
                             ),
-                          )
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pushNamed(
+                                Routes.assignment,
+                                arguments: {"assignment": assignment},
+                              );
+                            },
+                            child: Text(
+                              "${UiUtils.getTranslatedLabel(context, viewKey)}  واجبات الطالب ",
+                              style: TextStyle(
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),

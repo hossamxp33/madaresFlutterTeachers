@@ -202,10 +202,7 @@ class _AssignmentScreenState extends State<AssignmentScreen> {
                 ? reviewAssignment
                     .where((element) => element.status == 1)
                     .length
-                : title == rejectedKey
-                    ? reviewAssignment
-                        .where((element) => element.status == 2)
-                        .length
+                : title == rejectedKey ? reviewAssignment.where((element) => element.status == 2).length
                     : title == reSubmittedKey
                         ? reviewAssignment
                             .where((element) => element.status == 3)
@@ -588,8 +585,7 @@ class _AssignmentScreenState extends State<AssignmentScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    assignmentFilterType == acceptedKey ||
-                            assignmentFilterType == rejectedKey
+                    assignmentFilterType == acceptedKey || assignmentFilterType == rejectedKey
                         ? const SizedBox()
                         : _buildStudentAssignmentActionButton(
                             rightMargin: boxConstraints.maxWidth * (0.05),
@@ -600,12 +596,10 @@ class _AssignmentScreenState extends State<AssignmentScreen> {
                               openAcceptAssignmentBottomsheet(reviewAssignment);
                             },
                             backgroundColor:
-                                Theme.of(context).colorScheme.onPrimary,
+                                Theme.of(context).colorScheme.primary,
                           ),
-                    assignmentFilterType == acceptedKey ||
-                            assignmentFilterType == rejectedKey
-                        ? const SizedBox()
-                        : _buildStudentAssignmentActionButton(
+                    assignmentFilterType == acceptedKey || assignmentFilterType == rejectedKey ?
+                    const SizedBox() : _buildStudentAssignmentActionButton(
                             rightMargin: boxConstraints.maxWidth * (0.05),
                             width: boxConstraints.maxWidth * (0.2),
                             title:

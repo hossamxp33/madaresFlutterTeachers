@@ -196,7 +196,7 @@ const String pleaseSelectDateKey = "pleaseSelectDate";
 const String pleaseSelectTimeKey = "plseaseSelectTime";
 const String pleaseEnterlessPointskey = "pleaseEnterLessPoints";
 const String pleaseEnterRemarkkey = "pleaseEnterRemark";
-const String pleaseEnterPointskey = "pleaseEnterRemark";
+const String pleaseEnterPointskey = "pleaseEnterPoints";
 
 const String pointsLengthKey = "pointsLength";
 const String lessonAddedKey = "lessonAdded";

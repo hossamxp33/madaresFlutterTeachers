@@ -145,7 +145,7 @@ class StudyMaterialContainer extends StatelessWidget {
                                   ],
                                 )
                               : Text(
-                                  studyMaterial.fileName,
+                                  "",
                                   style: titleTextStyle,
                                   textAlign: TextAlign.left,
                                 ),
@@ -155,7 +155,7 @@ class StudyMaterialContainer extends StatelessWidget {
                               ? Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    const Divider(),
+                                    // const Divider(),
                                     Text(
                                       UiUtils.getTranslatedLabel(
                                         context,
@@ -173,7 +173,8 @@ class StudyMaterialContainer extends StatelessWidget {
                                             studyMaterial: studyMaterial);
                                       },
                                       child: Text(
-                                        "${studyMaterial.fileName}.${studyMaterial.fileExtension}",
+                                        "${studyMaterial.fileName}",
+                                        // "${studyMaterial.fileName}.${studyMaterial.fileExtension}",
                                         style:  TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 13),
                                       ),
                                     ),

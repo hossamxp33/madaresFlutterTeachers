@@ -30,11 +30,9 @@ class AcceptAssignmentBottomsheetContainer extends StatefulWidget {
 
 class _AcceptAssignmentBottomsheetContainerState
     extends State<AcceptAssignmentBottomsheetContainer> {
-  late final TextEditingController _remarkTextEditingController =
-      TextEditingController();
+  late final TextEditingController _remarkTextEditingController = TextEditingController();
 
-  late final TextEditingController _pointsTextEditingController =
-      TextEditingController();
+  late final TextEditingController _pointsTextEditingController =   TextEditingController();
 
   void showErrorMessage(String errorMessage) {
     UiUtils.showBottomToastOverlay(
@@ -45,11 +43,11 @@ class _AcceptAssignmentBottomsheetContainerState
   }
 
   void updateAssignment() {
-    // if (_remarkTextEditingController.text.trim().isEmpty) {
-    //   showErrorMessage(
-    //     UiUtils.getTranslatedLabel(context, pleaseEnterRemarkkey),
-    //   );
-    // }
+    if (_remarkTextEditingController.text.trim().isEmpty) {
+      showErrorMessage(
+        UiUtils.getTranslatedLabel(context, pleaseEnterRemarkkey),
+      );
+    }
     if (_pointsTextEditingController.text.trim().isEmpty) {
       showErrorMessage(
         UiUtils.getTranslatedLabel(context, pleaseEnterPointskey),
@@ -95,6 +93,18 @@ class _AcceptAssignmentBottomsheetContainerState
             ),
             child: Column(
               children: [
+                Text(
+                  "${UiUtils.getTranslatedLabel(context, pointsKey)} : ${widget.assignment.points}",
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.secondary,
+                    fontWeight: FontWeight.w600,),
+                ),
+                // BottomSheetTextFieldContainer(
+                //   hintText: UiUtils.getTranslatedLabel(context, pleaseEnterPointskey),
+                //   maxLines: 2,
+                //   textEditingController: _pointsTextEditingController,
+                //   keyboardType: TextInputType.number,
+                // ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * (0.0125),
                 ),
@@ -106,12 +116,13 @@ class _AcceptAssignmentBottomsheetContainerState
                 SizedBox(
                   height: MediaQuery.of(context).size.height * (0.025),
                 ),
-                if (widget.assignment.points != 0 &&
-                    widget.assignment.points != -1)
+                // if (widget.assignment.points != 0 &&
+                //     widget.assignment.points != -1)
                   BottomSheetTextFieldContainer(
-                    hintText: UiUtils.getTranslatedLabel(context, pointsKey),
+                    hintText: UiUtils.getTranslatedLabel(context, pleaseEnterPointskey),
                     maxLines: 1,
                     textEditingController: _pointsTextEditingController,
+                    keyboardType: TextInputType.number,
                   ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * (0.025),
@@ -135,9 +146,7 @@ class _AcceptAssignmentBottomsheetContainerState
                         widget.reviewAssignment.copywith(
                           id: widget.reviewAssignment.id,
                           feedback: _remarkTextEditingController.text.trim(),
-                          points: int.parse(
-                            _pointsTextEditingController.text.trim(),
-                          ),
+                          points: int.parse(_pointsTextEditingController.text.trim(),),
                           status: 1,
                         ),
                       );

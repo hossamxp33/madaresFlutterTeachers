@@ -63,10 +63,16 @@ Future<void> initializeApp() async {
 
   await Firebase.initializeApp();
   await NotificationUtility.init();
-  final fcmToken = await FirebaseMessaging.instance.getToken();
-  if (kDebugMode) {
-    print("FCM Token: $fcmToken");
+  try{
+    final fcmToken = await FirebaseMessaging.instance.getToken();
+    if (kDebugMode) {
+      print("FCM Token: $fcmToken");
+    }
+  }catch(e){
+    print("FCM error : $e");
+
   }
+
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await Hive.initFlutter();

@@ -220,9 +220,7 @@ class _AssignmentsScreenState extends State<AssignmentsScreen> {
                 ),
                 AssignmentsContainer(
                   classSectionDetails:
-                      context.read<MyClassesCubit>().getClassSectionDetails(
-                            index: currentSelectedClassSection.index,
-                          ),
+                      context.read<MyClassesCubit>().getClassSectionDetails(index: currentSelectedClassSection.index,),
                   subject: (context.read<SubjectsOfClassSectionCubit>().state
                               is SubjectsOfClassSectionFetchSuccess &&
                           (context.read<SubjectsOfClassSectionCubit>().state
