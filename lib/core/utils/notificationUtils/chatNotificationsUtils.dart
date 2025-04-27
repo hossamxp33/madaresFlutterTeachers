@@ -5,34 +5,34 @@ import 'dart:math';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:madares_app_teacher/core/repositories/settingsRepository.dart';
 import 'package:madares_app_teacher/features/chat/data/models/chatNotificationData.dart';
-
 import 'package:firebase_messaging/firebase_messaging.dart';
 
 class ChatNotificationsUtils {
   static int? currentChattingUserId;
 
-  static late StreamController<ChatNotificationData>
-      notificationStreamController;
+  static late StreamController<ChatNotificationData> notificationStreamController;
 
   static final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin =
-      FlutterLocalNotificationsPlugin();
+  FlutterLocalNotificationsPlugin();
 
   /// Initializes the notification system
   static initialize() {
-    // Clear old notifications on app launch
+    print("ChatNotificationsUtils: initialize called");
     SettingsRepository().setBackgroundChatNotificationData(data: []);
     notificationStreamController = StreamController.broadcast();
   }
 
   /// Disposes the notification stream
   static dispose() {
+    print("ChatNotificationsUtils: dispose called");
     notificationStreamController.close();
   }
 
   /// Handles foreground chat notifications
   static addChatStreamAndShowNotification({required RemoteMessage message}) {
+    print("ChatNotificationsUtils: addChatStreamAndShowNotification called");
     final chatNotification =
-        ChatNotificationData.fromRemoteMessage(remoteMessage: message);
+    ChatNotificationData.fromRemoteMessage(remoteMessage: message);
     notificationStreamController.add(chatNotification);
 
     if (currentChattingUserId != chatNotification.fromUser.userId &&
@@ -43,6 +43,7 @@ class ChatNotificationsUtils {
 
   /// Adds a chat notification to the stream
   static addChatStreamValue({required ChatNotificationData chatData}) {
+    print("ChatNotificationsUtils: addChatStreamValue called");
     notificationStreamController.add(chatData);
   }
 
@@ -51,6 +52,7 @@ class ChatNotificationsUtils {
     required ChatNotificationData chatData,
     required RemoteMessage message,
   }) async {
+    print("ChatNotificationsUtils: createChatNotification called");
     String title = message.notification?.title ?? message.data["title"] ?? "";
     String body = message.notification?.body ?? message.data["body"] ?? "";
     String? image = message.data['image'];
