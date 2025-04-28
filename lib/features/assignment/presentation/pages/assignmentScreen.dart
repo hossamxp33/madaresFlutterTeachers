@@ -470,8 +470,10 @@ class _AssignmentScreenState extends State<AssignmentScreen> {
                               },
                               child: Text(
                                 "${reviewAssignment.file.length} ${UiUtils.getTranslatedLabel(context, attachmentsKey)}",
-                                style:  TextStyle(
-                                    color: Theme.of(context).colorScheme.secondary),
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .secondary),
                               ),
                             ),
                           ],
@@ -499,8 +501,9 @@ class _AssignmentScreenState extends State<AssignmentScreen> {
                               },
                               child: Text(
                                 "${reviewAssignment.file.length} ${UiUtils.getTranslatedLabel(context, attachmentsKey)}",
-                                style:  TextStyle(
-                                  color: Theme.of(context).colorScheme.secondary,
+                                style: TextStyle(
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
                                 ),
                               ),
                             ),
@@ -574,8 +577,10 @@ class _AssignmentScreenState extends State<AssignmentScreen> {
                               },
                               child: Text(
                                 "${reviewAssignment.file.length} ${UiUtils.getTranslatedLabel(context, attachmentsKey)}",
-                                style:  TextStyle(
-                                    color: Theme.of(context).colorScheme.secondary),
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .secondary),
                               ),
                             ),
                           ],

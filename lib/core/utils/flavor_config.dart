@@ -14,7 +14,9 @@ class FlavorConfig {
         return "assets/palms_school.jpeg";
       case 'school3':
         return "assets/altuwaysh.jpeg";
-      default :
+      case 'abulkhaseeb':
+        return "assets/abulkhaseeb.png";
+      default:
         return 'assets/palms_school.jpeg';
     }
   }
@@ -33,7 +35,11 @@ class FlavorConfig {
       case 'school3':
         return FlexThemeData.light(scheme: FlexScheme.tealM3).copyWith(
           textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
-        )  ;
+        );
+      case 'abulkhaseeb':
+        return FlexThemeData.light(scheme: FlexScheme.blue).copyWith(
+          textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
+        );
       default:
         return FlexThemeData.light(scheme: FlexScheme.cyanM3).copyWith(
           textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
@@ -55,7 +61,11 @@ class FlavorConfig {
       case 'school3':
         return FlexThemeData.dark(scheme: FlexScheme.tealM3).copyWith(
           textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
-        )  ;
+        );
+      case 'abulkhaseeb':
+        return FlexThemeData.light(scheme: FlexScheme.blue).copyWith(
+          textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
+        );
       default:
         return FlexThemeData.dark(scheme: FlexScheme.cyanM3).copyWith(
           textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
@@ -71,6 +81,8 @@ class FlavorConfig {
         return 126;
       case 'school3':
         return 127;
+      case 'abulkhaseeb':
+        return 129;
       default:
         return 126;
     }
@@ -84,6 +96,8 @@ class FlavorConfig {
         return "مدرسة زهور الحياة للبنات";
       case 'school3':
         return "مدرسه الطويسه";
+      case 'abulkhaseeb':
+        return "مدارس أبي الخصيب الأهلية";
       default:
         return "مدرسة النخيل الاهليه";
     }

@@ -118,6 +118,25 @@
           "other_platform_oauth_client": []
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93520308007:android:26c336d0190bad574d6b02",
+        "android_client_info": {
+          "package_name": "com.madares.teachers.abulkhaseeb"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhdukxnXrTD4GfG6jYmCn4aS9tk0m7jRE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
     }
   ],
   "configuration_version": "1"

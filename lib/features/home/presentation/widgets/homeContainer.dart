@@ -196,8 +196,7 @@ class _HomeContainerState extends State<HomeContainer> {
     required ClassSectionDetails classSectionDetails,
     required int index,
     required bool isClassTeacher,
-  })
-  {
+  }) {
     return Animate(
       effects: customItemZoomAppearanceEffects(),
       child: Padding(
@@ -549,7 +548,7 @@ class _HomeContainerState extends State<HomeContainer> {
                       Align(
                         alignment: AlignmentDirectional.topEnd,
                         child: Container(
-                          decoration:  BoxDecoration(
+                          decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             color: Theme.of(context).colorScheme.error,
                           ),
@@ -765,7 +764,6 @@ class _HomeContainerState extends State<HomeContainer> {
       ),
     );
   }
-
 }
 
 //class to maintain details required by each menu items

@@ -3,7 +3,6 @@ import 'package:madares_app_teacher/features/assignment/data/repositories/assign
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 abstract class AssignmentState {}
 
 class AssignmentInitial extends AssignmentState {}
@@ -64,22 +63,24 @@ class AssignmentCubit extends Cubit<AssignmentState> {
       emit(AssignmentFetchInProgress());
       await _assignmentRepository
           .fetchassignment(
-            classSectionId: classSectionId,
-            subjectId: subjectId,
-            page: page,
-          )
+        classSectionId: classSectionId,
+        subjectId: subjectId,
+        page: page,
+      )
           .then(
-            (result) => emit(
-              AssignmentsFetchSuccess(
-                assignment: result['assignment'],
-                currentPage: result["currentPage"],
-                totalPage: result["lastPage"],
-                moreAssignmentsFetchError: false,
-                fetchMoreAssignmentsInProgress: false,
-              ),
+        (result) {
+          print("ASSIGNMENT DATA ================> ${result['assignment']}");
+          emit(
+            AssignmentsFetchSuccess(
+              assignment: result['assignment'],
+              currentPage: result["currentPage"],
+              totalPage: result["lastPage"],
+              moreAssignmentsFetchError: false,
+              fetchMoreAssignmentsInProgress: false,
             ),
-          )
-          .catchError((e) {});
+          );
+        },
+      ).catchError((e) {});
     } catch (e) {
       return emit(
         AssignmentFetchFailure(e.toString()),

@@ -29,7 +29,14 @@
         "type": "dart",
         "program": "lib/main.dart",
         "args": ["--flavor", "school3", "--target", "lib/main.dart" ]
-      }
-],
+      },
+      {
+        "name": "Abul Khaseeb Flavor",
+        "request": "launch",
+        "type": "dart",
+        "program": "lib/main.dart",
+        "args": ["--flavor", "abulkhaseeb", "--target",  "lib/main.dart" ]
+      }      
+    ],
 "compounds": []
 }
