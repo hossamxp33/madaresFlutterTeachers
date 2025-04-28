@@ -34,7 +34,7 @@ jobs:
         run: flutter build apk --debug --flavor school3 --target lib/main.dart
 
       - name: Upload APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: school3-debug-apk
           path: build/app/outputs/flutter-apk/app-school3-debug.apk
@@ -43,7 +43,7 @@ jobs:
 #        run: flutter build appbundle --flavor school3 --target lib/main.dart
 
 #      - name: Upload AAB
-#        uses: actions/upload-artifact@v3
+#        uses: actions/upload-artifact@v4
 #        with:
 #          name: school3-release-aab
 #          path: build/app/outputs/bundle/school3Release/app-school3-release.aab
